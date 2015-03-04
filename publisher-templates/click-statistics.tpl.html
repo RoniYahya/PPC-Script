@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>{ENGINE_NAME}-{publisher_msg:1307} </title>
+<meta http-equiv="Content-Type" content="text/html; charset={ENCODING}">
+</head>
+<link href="ppc-style.css" rel="stylesheet" type="text/css">
+<body>
+
+{TABS}
+<table width="{PAGEWIDTH}" class="admainbox"    border="0"  cellpadding="0" cellspacing="0">
+<tr>
+<td height="40" colspan="6"><span  class="styleTitle" {COLORTHEME4} >{publisher_msg:1308}</span></td>
+</tr>
+<tr  class="headingbar" {COLORTHEME3} height="22">
+<td colspan="6"  >{publisher_msg:8936}</td>
+</tr>
+
+<tr>
+  <td colspan="6">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="6">
+	<form name="form1" method="post" action="click-statistics.php">
+	<table width="100%"  border="0"  cellpadding="0" cellspacing="0">
+	<tr style="white-space: nowrap">
+	<td width="27%" >
+	{publisher_msg:1146}
+	<select name="statistics" id="statistics">
+	<option value="day"  {if($show=="day")}selected{endif}>{publisher_msg:10110}</option>
+				  <option value="week"  {if($show=="week")}selected{endif}>{publisher_msg:10111}</option>
+				  <option value="month"  {if($show=="month")}selected{endif}>{publisher_msg:10112}</option>
+				  <option value="year"  {if($show=="year")}selected{endif}>{publisher_msg:10113}</option>
+				  <option value="all"  {if($show=="all")}selected{endif}>{publisher_msg:10114}</option>
+	  </select>
+	 
+	
+	</td><td width="14%">
+	{publisher_msg:8991}</td>
+	<td width="19%">
+	<select name="device" id="target_device" >
+	<option value="0" {if($wap=="0")} selected {endif} >{publisher_msg:10108}</option>
+	<option value="1" {if($wap=="1")} selected {endif} >{publisher_msg:10109}</option>
+	
+	</select>
+	
+	
+	
+	
+	
+	
+	</td>
+	<td width="40%"><input type="submit" name="Submit" value="Show Statistics"></td>
+	</tr>
+	
+	
+	<tr>
+	<td colspan="7">&nbsp;</td>
+	</tr>
+	<!--<tr>
+	<td>{if($show!="day")}<strong>{publisher_msg:1122}</strong><span class="info"> {publisher_msg:1147}</span><br>{endif}&nbsp;</td>
+	</tr>-->
+	<tr>
+	<td colspan="7">&nbsp;</td>
+	</tr>
+	<tr>
+	<td  class="adtitle" colspan="7">{publisher_msg:1148}{SHOWSTATUS}</td>
+	</tr>
+	</table>
+</form>
+
+</td>
+</tr>
+<tr>
+<td colspan="6" >&nbsp;</td>
+</tr>
+{if($total!=0)}
+<tr>
+<td colspan="6" >{SHOW_STATISTICS}<span style="float:right">{HEADER}</span></td>
+</tr>
+{endif}
+<tr>
+<td colspan="6" >&nbsp;</td>
+</tr>
+<tr>
+<td width="30%" ><span class="style8"><strong>{publisher_msg:1309}</strong></span></td>
+<td width="15%" ><strong>{publisher_msg:1310}</strong></td>
+<td width="20%" ><span class="style8"><strong>{publisher_msg:1311} </strong></span></td>
+<td width="10%" ><strong>{publisher_msg:1312}</strong></td>
+<td width="15%" align="left"><strong>{publisher_msg:1313}({CURRENCY})</strong></td>
+<td width="10%" ><strong>{publisher_msg:9002}</strong> </td>
+</tr>
+{if(${TOT} >= 1)}
+
+{LOOP(ADS)-STARTLOOP}
+<tr height="15">
+<td>&nbsp;</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td style="white-space:nowrap "><span class="pagetable_activecell" {COLORTHEME5}><a href="publisher-ad-unit-statistics.php?bid={LOOP(ADS)-ID}&statistics={VIEWTYPE}" {COLORTHEME5}>{LOOP(ADS)-NAME}</a></span></td>
+    <td align="left">{fn:getPubBlockClicks($time,$mysql,$uid,${LOOP(ADS)-ID},$flag_time)}	</td>
+    <td align="left">{fn:getPubBlockImpressions($time,$mysql,$uid,${LOOP(ADS)-ID},$flag_time)}</td>
+<td align="left" >{fn:numberFormat(getCTR(getPubBlockClicks($time,$mysql,$uid,${LOOP(ADS)-ID},$flag_time),getPubBlockImpressions($time,$mysql,$uid,${LOOP(ADS)-ID},$flag_time)))}
+</td>
+    <td align="left">{fn:numberFormat(getPubBlockPublisherprofit($time,$mysql,$uid,${LOOP(ADS)-ID},$flag_time))}
+	<td align="left">{fn:numberFormat(getECPM(getPubBlockPublisherprofit($time,$mysql,$uid,${LOOP(ADS)-ID},$flag_time),getPubBlockImpressions($time,$mysql,$uid,${LOOP(ADS)-ID},$flag_time)))}	
+	</td>
+</tr>
+{LOOP(ADS)-ENDLOOP}
+
+{endif}
+{if($adserver_upgradation_date!=0 && ($lastpage == $pageno || $total==0))}
+<tr height="15">
+<td>&nbsp;</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr >
+<td><span class="pagetable_activecell" {COLORTHEME5}><a href="publisher-ad-unit-statistics.php?bid=0&statistics={VIEWTYPE}" {COLORTHEME5}>{publisher_msg:1314}</a></span></td>
+<td >{DCLICK}</td>
+<td >{IMP}</td>
+<td >{CTR}%</td>
+<td >{DPROFIT}</td>
+<td align="center">&nbsp;</td>
+</tr>
+
+{endif}
+<tr>
+<td>&nbsp;</td>
+<td >&nbsp;</td>
+<td >&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+{if(${TOT}!=0)}
+<tr>
+<td colspan="6" >{SHOW_STATISTICS}<span style="float:right">{HEADER}</span></td>
+</tr>
+{endif}
+<tr>
+<td colspan="6">&nbsp;</td>
+</tr>
+<tr>
+  <td colspan="6" class="info" align="left">{if($adserver_upgradation_date!=0)}{DATE} {endif}</tr>
+
+<tr>
+<td colspan="6" ></td>
+</tr>
+</table>
+{FOOTER}
+</body>
+</html>

@@ -1,0 +1,1 @@
+<div class="submenu"><a href="new-server.php">New Server</a> | <a href="manage-loadbalance.php">Manage Servers</a> | <a href="manage-server-configuration.php">Server Allotment</a> </div>

@@ -1,0 +1,329 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>{ENGINE_NAME} -{publisher_msg:1224}</title>
+<meta http-equiv="Content-Type" content="text/html; charset={ENCODING}">
+<link href="ppc-style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+{TABS}
+<table width="{PAGEWIDTH}" class="admainbox"   border="0"  cellpadding="0" cellspacing="0">
+<tr>
+<td colspan="2" height="40" ><span class="styleTitle" {COLORTHEME4} >{WELCOME},</span></td>
+</tr>
+
+{if($message_count!=0)}
+<tr>
+<td colspan="2"><strong>{publisher_msg:8909}</strong></td>
+</tr>
+{LOOP(MESS)-STARTLOOP} 
+<tr>
+<td colspan="2" style="padding:5px 0px"><strong>&rArr;</strong> {LOOP(MESS)-MESSAG}</td>
+</tr>
+{LOOP(MESS)-ENDLOOP}
+
+{endif}
+{if(${MSGFLAG}==1)}
+<tr>
+<td colspan="2" class="red"><strong>&rArr;</strong> 
+{MSG} </td>
+</tr>
+{endif}
+
+<tr>
+<td colspan="2" class="headingbar" {COLORTHEME3} >{publisher_msg:1226}  </td>
+</tr>
+
+
+<tr>
+<td colspan="2">
+<table class="fundDetails">
+  {if($GLOBALS['direction']=="ltr")}
+  <tr>
+
+    <td width="384" class="boxbar"><span class="styleTitle" {COLORTHEME4} >{publisher_msg:1227} {BALANCE}</span></td>
+	<td width="290" class="boxbar"><span class="styleTitle" {COLORTHEME4} >{publisher_msg:1228}   {SETTLEMENT}</span></td>
+    <td width="346" class="boxbar"><span class="styleTitle" {COLORTHEME4} >{publisher_msg:1186}: {PREMIUM}</span></td>
+
+	  </tr>
+	{else}
+  <tr>
+
+    <td class="boxbar"><span class="styleTitle" {COLORTHEME4} >{publisher_msg:1227} {BALANCE}</span></td>
+	<td class="boxbar"><span class="styleTitle" {COLORTHEME4} >{publisher_msg:1228}  {SETTLEMENT}</span></td>
+    <td width="346" class="boxbar"><span class="styleTitle" {COLORTHEME4} >{publisher_msg:1186}: {PREMIUM}</span></td>
+
+	  </tr>
+	  {endif}
+</table></td>
+</tr>
+<tr>
+  <td colspan="2">&nbsp;</td>
+  </tr>
+<tr>
+<td colspan="2">
+<table width="49%"  border="0" cellspacing="0" cellpadding="0" class="left">
+<tr><td>
+
+<table class="fundDetails ctrlPnlCol">
+<tr>
+
+<td>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+<tr><td width="50"><img src="images/gen.png"></td>
+<td class="icontext"><strong><a href="ppc-new-adblock.php" class="homeheading" {COLORTHEME5}>{publisher_msg:1229}</a> </strong>
+<p class="contentp"> {publisher_msg:1232}</p></td></tr></table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+<tr><td width="50"><img src="images/myad.gif"></td>
+<td class="icontext"><strong><a href="ppc-my-adunits.php" class="homeheading" {COLORTHEME5}>{publisher_msg:1233}</a></strong>
+
+<p class="contentp">{publisher_msg:1234} </p></td></tr></table></td>
+
+</tr>
+</table>
+
+
+<br>
+
+<table class="fundDetails ctrlPnlCol">
+<tr>
+
+<td>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+<tr><td width="50"><img src="images/restricted.gif"></td>
+<td class="icontext">
+<a href="ppc-publisher-add-restricted-site.php" class="homeheading" {COLORTHEME5}>{publisher_msg:1240}</a>
+<p class="contentp">{publisher_msg:1235}</p></td></tr></table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+<tr><td width="50"><img src="images/managerestricted.gif"></td>
+<td class="icontext">
+<a href="ppc-publisher-manage-restrict-site.php" class="homeheading" {COLORTHEME5}>{publisher_msg:9999} </a>
+<p class="contentp">{publisher_msg:1236}</p></td></tr></table></td>
+
+</tr>
+</table>
+
+
+
+<br>
+<table class="fundDetails ctrlPnlCol">
+<tr>
+
+<td>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+<tr><td width="50"><img src="images/clickstat.gif"></td>
+<td class="icontext"><strong><a href="click-statistics.php" class="homeheading" {COLORTHEME5}>{publisher_msg:1237}</a></strong>
+
+<p class="contentp">{publisher_msg:1238}</p></td></tr></table>
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+<tr><td width="50"><img src="images/profitstat.gif"></td>
+<td class="icontext">
+<a href="ppc-publisher-profit-statistics.php"  class="homeheading" {COLORTHEME5}>{publisher_msg:1055}</a>
+<p class="contentp">{publisher_msg:1239}</p></td></tr></table></td>
+
+</tr>
+</table>
+
+
+{if(${XMLSTATUS}==1)}
+<br>
+<table class="fundDetails ctrlPnlCol">
+
+<tr>
+
+<td style="background-image:url(images/cc.png); background-repeat:repeat;">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+<tr><td width="50"><img src="images/xml.png"></td>
+<td class="icontext">
+<a href="xml-api.php" class="homeheading" {COLORTHEME5}>{publisher_msg:1067} </a>
+<p class="contentp">{publisher_msg:1241}</p></td></tr></table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+<tr><td width="50"><img src="images/bannerstat.gif"></td>
+<td class="icontext">
+<a href="publisher-ad-unit-statistics.php?bid=-1&statistics=day" class="homeheading" {COLORTHEME5}>{publisher_msg:1068}</a>
+<p class="contentp">{publisher_msg:1242}</p></td></tr></table></td>
+
+</tr>
+</table>{endif}
+<br>
+
+<table class="fundDetails ctrlPnlCol">
+<tr><td>
+    <table>
+    <tr><td width="50"><img src="images/logo-icon.png"></td>
+    <td class="icontext">
+    
+    <a href="ppc-publisher-ad-logo-details.php" class="homeheading" {COLORTHEME5}>{publisher_msg:10524}</a>
+    <p class="contentp">{publisher_msg:10522}</p></td>
+    <td width="5" height="5" style="background-image:url(images/{PIC4}.png); background-repeat:no-repeat;"></td></tr>
+    </table>
+    <table>
+    <tr><td width="50"><img src="images/manage-logo.png"></td>
+    <td class="icontext">
+    
+    <a href="ppc-publisher-logo-details.php" class="homeheading" {COLORTHEME5}>{publisher_msg:10525}</a>
+    <p class="contentp">{publisher_msg:10523}</p></td>
+    <td width="5" height="5" style="background-image:url(images/{PIC4}.png); background-repeat:no-repeat;"></td></tr>
+	</table>
+</td>
+</tr>
+</table>
+</td></tr>
+</table>
+<table width="49%" border="0" cellspacing="0" cellpadding="0" class="right">
+<tr><td>
+
+
+<!--------------------------------5.4-------------------->
+
+{if(${SITE_TARGET}==1)}
+
+<table class="fundDetails ctrlPnlCol">
+<tr>
+
+<td>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+<tr><td width="50"><img src="images/manage-site.png"></td>
+<td class="icontext"><strong><a href="ppc-new-publishing-url.php" class="homeheading" {COLORTHEME5}>{publisher_msg:10501}</a> </strong>
+<p class="contentp"> {publisher_msg:10502}</p></td></tr></table>
+</td>
+
+</tr>
+</table>
+<br>
+{endif}
+
+<!--------------------------------5.4-------------------->
+
+
+<table class="fundDetails ctrlPnlCol">
+<tr>
+
+<td style="background-image:url(images/cc.png); background-repeat:repeat;">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+<tr><td width="50"><img src="images/payconfig.gif"></td>
+<td class="icontext">
+<a href="ppc-publisher-configure-payment.php" class="homeheading" {COLORTHEME5}>{publisher_msg:1260}</a>
+<p class="contentp">{publisher_msg:1243}</p></td></tr></table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+<tr><td width="50"><img src="images/newfund.gif"></td>
+<td class="icontext">
+<a href="ppc-publisher-cash-request.php" class="homeheading" {COLORTHEME5}>{publisher_msg:1244}</a>
+<p class="contentp">{publisher_msg:1245}</p></td></tr></table>
+{if((${COM_ACCOUNT}!=0) && ($single_account_mode==1))}
+<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+<tr><td width="50"><img src="images/transfer.png"></td>
+<td class="icontext">
+<a href="transfer-fund.php" class="homeheading" {COLORTHEME5}>{publisher_msg:8906}</a>
+<p class="contentp">{publisher_msg:8993}</p></td></tr></table>
+{endif}
+<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+<tr><td width="50"><img src="images/payhistory.gif"></td>
+<td class="icontext">
+<a href="ppc-publisher-payment-history.php" class="homeheading" {COLORTHEME5}>{publisher_msg:1246}</a>
+<p class="contentp">{publisher_msg:1247}</p></td></tr></table></td>
+
+</table>
+<br>
+
+{if(${REFFERAL}==1)}
+
+<table class="fundDetails ctrlPnlCol">
+<tr>
+
+<td>
+
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+<tr><td width="50"><img src="images/newad.gif"></td>
+<td class="icontext">
+<a href="publisher-affiliate-code.php" class="homeheading" {COLORTHEME5}>{publisher_msg:1157}</a>
+<p class="contentp">{ENCOURAGE}</p></td></tr></table>
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+<tr><td width="50"><img src="images/textstat.gif"></td>
+<td class="icontext">
+<a href="referral-statistics.php"  class="homeheading" {COLORTHEME5}>{publisher_msg:10105}</a>
+<p class="contentp">{publisher_msg:1253}</p></td></tr></table></td>
+
+</tr>
+</table>
+<br>
+{endif}
+
+{if((${COM_ACCOUNT}==0) && ($GLOBALS['single_account_mode']==1) && ($GLOBALS['account_migration']==1))}
+
+
+<table class="fundDetails ctrlPnlCol">
+<tr>
+
+
+<td style="background-image:url(images/cc.png); background-repeat:repeat;">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+<tr><td width="50"><img src="images/sso.png" alt=""></td>
+<td class="icontext">
+<a href="confirm-advertiser-account.php" class="homeheading" {COLORTHEME5}>{publisher_msg:8887}</a>
+<p class="contentp">{REQUEST}</p></td></tr></table>
+<td style="background-image:url(images/cc.png); background-repeat:repeat;">&nbsp;</td>
+</tr>
+
+</table>
+<br>
+{endif}
+
+
+<table class="fundDetails ctrlPnlCol">
+<tr>
+
+<td>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+<tr><td width="50"><img src="images/support.gif"></td>
+<td class="icontext">
+<a href="ppc-support-desk.php" class="homeheading" {COLORTHEME5}>{publisher_msg:1254}</a>
+<p class="contentp">{publisher_msg:1255} </p></td></tr></table>
+{if($GLOBALS['single_account_mode']==0 || ($GLOBALS['single_account_mode']==1 && ${COM_ACCOUNT}==0))}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+<tr><td width="50"><img src="images/password.gif"></td>
+<td class="icontext">
+<a href="ppc-change-publisher-password.php" class="homeheading" {COLORTHEME5}>{publisher_msg:1257}</a>
+<p class="contentp">{publisher_msg:1256} </p></td></tr></table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+<tr><td width="50"><img src="images/edit.gif"></td>
+<td class="icontext">
+<a href="ppc-change-publisher-details.php" class="homeheading" {COLORTHEME5}>{publisher_msg:1258}</a>
+<p class="contentp">{publisher_msg:1261}</p></td></tr></table>
+{endif}</td>
+
+</tr>
+</table>
+
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+  <td colspan="2">&nbsp;</td>
+  </tr>
+<tr>
+  <td colspan="2" class="redtext" >* {publisher_msg:1259}</td>
+  </tr>
+
+</table>
+{FOOTER}
+</body>
+</html>

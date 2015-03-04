@@ -1,0 +1,1061 @@
+CREATE TABLE IF NOT EXISTS `admin_payment_details` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `value` longtext COLLATE utf8_unicode_ci,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
+
+CREATE TABLE IF NOT EXISTS `adserver_languages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `language` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `encoding` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `code` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
+  `direction` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
+  `status` int(5) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=17 ;
+
+
+CREATE TABLE IF NOT EXISTS `adserver_public_images` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `image_name` varchar(444) COLLATE utf8_unicode_ci NOT NULL,
+  `date` varchar(444) COLLATE utf8_unicode_ci NOT NULL,
+  `status` varchar(444) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+
+
+CREATE TABLE IF NOT EXISTS `advertiser_bonus_deposit_history` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `aid` int(11) NOT NULL DEFAULT '0',
+  `amount` float NOT NULL DEFAULT '0',
+  `type` int(11) NOT NULL DEFAULT '0',
+  `comment` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `logtime` int(11) NOT NULL DEFAULT '0',
+  `couponid` int(11) NOT NULL DEFAULT '0',
+  `payid` int(11) NOT NULL DEFAULT '0',
+  `pay_type` varchar(10) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `advertiser_daily_statistics` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL,
+  `aid` int(11) NOT NULL,
+  `kid` int(11) NOT NULL,
+  `impression` int(11) NOT NULL,
+  `time` int(11) NOT NULL,
+  `clk_count` int(11) NOT NULL,
+  `money_spent` float NOT NULL,
+  `publisher_profit` float NOT NULL,
+  `pub_ref_profit` float NOT NULL DEFAULT '0',
+  `adv_ref_profit` float NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `advertiser_fund_deposit_history` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL,
+  `checkno` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `bankname` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `accountholdersname` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `amount` float NOT NULL DEFAULT '0',
+  `date` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
+  `currency_type` int(11) NOT NULL DEFAULT '1',
+  `bank_address` longtext COLLATE utf8_unicode_ci,
+  `routing_no` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `pay_type` int(11) NOT NULL DEFAULT '1',
+  `comment` longtext COLLATE utf8_unicode_ci,
+  `bank_city` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `bank_country` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `coupon_id` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `advertiser_impression_daily` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL DEFAULT '0',
+  `aid` int(11) NOT NULL DEFAULT '0',
+  `kid` int(11) NOT NULL DEFAULT '0',
+  `time` int(11) NOT NULL DEFAULT '0',
+  `cnt` int(11) NOT NULL DEFAULT '0',
+  `server_id` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `advertiser_impression_hourly_master` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL DEFAULT '0',
+  `aid` int(11) NOT NULL DEFAULT '0',
+  `kid` int(11) NOT NULL DEFAULT '0',
+  `time` int(11) NOT NULL DEFAULT '0',
+  `cnt` int(11) NOT NULL DEFAULT '0',
+  `server_id` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `advertiser_monthly_statistics` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL,
+  `aid` int(11) NOT NULL,
+  `kid` int(11) NOT NULL,
+  `impression` int(11) NOT NULL,
+  `time` int(11) NOT NULL,
+  `clk_count` int(11) NOT NULL,
+  `money_spent` float NOT NULL,
+  `publisher_profit` float NOT NULL,
+  `pub_ref_profit` float NOT NULL DEFAULT '0',
+  `adv_ref_profit` float NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `advertiser_yearly_statistics` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL,
+  `aid` int(11) NOT NULL,
+  `kid` int(11) NOT NULL,
+  `impression` int(11) NOT NULL,
+  `time` int(11) NOT NULL,
+  `clk_count` int(11) NOT NULL,
+  `money_spent` float NOT NULL,
+  `publisher_profit` float NOT NULL,
+  `pub_ref_profit` float NOT NULL DEFAULT '0',
+  `adv_ref_profit` float NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `ad_location_mapping` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `adid` int(11) NOT NULL DEFAULT '0',
+  `country` varchar(10) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `region` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `city` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_adid` (`adid`),
+  KEY `idx_country` (`country`(2))
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=249 ;
+
+CREATE TABLE IF NOT EXISTS `ad_logos_details` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cid` int(11) NOT NULL,
+  `name` varchar(444) COLLATE utf8_unicode_ci NOT NULL,
+  `ad_logos_name` varchar(444) COLLATE utf8_unicode_ci NOT NULL,
+  `status` int(11) NOT NULL COMMENT '0-block,1-active,-1:pending',
+  `user_status` int(11) NOT NULL DEFAULT '0' COMMENT '0-admin,1-publisher,2-advertiser',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+CREATE TABLE IF NOT EXISTS `affiliate_banners` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `height` int(11) NOT NULL,
+  `width` int(11) NOT NULL,
+  `filename` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `level` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `authorize_ipn` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `x_response_code` int(11) NOT NULL,
+  `x_response_subcode` int(11) NOT NULL,
+  `x_response_reason_code` int(11) NOT NULL,
+  `x_response_reason_text` text COLLATE utf8_unicode_ci NOT NULL,
+  `x_auth_code` varchar(6) COLLATE utf8_unicode_ci NOT NULL,
+  `x_trans_id` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `x_invoice_num` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `x_description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `x_amount` float NOT NULL,
+  `x_method` varchar(6) COLLATE utf8_unicode_ci NOT NULL,
+  `x_type` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `x_cust_id` int(11) NOT NULL,
+  `x_first_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `x_last_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `x_company` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `x_address` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `x_city` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `x_state` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `x_zip` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `x_country` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `x_phone` bigint(20) NOT NULL,
+  `x_fax` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `x_email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `x_MD5_Hash` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `banner_dimension` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `width` int(11) NOT NULL,
+  `height` int(11) NOT NULL,
+  `file_size` int(11) NOT NULL,
+  `wap_status` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+CREATE TABLE IF NOT EXISTS `catalog_dimension` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `height` int(11) NOT NULL,
+  `width` int(11) NOT NULL,
+  `filesize` int(11) NOT NULL,
+  `wapstatus` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+
+CREATE TABLE IF NOT EXISTS `daily_referral_statistics` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pid` int(11) NOT NULL DEFAULT '0',
+  `adv_ref_profit` float NOT NULL DEFAULT '0',
+  `pub_ref_profit` float NOT NULL DEFAULT '0',
+  `time` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `email_templates` (
+  `id` int(11) NOT NULL DEFAULT '0',
+  `email_subject` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `email_body` longtext COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `gift_code` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `coupon_code` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `status` int(11) NOT NULL,
+  `type` int(11) NOT NULL,
+  `amount` float NOT NULL DEFAULT '0',
+  `expirydate` int(11) NOT NULL,
+  `no_times` int(11) NOT NULL DEFAULT '0',
+  `count` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+CREATE TABLE IF NOT EXISTS `inout_ppc_ipns` (
+  `ipnid` int(20) NOT NULL AUTO_INCREMENT,
+  `txnid` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `userid` int(2) NOT NULL DEFAULT '0',
+  `result` enum('0','1') COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
+  `resultdetails` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `itemname` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `itemnumber` varchar(25) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `amount` float NOT NULL,
+  `currency` varchar(10) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `payeremail` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `receiveremail` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `paymenttype` varchar(25) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `verified` varchar(25) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `status` varchar(25) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `pendingreason` varchar(25) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `fullipn` text COLLATE utf8_unicode_ci NOT NULL,
+  `receivedat` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `timestamp` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+  PRIMARY KEY (`ipnid`),
+  KEY `result` (`result`),
+  KEY `userid` (`userid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `keyword_daily_statistics` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `keyid` int(11) NOT NULL DEFAULT '0',
+  `impressions` int(11) NOT NULL DEFAULT '0',
+  `click_count` int(11) NOT NULL DEFAULT '0',
+  `money_spent` float DEFAULT NULL,
+  `time` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `keyword_monthly_statistics` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `keyid` int(11) NOT NULL DEFAULT '0',
+  `impressions` int(11) NOT NULL DEFAULT '0',
+  `click_count` int(11) NOT NULL DEFAULT '0',
+  `money_spent` float DEFAULT NULL,
+  `time` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `keyword_yearly_statistics` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `keyid` int(11) NOT NULL DEFAULT '0',
+  `impressions` int(11) NOT NULL DEFAULT '0',
+  `click_count` int(11) NOT NULL DEFAULT '0',
+  `money_spent` float DEFAULT NULL,
+  `time` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `location_country` (
+  `code` varchar(2) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  PRIMARY KEY (`code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `messages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `message` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `messagefor` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `date` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+CREATE TABLE IF NOT EXISTS `monthly_referral_statistics` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pid` int(11) NOT NULL DEFAULT '0',
+  `adv_ref_profit` float NOT NULL DEFAULT '0',
+  `pub_ref_profit` float NOT NULL DEFAULT '0',
+  `time` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `nesote_chat_country` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `country_name` varchar(444) COLLATE utf8_unicode_ci NOT NULL,
+  `country_iso2` varchar(444) COLLATE utf8_unicode_ci NOT NULL,
+  `country_iso3` varchar(444) COLLATE utf8_unicode_ci NOT NULL,
+  `country_flag` varchar(444) COLLATE utf8_unicode_ci NOT NULL,
+  `country_status` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=243 ;
+
+CREATE TABLE IF NOT EXISTS `nesote_chat_login_status` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `time` int(11) NOT NULL,
+  `ip_address` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `status` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+CREATE TABLE IF NOT EXISTS `nesote_chat_public_user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_sectionid` int(11) NOT NULL,
+  `username` varchar(444) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(444) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(444) COLLATE utf8_unicode_ci NOT NULL,
+  `joindate` varchar(444) COLLATE utf8_unicode_ci NOT NULL,
+  `user_ip` varchar(444) COLLATE utf8_unicode_ci NOT NULL,
+  `browser` varchar(444) COLLATE utf8_unicode_ci NOT NULL,
+  `status` int(11) NOT NULL COMMENT 'status-1(public usees),2-admin user',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+CREATE TABLE IF NOT EXISTS `nesote_chat_session` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `time` int(11) NOT NULL,
+  `xml_status` int(11) NOT NULL,
+  `group_status` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `nesote_chat_session_users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `chat_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `time` int(11) NOT NULL,
+  `xml_status` int(11) NOT NULL,
+  `typing_status` int(11) NOT NULL,
+  `active_status` int(11) NOT NULL,
+  `present_identified_time` int(11) NOT NULL,
+  `initiators` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `nesote_chat_temporary_messages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `chat_id` int(11) NOT NULL,
+  `sender` int(11) NOT NULL,
+  `responders` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
+  `message` text COLLATE utf8_unicode_ci NOT NULL,
+  `time` int(11) NOT NULL,
+  `read_flag` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `chat_id` (`chat_id`),
+  KEY `sender` (`sender`),
+  KEY `responders` (`responders`(255)),
+  KEY `read_flag` (`read_flag`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `nesote_chat_user_friend` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `friend_user_id` int(11) NOT NULL,
+  `request_date_time` int(11) NOT NULL,
+  `response_date_time` int(11) NOT NULL,
+  `request_message` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `request_status` enum('accepted','rejected','pending','blocked') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'pending',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `nesote_inoutscripts_users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `joindate` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `ppc_ads` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL DEFAULT '0',
+  `link` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `summary` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `maxamount` float NOT NULL DEFAULT '0',
+  `amountused` float NOT NULL DEFAULT '0',
+  `createtime` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  `bannersize` int(11) DEFAULT NULL,
+  `adtype` int(11) NOT NULL DEFAULT '0',
+  `displayurl` longtext COLLATE utf8_unicode_ci,
+  `updatedtime` int(11) NOT NULL DEFAULT '0',
+  `pausestatus` int(11) NOT NULL DEFAULT '0',
+  `wapstatus` int(11) NOT NULL DEFAULT '0',
+  `adlang` int(11) NOT NULL DEFAULT '0',
+  `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `contenttype` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `hardcodelinks` int(11) NOT NULL DEFAULT '0',
+  `time_status` int(11) NOT NULL DEFAULT '1',
+  `beg_time` int(11) NOT NULL DEFAULT '0',
+  `end_time` int(11) NOT NULL DEFAULT '0',
+  `adult_status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `idx_uid` (`uid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+
+CREATE TABLE IF NOT EXISTS `ppc_ad_block` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `width` int(11) NOT NULL,
+  `height` int(11) NOT NULL,
+  `ad_type` int(11) NOT NULL,
+  `max_size` int(11) NOT NULL,
+  `orientaion` int(11) NOT NULL,
+  `title_font` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `title_size` float NOT NULL,
+  `title_color` varchar(225) COLLATE utf8_unicode_ci NOT NULL,
+  `desc_font` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `desc_size` float NOT NULL,
+  `desc_color` varchar(225) COLLATE utf8_unicode_ci NOT NULL,
+  `url_font` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `url_size` float NOT NULL,
+  `url_color` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `bg_color` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `credit_font` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `credit_text_border_color` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `no_of_text_ads` int(11) NOT NULL,
+  `credit_text_alignment` int(11) NOT NULL,
+  `credit_text_positioning` int(11) NOT NULL,
+  `allow_publishers` int(11) NOT NULL,
+  `border_type` int(11) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '0',
+  `ad_font_weight` int(11) NOT NULL,
+  `ad_title_decoration` int(11) NOT NULL,
+  `ad_desc_font_weight` int(11) NOT NULL,
+  `ad_desc_decoration` int(11) NOT NULL,
+  `ad_disp_url_font_weight` int(11) NOT NULL,
+  `ad_disp_url_decoration` int(11) NOT NULL,
+  `credit_text_font_weight` int(11) NOT NULL,
+  `credit_text_decoration` int(11) NOT NULL,
+  `ad_block_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `credit_text` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `allow_title_color` int(11) NOT NULL,
+  `allow_desc_color` int(11) NOT NULL,
+  `allow_disp_url_color` int(11) NOT NULL,
+  `allow_bg_color` int(11) NOT NULL,
+  `allow_credit_color` int(11) NOT NULL,
+  `allow_bordor_type` int(11) NOT NULL,
+  `line_height` int(11) NOT NULL DEFAULT '15',
+  `text_ad_type` int(11) NOT NULL DEFAULT '1',
+  `catalog_size` int(11) NOT NULL DEFAULT '0',
+  `no_of_catalog_ads` int(11) NOT NULL DEFAULT '0',
+  `catalog_alignment` int(11) NOT NULL DEFAULT '0',
+  `catalog_line_seperator` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=29 ;
+
+CREATE TABLE IF NOT EXISTS `ppc_ad_templates` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `banner_size` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `createtime` int(11) NOT NULL,
+  `filename` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `ppc_clicks` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL DEFAULT '0',
+  `aid` int(11) NOT NULL DEFAULT '0',
+  `kid` int(11) NOT NULL DEFAULT '0',
+  `clickvalue` float NOT NULL DEFAULT '0',
+  `ip` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `time` int(11) NOT NULL DEFAULT '0',
+  `pid` int(11) NOT NULL DEFAULT '0',
+  `publisher_profit` float NOT NULL DEFAULT '0',
+  `pub_rid` int(11) NOT NULL DEFAULT '0',
+  `pub_ref_profit` float NOT NULL DEFAULT '0',
+  `adv_rid` int(11) NOT NULL DEFAULT '0',
+  `adv_ref_profit` float NOT NULL DEFAULT '0',
+  `bid` int(11) NOT NULL DEFAULT '0',
+  `vid` int(11) NOT NULL DEFAULT '0',
+  `country` varchar(2) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `current_time` int(11) NOT NULL DEFAULT '0',
+  `browser` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `platform` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `version` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `user_agent` text COLLATE utf8_unicode_ci NOT NULL,
+  `serverid` int(11) NOT NULL DEFAULT '0',
+  `direct_status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `idx_uid_aid_kid` (`uid`,`aid`,`kid`),
+  KEY `idx_pid_bid` (`pid`,`bid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `ppc_credittext_bordercolor` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `credit_text_color` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `border_color` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+
+CREATE TABLE IF NOT EXISTS `ppc_currency` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `currency` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `symbol` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `status` int(5) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=113 ;
+
+CREATE TABLE IF NOT EXISTS `ppc_custom_ad_block` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pid` int(11) NOT NULL,
+  `bid` int(11) NOT NULL,
+  `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `title_color` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `desc_color` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `url_color` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `bg_color` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `credit_color` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `bordor_type` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
+  `ppc_restricted_sites` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+  `credit_text` int(11) NOT NULL DEFAULT '0',
+  `scroll_ad` int(11) NOT NULL DEFAULT '0',
+  `wapstatus` int(11) NOT NULL DEFAULT '0',
+  `adlang` int(11) NOT NULL DEFAULT '0',
+  `adult_status` int(11) NOT NULL DEFAULT '0',
+  `template` int(11) NOT NULL DEFAULT '-1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+
+CREATE TABLE IF NOT EXISTS `ppc_daily_clicks` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL DEFAULT '0',
+  `aid` int(11) NOT NULL DEFAULT '0',
+  `kid` int(11) NOT NULL DEFAULT '0',
+  `clickvalue` float NOT NULL DEFAULT '0',
+  `ip` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `time` int(11) NOT NULL DEFAULT '0',
+  `pid` int(11) NOT NULL DEFAULT '0',
+  `publisher_profit` float NOT NULL DEFAULT '0',
+  `pub_rid` int(11) NOT NULL DEFAULT '0',
+  `pub_ref_profit` float NOT NULL DEFAULT '0',
+  `adv_rid` int(11) NOT NULL DEFAULT '0',
+  `adv_ref_profit` float NOT NULL DEFAULT '0',
+  `bid` int(11) NOT NULL DEFAULT '0',
+  `vid` int(11) NOT NULL DEFAULT '0',
+  `country` varchar(2) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `current_time` int(11) NOT NULL DEFAULT '0',
+  `browser` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `platform` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `version` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `user_agent` text COLLATE utf8_unicode_ci NOT NULL,
+  `serverid` int(11) NOT NULL DEFAULT '0',
+  `direct_status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `idx_uid_aid_kid` (`uid`,`aid`,`kid`),
+  KEY `idx_pid_bid` (`pid`,`bid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `ppc_fraud_clicks` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `aid` int(11) NOT NULL,
+  `pid` int(11) NOT NULL DEFAULT '0',
+  `clicktime` int(11) NOT NULL,
+  `ip` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `publisherfraudstatus` int(11) NOT NULL DEFAULT '0',
+  `bid` int(11) NOT NULL DEFAULT '0',
+  `vid` int(11) NOT NULL DEFAULT '0',
+  `browser` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `platform` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `version` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `user_agent` text COLLATE utf8_unicode_ci NOT NULL,
+  `serverid` int(11) NOT NULL DEFAULT '0',
+  `direct_status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `ppc_keywords` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `aid` int(11) NOT NULL DEFAULT '0',
+  `uid` int(11) NOT NULL DEFAULT '0',
+  `keyword` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `maxcv` float NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  `time` int(11) NOT NULL DEFAULT '0',
+  `weightage` float NOT NULL DEFAULT '0',
+  `sid` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `idx_uid` (`uid`),
+  KEY `idx_aid` (`aid`),
+  KEY `idx_keyword` (`keyword`(5))
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
+
+CREATE TABLE IF NOT EXISTS `ppc_public_service_ads` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `link` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `summary` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `createtime` int(11) NOT NULL DEFAULT '0',
+  `bannersize` int(11) DEFAULT '0',
+  `adtype` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '1',
+  `displayurl` longtext COLLATE utf8_unicode_ci,
+  `lastacesstime` int(11) NOT NULL DEFAULT '0',
+  `wapstatus` int(11) NOT NULL DEFAULT '0',
+  `adlang` int(11) NOT NULL DEFAULT '0',
+  `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `contenttype` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `hardcodelinks` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `ppc_publishers` (
+  `uid` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `status` int(11) NOT NULL DEFAULT '0',
+  `country` varchar(2) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `domain` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `regtime` int(11) DEFAULT NULL,
+  `lastlogin` int(11) DEFAULT NULL,
+  `accountbalance` float NOT NULL DEFAULT '0',
+  `xmlstatus` int(11) NOT NULL DEFAULT '0',
+  `lastloginip` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `rid` int(11) NOT NULL DEFAULT '0',
+  `warning_status` int(11) NOT NULL DEFAULT '0',
+  `traffic_analysis` int(11) NOT NULL DEFAULT '0',
+  `firstname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `lastname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `phone_no` bigint(20) NOT NULL DEFAULT '0',
+  `address` longtext COLLATE utf8_unicode_ci,
+  `common_account_id` int(11) NOT NULL DEFAULT '0',
+  `parent_status` int(11) NOT NULL DEFAULT '0',
+  `server_id` int(11) NOT NULL DEFAULT '0',
+  `captcha_status` int(11) NOT NULL DEFAULT '0',
+  `captcha_time` int(11) NOT NULL DEFAULT '0',
+  `taxidentification` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `premium_status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`uid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+CREATE TABLE IF NOT EXISTS `ppc_publisher_credits` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `credit` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `language_id` int(11) NOT NULL DEFAULT '0',
+  `parent_id` int(11) NOT NULL DEFAULT '0',
+  `credittype` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+CREATE TABLE IF NOT EXISTS `ppc_publisher_payment_details` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL DEFAULT '0',
+  `paymentmode` int(11) NOT NULL DEFAULT '0',
+  `paypalemail` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `payeename` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `address1` longtext COLLATE utf8_unicode_ci,
+  `address2` longtext COLLATE utf8_unicode_ci,
+  `city` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `state` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `country` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `zip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `acc_no` longtext COLLATE utf8_unicode_ci,
+  `routing_no` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `acc_type` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `bank_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `bank_address` longtext COLLATE utf8_unicode_ci,
+  `b_city` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `b_state` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `b_country` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `b_zip` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+CREATE TABLE IF NOT EXISTS `ppc_publisher_payment_hist` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL DEFAULT '0',
+  `reqdate` int(11) NOT NULL DEFAULT '0',
+  `paymode` int(11) NOT NULL DEFAULT '0',
+  `txid` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `payeedetails` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `payerdetails` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `amount` float NOT NULL DEFAULT '0',
+  `currency` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `status` int(11) NOT NULL DEFAULT '0',
+  `processdate` int(11) DEFAULT NULL,
+  `address1` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `address2` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `city` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `state` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `country` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `zip` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `bank_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `bank_address` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `acc_no` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `routing_no` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `acc_type` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `b_city` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `b_state` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `b_country` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `b_zip` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `ppc_publishing_urls` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pid` int(11) NOT NULL DEFAULT '0',
+  `url` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '-1',
+  `description` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `create_time` int(11) NOT NULL DEFAULT '0',
+  `twt_ac` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
+  `twt_ac_no` int(11) NOT NULL DEFAULT '0',
+  `face_ac` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
+  `face_ac_no` int(11) NOT NULL DEFAULT '0',
+  `page_link` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
+  `feed` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
+  `feed_no` int(11) NOT NULL DEFAULT '0',
+  `rank` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+CREATE TABLE IF NOT EXISTS `ppc_restricted_sites` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL DEFAULT '0',
+  `site` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+
+CREATE TABLE IF NOT EXISTS `ppc_settings` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `section` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `value` longtext COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=110 ;
+
+CREATE TABLE IF NOT EXISTS `ppc_site_adunit` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `auid` int(11) NOT NULL,
+  `siteid` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+
+CREATE TABLE IF NOT EXISTS `ppc_users` (
+  `uid` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `status` int(11) NOT NULL DEFAULT '0',
+  `country` varchar(2) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `domain` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `regtime` int(11) DEFAULT NULL,
+  `lastlogin` int(11) DEFAULT NULL,
+  `accountbalance` float NOT NULL DEFAULT '0',
+  `rid` int(11) NOT NULL DEFAULT '0',
+  `bonusbalance` float NOT NULL DEFAULT '0',
+  `firstname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `lastname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `phone_no` bigint(20) NOT NULL DEFAULT '0',
+  `address` longtext COLLATE utf8_unicode_ci,
+  `balancestatus` int(11) NOT NULL DEFAULT '0',
+  `common_account_id` int(11) NOT NULL DEFAULT '0',
+  `parent_status` int(11) NOT NULL DEFAULT '0',
+  `taxidentification` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  PRIMARY KEY (`uid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+CREATE TABLE IF NOT EXISTS `publisher_daily_statistics` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL,
+  `bid` int(11) NOT NULL,
+  `impression` int(11) NOT NULL,
+  `time` int(11) NOT NULL,
+  `clk_count` int(11) NOT NULL,
+  `money_spent` float NOT NULL,
+  `publisher_profit` float NOT NULL,
+  `pub_ref_profit` float NOT NULL DEFAULT '0',
+  `adv_ref_profit` float NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `publisher_daily_visits_statistics_master` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pid` int(11) NOT NULL,
+  `page_url` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `direct_hits` int(11) NOT NULL DEFAULT '0',
+  `referred_hits` int(11) NOT NULL DEFAULT '0',
+  `direct_clicks` int(11) NOT NULL DEFAULT '0',
+  `referred_clicks` int(11) NOT NULL DEFAULT '0',
+  `direct_impressions` int(11) NOT NULL DEFAULT '0',
+  `referred_impressions` int(11) NOT NULL DEFAULT '0',
+  `direct_invalid_clicks` int(11) NOT NULL DEFAULT '0',
+  `referred_invalid_clicks` int(11) NOT NULL DEFAULT '0',
+  `direct_fraud_clicks` int(11) NOT NULL DEFAULT '0',
+  `referred_fraud_clicks` int(11) NOT NULL DEFAULT '0',
+  `direct_repeated_click` varchar(11) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
+  `referred_repeated_click` varchar(11) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
+  `time` int(11) NOT NULL DEFAULT '0',
+  `serverid` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `publisher_impression_daily` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pid` int(11) NOT NULL DEFAULT '0',
+  `bid` int(11) NOT NULL DEFAULT '0',
+  `time` int(11) NOT NULL DEFAULT '0',
+  `cnt` int(11) NOT NULL DEFAULT '0',
+  `server_id` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `publisher_impression_hourly_master` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pid` int(11) NOT NULL DEFAULT '0',
+  `bid` int(11) NOT NULL DEFAULT '0',
+  `time` int(11) NOT NULL DEFAULT '0',
+  `cnt` int(11) NOT NULL DEFAULT '0',
+  `server_id` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `publisher_monthly_statistics` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL,
+  `bid` int(11) NOT NULL,
+  `impression` int(11) NOT NULL,
+  `time` int(11) NOT NULL,
+  `clk_count` int(11) NOT NULL,
+  `money_spent` float NOT NULL,
+  `publisher_profit` float NOT NULL,
+  `pub_ref_profit` float NOT NULL DEFAULT '0',
+  `adv_ref_profit` float NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `publisher_visits_statistics` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pid` int(11) NOT NULL,
+  `page_url` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `direct_hits` int(11) NOT NULL DEFAULT '0',
+  `referred_hits` int(11) NOT NULL DEFAULT '0',
+  `direct_clicks` int(11) NOT NULL DEFAULT '0',
+  `referred_clicks` int(11) NOT NULL DEFAULT '0',
+  `direct_impressions` int(11) NOT NULL DEFAULT '0',
+  `referred_impressions` int(11) NOT NULL DEFAULT '0',
+  `direct_invalid_clicks` int(11) NOT NULL DEFAULT '0',
+  `referred_invalid_clicks` int(11) NOT NULL DEFAULT '0',
+  `direct_fraud_clicks` int(11) NOT NULL DEFAULT '0',
+  `referred_fraud_clicks` int(11) NOT NULL DEFAULT '0',
+  `direct_repeated_click` varchar(11) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
+  `referred_repeated_click` varchar(11) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
+  `time` int(11) NOT NULL DEFAULT '0',
+  `serverid` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `publisher_yearly_statistics` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL,
+  `bid` int(11) NOT NULL,
+  `impression` int(11) NOT NULL,
+  `time` int(11) NOT NULL,
+  `clk_count` int(11) NOT NULL,
+  `money_spent` float NOT NULL,
+  `publisher_profit` float NOT NULL,
+  `pub_ref_profit` float NOT NULL DEFAULT '0',
+  `adv_ref_profit` float NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `referral_daily_visits` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `time` int(11) NOT NULL,
+  `rid` int(11) NOT NULL DEFAULT '0',
+  `host_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ref_url` longtext COLLATE utf8_unicode_ci,
+  `unique_hits` int(11) NOT NULL DEFAULT '0',
+  `repeated_hits` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `referral_visits` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `time` int(11) NOT NULL,
+  `rid` int(11) NOT NULL DEFAULT '0',
+  `host_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ref_url` longtext COLLATE utf8_unicode_ci,
+  `unique_hits` int(11) NOT NULL DEFAULT '0',
+  `repeated_hits` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `server_configurations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `server_url` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `min_range` int(11) NOT NULL DEFAULT '0',
+  `max_range` int(11) NOT NULL DEFAULT '0',
+  `srv_type` int(11) NOT NULL DEFAULT '0',
+  `status` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+CREATE TABLE IF NOT EXISTS `site_content` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `item_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `item_value` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `item_type` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
+
+CREATE TABLE IF NOT EXISTS `statistics_updation` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `task` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `e_time` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '2',
+  `last_id` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=25 ;
+
+CREATE TABLE IF NOT EXISTS `system_keywords` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `keyword` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `createtime` int(11) DEFAULT NULL,
+  `rating` int(11) DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
+
+CREATE TABLE IF NOT EXISTS `terms_and_conditions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `terms` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `type` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+
+CREATE TABLE IF NOT EXISTS `time_hour` (
+  `code` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `time_targeting` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `aid` int(11) NOT NULL,
+  `date_tar_s` int(11) NOT NULL DEFAULT '0',
+  `date_tar_e` int(11) NOT NULL DEFAULT '0',
+  `time_tar_s` int(11) NOT NULL DEFAULT '0',
+  `time_tar_e` int(11) NOT NULL DEFAULT '0',
+  `day_tar_s` int(11) NOT NULL DEFAULT '0',
+  `day_tar_e` int(11) NOT NULL DEFAULT '0',
+  `date_flg` int(11) NOT NULL DEFAULT '0',
+  `time_flg` int(11) NOT NULL DEFAULT '0',
+  `day_flg` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `url_updation` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `oldname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `seoname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=14 ;
+
+CREATE TABLE IF NOT EXISTS `wap_ad_block` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `width` int(11) NOT NULL,
+  `height` int(11) NOT NULL,
+  `ad_type` int(11) NOT NULL,
+  `max_size` float NOT NULL,
+  `orientaion` int(11) NOT NULL,
+  `title_font` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `title_size` float NOT NULL,
+  `title_color` varchar(225) COLLATE utf8_unicode_ci NOT NULL,
+  `desc_font` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `desc_size` float NOT NULL,
+  `desc_color` varchar(225) COLLATE utf8_unicode_ci NOT NULL,
+  `url_font` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `url_size` float NOT NULL,
+  `url_color` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `bg_color` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `credit_font` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `credit_text_border_color` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `no_of_text_ads` int(11) NOT NULL,
+  `credit_text_alignment` int(11) NOT NULL,
+  `credit_text_positioning` int(11) NOT NULL,
+  `allow_publishers` int(11) NOT NULL,
+  `border_type` int(11) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '0',
+  `ad_font_weight` int(11) NOT NULL,
+  `ad_title_decoration` int(11) NOT NULL,
+  `ad_desc_font_weight` int(11) NOT NULL,
+  `ad_desc_decoration` int(11) NOT NULL,
+  `ad_disp_url_font_weight` int(11) NOT NULL,
+  `ad_disp_url_decoration` int(11) NOT NULL,
+  `credit_text_font_weight` int(11) NOT NULL,
+  `credit_text_decoration` int(11) NOT NULL,
+  `ad_block_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `credit_text` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `allow_title_color` int(11) NOT NULL,
+  `allow_desc_color` int(11) NOT NULL,
+  `allow_disp_url_color` int(11) NOT NULL,
+  `allow_bg_color` int(11) NOT NULL,
+  `allow_credit_color` int(11) NOT NULL,
+  `allow_bordor_type` int(11) NOT NULL,
+  `line_height` int(11) NOT NULL DEFAULT '15',
+  `text_ad_type` int(11) NOT NULL DEFAULT '1',
+  `catalog_size` int(11) NOT NULL DEFAULT '0',
+  `no_of_catalog_ads` int(11) NOT NULL DEFAULT '0',
+  `catalog_alignment` int(11) NOT NULL DEFAULT '0',
+  `catalog_line_seperator` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `yearly_referral_statistics` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pid` int(11) NOT NULL DEFAULT '0',
+  `adv_ref_profit` float NOT NULL DEFAULT '0',
+  `pub_ref_profit` float NOT NULL DEFAULT '0',
+  `time` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+
+CREATE  TRIGGER  `adserver_parentstatus_updation` AFTER UPDATE ON `nesote_inoutscripts_users` 
+FOR EACH ROW BEGIN
+ UPDATE `ppc_users` SET parent_status = NEW.status WHERE common_account_id = NEW.id;
+ UPDATE `ppc_publishers` SET parent_status = NEW.status WHERE common_account_id = NEW.id;
+END;

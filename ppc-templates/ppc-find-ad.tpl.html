@@ -1,0 +1,227 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>{ENGINE_NAME} -  {advertiser_msg:1228}</title>
+<meta http-equiv="Content-Type" content="text/html; charset={ENCODING}">
+<link href="ppc-style.css" rel="stylesheet" type="text/css">
+</head>
+<script type="text/javascript">
+function promptuser()
+{
+var answer = confirm ("{advertiser_msg:10132}")
+if (answer)
+return true;
+else
+return false;
+}
+</script>
+<script  language="javascript" type="text/javascript" src="swfobject.js"></script>
+<body>
+{TABS}  
+<table  width="{PAGEWIDTH}" class="admainbox"   border="0"  cellpadding="0" cellspacing="0">
+<tr>
+<td ></td>
+</tr>
+<tr >
+<td height="40"><span class="styleTitle" {COLORTHEME4} >{advertiser_msg:1228}</span></td>
+</tr>
+<tr>
+<td height="25"  class="headingbar" {COLORTHEME3}>{advertiser_msg:1229}</td>
+</tr>
+{if($total >=1)}
+<tr>
+<td height="25" >
+{FORMSTART}
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+<tr>
+<td>
+<table class="tableT">
+<tr>
+<td>
+{advertiser_msg:1230}
+</td>
+<td>
+<select name="id">
+{LOOP(ADS)-STARTLOOP} 
+<option value="{LOOP(ADS)-ID}" {if(${ID}==${LOOP(ADS)-ID})}selected="selected"{endif}>{LOOP(ADS)-ID}</option>
+{LOOP(ADS)-ENDLOOP}  
+</select>
+</td>
+<td>{SUBMIT}</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>    
+{FORMCLOSE}    </td> 
+</tr>
+{else}
+<tr><td>&nbsp;&nbsp;</td></tr>
+<tr>
+<td >{advertiser_msg:1209}</td>
+</tr>
+{endif}
+{if(${DIS}=="1")}
+<tr>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+<td>
+{if(${STATUS}=="0")}<span class="gridheader">{advertiser_msg:1132} </span>&nbsp;{elseif(${STATUS}=="1")}
+<span class="activead">{advertiser_msg:1133} </span>&nbsp;<span class="note">{EDITMESSAGE1}</span>{else}
+<span class="penting">{advertiser_msg:1135} </span>&nbsp;{endif}
+{if(${STATUS}=="1")}
+{if(${PSTATUS}=="1")}
+<span style="text-decoration:blink;color:#CC3300;font:Verdana, Arial, Helvetica, sans-serif;font-weight:bold; font-size:12px;">&nbsp;&nbsp;{advertiser_msg:10139}</span>
+{endif} {endif}  </td>
+</tr>
+{if(${SUMARY}=="0")}
+<tr>
+<td class="admanbox"><a href="{URL}">{TITLE}</a><br>
+<span class="pagetable">{SUMMARY}</span><br>
+<span class="info">{DURL}</span><br></td>
+</tr>
+<tr >
+  <td class="edit"  ><a href="ppc-edit-ad.php?id={ID}&wap={WAP_FLAG}" class="pagetable_activecell" {COLORTHEME5}>{advertiser_msg:1231}</a> {if($ad_keyword_mode!=2)}| <a href="ppc-manage-keywords.php?id={ID}&wap={WAP_FLAG}" class="pagetable_activecell" {COLORTHEME5}>{advertiser_msg:1130}</a> {endif}| <a href="ppc-manage-target-locations.php?id={ID}&wap={WAP_FLAG}" class="pagetable_activecell" {COLORTHEME5}>{advertiser_msg:1131}</a> | <a href="ppc-delete-ad.php?id={ID}&wap={WAP_FLAG}" class="pagetable_activecell" {COLORTHEME5} onclick="return promptuser()">{advertiser_msg:1234}</a>
+    {if(${STATUS}=="1")}
+	{if(${PSTATUS}=="0")}
+| <a href="ppc-pause-ad-status.php?id={ID}&type=1&url={REDIRECTURL}&wap={WAP_FLAG}" class="pagetable_activecell" {COLORTHEME5}>{advertiser_msg:1232}</a>
+{else}
+| <a href="ppc-pause-ad-status.php?id={ID}&type=0&url={REDIRECTURL}&wap={WAP_FLAG}" class="pagetable_activecell" {COLORTHEME5}>{advertiser_msg:1233}</a>
+{endif}</td>
+</tr>
+{endif}
+{elseif(${SUMARY}==2)}
+
+
+</td></tr>
+
+		      <tr align="center" valign="baseline">
+          <td colspan="5" class="admanbox">
+{if(${CONTENTTYPE}=="swf")}		  
+		  
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="5">
+<td width="{CAT_WT}" height="{CAT_HT}" ><a href="{URL}">
+<script type="text/javascript">
+
+		  var flashvars = {};
+		  var params = {};
+		  var attributes = {};
+		  var i=1;
+		  
+		  flashvars.clickTag = "{URL}";
+		  
+          flashvars.clickTAG = "{URL}";
+		  flashvars.clickTARGET = "_blank";
+		  
+		  {HARDLINKS}
+		  
+		   params.wmode="transparent";
+		 		
+	      swfobject.embedSWF("{BANNERS}/{ID}/{TITLE}", "myFlashDiv", "{RESWT}", "{RESHT}", "9.0.0", "",flashvars,params,attributes);
+</script>
+		  <div id="myFlashDiv"></div>
+
+
+
+</a></td>
+		  <td align="left" style="vertical-align:top"><a class="adtitle" href="{URL}">{DURL}</a><br><span class="pagetable">{SUMMARY}</span></td>
+		  </table>		  
+		  
+		  
+		  
+		  
+		  
+{else}		  
+		  
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="5">
+<td width="{CAT_WT}" height="{CAT_HT}" ><a href="{URL}"><img src="{BANNERS}/{ID}/{TITLE}" border="0" ></a></td>
+		  <td align="left" style="vertical-align:top"><a class="adtitle" href="{URL}">{DURL}</a><br><span class="pagetable">{SUMMARY}</span></td>
+		  </table>
+		  
+{endif}		  
+		  
+		  
+		  
+		  
+		  
+		  </td>
+        </tr>
+
+      <tr><td class="edit" ><a href="ppc-edit-catalog-ad.php?id={ID}&wap={WAP_FLAG}" class="smallboldtext" {COLORTHEME5}>{advertiser_msg:1231}</a>{if($ad_keyword_mode!=2)} | <a href="ppc-manage-keywords.php?id={ID}&wap={WAP_FLAG}" class="smallboldtext" {COLORTHEME5}>{advertiser_msg:1130}</a> {endif}| <a href="ppc-manage-target-locations.php?id={ID}&wap={WAP_FLAG}" class="smallboldtext" {COLORTHEME5}>{advertiser_msg:1131}</a> | <a href="ppc-delete-ad.php?id={ID}&wap={WAP_FLAG}" class="smallboldtext" {COLORTHEME5}  onclick="return promptuser()">{advertiser_msg:1234}</a>{if(${STATUS}=="1" )} 
+	  {if(${PSTATUS}=="0")}
+	  | <a href="ppc-pause-ad-status.php?id={ID}&type=1&url={url}&wap={WAP_FLAG}" class="smallboldtext" {COLORTHEME5}>{advertiser_msg:1232}</a>
+	  {endif}
+{if(${PSTATUS}=="1")}
+		   | <a href="ppc-pause-ad-status.php?id={ID}&type=0&url={url}&wap={WAP_FLAG}" class="smallboldtext" {COLORTHEME5}>{advertiser_msg:1233}</a>
+		   {endif}
+		  {endif}
+		  </td>
+        </tr>
+
+<tr>
+<td>
+{else}
+
+{if(${CONTENTTYPE}=="swf")}
+<tr>
+<td>
+<table width="100%"  border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td  class="box"><a href="{URL}">
+<script type="text/javascript">
+
+		  var flashvars = {};
+		  var params = {};
+		  var attributes = {};
+		  var i=1;
+		  
+		  flashvars.clickTag = "{URL}";
+		  
+          flashvars.clickTAG = "{URL}";
+		  flashvars.clickTARGET = "_blank";
+		  
+		  {HARDLINKS}
+		  
+		   params.wmode="transparent";
+		 		
+	      swfobject.embedSWF("{BANNERS}/{ID}/{SUMMARY}", "myFlashDiv", "{RESWT}", "{RESHT}", "9.0.0", "",flashvars,params,attributes);
+</script>
+		  <div id="myFlashDiv"></div></a>
+</td>
+</tr>
+</table>
+</td></tr>
+{else}
+
+
+<tr  >
+<td class="box"><a href="{URL}"><img src="{BANNERS}/{ID}/{SUMMARY}" border="0" ></a></td>
+</tr>
+{endif}
+
+<tr>
+<td ><a href="ppc-edit-image-ad.php?id={ID}&wap={WAP_FLAG}" class="pagetable_activecell" {COLORTHEME5}>{advertiser_msg:1231}</a> {if($ad_keyword_mode!=2)}| <a href="ppc-manage-keywords.php?id={ID}&wap={WAP_FLAG}" class="pagetable_activecell" {COLORTHEME5}>{advertiser_msg:1130}</a>{endif}| <a href="ppc-manage-target-locations.php?id={ID}&wap={WAP_FLAG}" class="pagetable_activecell" {COLORTHEME5}>{advertiser_msg:1131}</a> | <a href="ppc-delete-ad.php?id={ID}" class="pagetable_activecell" {COLORTHEME5} onclick="return promptuser()">{advertiser_msg:1234}</a> {if(${STATUS}=="1")}
+{if(${PSTATUS}=="0")}
+| <a href="ppc-pause-ad-status.php?id={ID}&type=1&url={REDIRECTURL}" class="pagetable_activecell" {COLORTHEME5}>{advertiser_msg:1232}</a>{else}
+| <a href="ppc-pause-ad-status.php?id={ID}&type=0&url={REDIRECTURL}" class="pagetable_activecell" {COLORTHEME5}>{advertiser_msg:1233}</a>{endif}
+{endif}</td>
+</tr>
+
+
+
+
+{endif}
+
+{endif}
+<tr >
+<td >&nbsp;</td>
+</tr>
+</table>
+{FOOTER}
+</body>
+</html>

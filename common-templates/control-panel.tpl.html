@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>{ENGINE_NAME} - {common_msg:1035}</title>
+<meta http-equiv="Content-Type" content="text/html; charset={ENCODING}">
+<link href="ppc-style.css" rel="stylesheet" type="text/css">
+<style>
+.homeheading { display:inline}
+</style>
+</head>
+<body>
+{TABS}
+<table  width="{PAGEWIDTH}" class="admainbox colortext"   border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td colspan="2"><span class="styleTitle" {COLORTHEME4} >{WELCOME},</span></td>
+</tr>
+
+{if($message_count!=0)}
+<tr >
+<td colspan="2"><strong>{common_msg:1069}</strong></td>
+</tr>
+{LOOP(MESS)-STARTLOOP} 
+<tr>
+<td colspan="2" style="padding:5px 0px">{LOOP(MESS)-MESSAG}</td>
+</tr>
+{LOOP(MESS)-ENDLOOP}
+<tr >
+<td colspan="2">&nbsp;</td>
+</tr>
+{endif}
+<tr>
+<td colspan="2" class="headingbar" {COLORTHEME3} >{common_msg:1087}</td>
+</tr>
+<tr >
+<td colspan="2">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2">
+
+<table width="49%" border="0" cellspacing="0" cellpadding="0" style="float:left">
+<tr>
+<td>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#bbbbbb">
+<tr>
+<td width="5" height="5" style="background-image:url(images/{PIC1}.png); background-repeat:no-repeat;"></td>
+<td style="background-image:url(images/cc.png); background-repeat:repeat-x;"></td>
+<td width="5" height="5" style="background-image:url(images/{PIC2}.png); background-repeat:no-repeat;"></td>
+</tr>
+<tr>
+<td style="background-image:url(images/cc.png); background-repeat:repeat;">&nbsp;</td>
+<td style="background-image:url(images/cc.png); background-repeat:repeat;">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+<tr><td width="50"><img src="images/advertiser.png"></td>
+<td class="icontext" ><a href="ppc-user-control-panel.php" class="homeheading" {COLORTHEME5}>{common_msg:1063}</a> (<strong>{ASTATUS}</strong>)
+  <p class="contentp">{common_msg:1088} </p></td></tr></table></td>
+<td style="background-image:url(images/cc.png); background-repeat:repeat;">&nbsp;</td>
+</tr>
+
+<tr>
+<td width="5" height="5" style="background-image:url(images/{PIC3}.png); background-repeat:no-repeat;"></td>
+<td style="background-image:url(images/cc.png); background-repeat:repeat-x;"></td>
+<td width="5" height="5" style="background-image:url(images/{PIC4}.png); background-repeat:no-repeat;"></td>
+</tr>
+</table>
+
+<br>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#bbbbbb">
+<tr>
+<td width="5" height="5" style="background-image:url(images/{PIC1}.png); background-repeat:no-repeat;"></td>
+<td style="background-image:url(images/cc.png); background-repeat:repeat-x;"></td>
+<td width="5" height="5" style="background-image:url(images/{PIC2}.png); background-repeat:no-repeat;"></td>
+</tr>
+<tr>
+<td style="background-image:url(images/cc.png); background-repeat:repeat;">&nbsp;</td>
+<td style="background-image:url(images/cc.png); background-repeat:repeat;">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+<tr><td width="50"><img src="images/profile.png"></td>
+<td class="icontext">
+<a href="change-details.php" class="homeheading" {COLORTHEME5}>{common_msg:1024}</a> | <a href="change-password.php" class="homeheading" {COLORTHEME5}>{common_msg:1065}</a>
+<p class="contentp">{common_msg:1089} </p></td></tr></table></td>
+<td style="background-image:url(images/cc.png); background-repeat:repeat;">&nbsp;</td>
+</tr>
+<tr>
+<td width="5" height="5" style="background-image:url(images/{PIC3}.png); background-repeat:no-repeat;"></td>
+<td style="background-image:url(images/cc.png); background-repeat:repeat-x;"></td>
+<td width="5" height="5" style="background-image:url(images/{PIC4}.png); background-repeat:no-repeat;"></td>
+</tr>
+</table></td>
+</tr>
+</table>
+
+
+
+
+
+<table width="49%" border="0" cellspacing="0" cellpadding="0" style="float:right">
+<tr><td>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#bbbbbb">
+<tr>
+<td width="5" height="5" style="background-image:url(images/{PIC1}.png); background-repeat:no-repeat;"></td>
+<td style="background-image:url(images/cc.png); background-repeat:repeat-x;"></td>
+<td width="5" height="5" style="background-image:url(images/{PIC2}.png); background-repeat:no-repeat;"></td>
+</tr>
+<tr>
+<td style="background-image:url(images/cc.png); background-repeat:repeat;">&nbsp;</td>
+<td style="background-image:url(images/cc.png); background-repeat:repeat;">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+<tr><td width="50"><img src="images/publisher.png"></td>
+<td class="icontext">
+<a href="ppc-publisher-control-panel.php" class="homeheading" {COLORTHEME5}>{common_msg:1064}</a> (<strong>{PSTATUS}</strong>)  
+<p class="contentp">{common_msg:1090}</p></td></tr></table></td>
+<td style="background-image:url(images/cc.png); background-repeat:repeat;">&nbsp;</td>
+</tr>
+<tr>
+<td width="5" height="5" style="background-image:url(images/{PIC3}.png); background-repeat:no-repeat;"></td>
+<td style="background-image:url(images/cc.png); background-repeat:repeat-x;"></td>
+<td width="5" height="5" style="background-image:url(images/{PIC4}.png); background-repeat:no-repeat;"></td>
+</tr>
+</table>
+
+<br>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#bbbbbb">
+<tr>
+<td width="5" height="5" style="background-image:url(images/{PIC1}.png); background-repeat:no-repeat;"></td>
+<td style="background-image:url(images/cc.png); background-repeat:repeat-x;"></td>
+<td width="5" height="5" style="background-image:url(images/{PIC2}.png); background-repeat:no-repeat;"></td>
+</tr>
+<tr>
+<td style="background-image:url(images/cc.png); background-repeat:repeat;">&nbsp;</td>
+<td style="background-image:url(images/cc.png); background-repeat:repeat;">
+
+
+
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+<tr><td width="50"><img src="images/support.png"></td>
+<td class="icontext">
+<a href="ppc-support-desk.php"  class="homeheading" {COLORTHEME5}>{common_msg:1066}</a>
+<p class="contentp">{common_msg:1091} </p></td></tr></table></td>
+<td style="background-image:url(images/cc.png); background-repeat:repeat;">&nbsp;</td>
+</tr>
+<tr>
+<td width="5" height="5" style="background-image:url(images/{PIC3}.png); background-repeat:no-repeat;"></td>
+<td style="background-image:url(images/cc.png); background-repeat:repeat-x;"></td>
+<td width="5" height="5" style="background-image:url(images/{PIC4}.png); background-repeat:no-repeat;"></td>
+</tr>
+</table>
+
+</td></tr>
+</table></td>
+</tr>
+<tr height="30">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+{FOOTER}
+</body>
+</html>

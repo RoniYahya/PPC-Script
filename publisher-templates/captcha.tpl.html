@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset={ENCODING}">
+<link href="ppc-style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<br><br><br><br>
+
+<form action="ppc-publisher-ad-click.php" method="get" >
+
+<table  width="30%" class="admainbox"   border="0"  cellpadding="0" cellspacing="0"  bgcolor="#CCCCCC">
+  <tr><td>&nbsp;</td></tr>
+  <tr><td align="center"><b>{publisher_msg:10131}</b></td></tr>
+  <tr><td>&nbsp;</td></tr>
+  <tr align="center"><td><img src="random.php" align="absmiddle"></td></tr>
+    <tr><td>&nbsp;</td></tr>
+  <tr><td>{publisher_msg:10132}&nbsp; &nbsp; &nbsp;<input name="image" id="image"  ></td></tr>
+    <tr><td>&nbsp;</td></tr>
+  <tr><td align="center">
+  {if($flag_flsids == 0)}
+  <input type="hidden" name="Flsids" value="{FLSIDS}">
+  {endif}
+  {if($flag_flsids == 1)}
+  <input type="hidden" name="id" value="{AID}">
+  <input type="hidden" name="bid" value="{BID}">
+  <input type="hidden" name="kid" value="{KID}">
+  <input type="hidden" name="vid" value="{VID}">
+  <input type="hidden" name="direct_status" value="{DIRECT_STATUS}">
+  <input type="hidden" name="vip" value="{VIP}">
+  <input type="hidden" name="bs" value="{BS}">
+  <input type="hidden" name="pid" value="{PID}">
+  
+  {endif}
+  <input type="hidden" name="fid" value="{FID}">
+  <input type="hidden" name="f_status" value="1">
+  <input type="submit" value="submit"></td></tr>
+ 
+
+</table>
+</form>
+</body>
+</html>

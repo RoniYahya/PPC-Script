@@ -1,0 +1,1 @@
+<div class="submenu"><a href="ppc-view-ads.php">Manage  Ads</a> | <a href="ppc-search-ad.php">Find Ad By Id</a> | <a href="ppc-keyword-search.php">Find Ad By Keyword</a>  | <a href="ppc-admin-click-profit-statistics.php">Ad Statistics</a></div>

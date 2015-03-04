@@ -1,0 +1,346 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>{ENGINE_NAME} - {advertiser_msg:1124}</title>
+<meta http-equiv="Content-Type" content="text/html; charset={ENCODING}">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<link href="ppc-style.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="js/listkeywords.js"></script>
+<script type="text/javascript" src="js/livesearch.js"></script>
+<script  language="javascript" type="text/javascript" src="swfobject.js"></script>
+</head>
+<script type="text/javascript">
+
+function showtab()
+{
+document.getElementById("livesearch").style.display="none";
+}
+function check(forms)
+{
+
+var aa=forms.elements["kwd1"].value;
+
+var myResult = str_replace("\r\n",",",aa);
+myResult = str_replace("\r",",",myResult);
+myResult = str_replace("\n",",",myResult);
+
+var res=explode(",",myResult);
+var nn=res.count();                                                     
+	if(nn>0)
+	{
+	i=nn-1;
+	var zz=res[i].length;
+	
+	if(zz>=3)
+	{
+	showloadResult(res[i]);
+	}
+	else
+	{ 
+	document.getElementById("livesearch").style.display="none";
+	}
+	
+	}
+	else
+	{
+		document.getElementById("livesearch").style.display="none";
+	}
+}
+</script>
+<body>
+{TABS}
+<table  width="{PAGEWIDTH}" class="admainbox"   border="0"  cellpadding="0" cellspacing="0">
+
+<tr>
+<th height="42"><span class="styleTitle" {COLORTHEME4} > {EMESS}</span></th>
+</tr>
+<tr>
+<td height="25" class="headingbar" {COLORTHEME3}  scope="row">{EMESS1}</td>
+</tr>
+<tr>
+<td >
+<a {if(${ADTYPE}==0)}href="ppc-edit-ad.php?id={ID}&wap={WAP_FLAG}"{elseif(${ADTYPE}==2)}href="ppc-edit-catalog-ad.php?id={ID}&wap={WAP_FLAG}"{else}href="ppc-edit-image-ad.php?id={ID}&wap={WAP_FLAG}"{endif} class="pagetable_activecell" {COLORTHEME5}>{advertiser_msg:1129}</a> | <a href="ppc-manage-keywords.php?id={ID}&wap={WAP_FLAG}" class="pagetable_activecell" {COLORTHEME5}>{advertiser_msg:1130}</a> | <a href="ppc-manage-target-locations.php?id={ID}&wap={WAP_FLAG}" class="pagetable_activecell" {COLORTHEME5}> {advertiser_msg:1131}</a>
+</td>
+</tr>
+<tr align="center">
+<td>&nbsp;</td>
+</tr>
+
+<tr align="left">
+<td>
+
+{if(${STATUS}=="0")}
+<span class="gridheader">{advertiser_msg:1132} </span>&nbsp;
+{elseif(${STATUS}=="1")}
+<span class="activead">{advertiser_msg:1133} </span>&nbsp;<span class="note"> {EMESS105}</span>
+{else}
+<span class="penting">{advertiser_msg:1135} </span>&nbsp;
+{endif}
+{if(${STATUS}=="1" && ${PSTATUS}=="1")}
+<span style="text-decoration:blink;color:#CC3300;font:Verdana, Arial, Helvetica, sans-serif;font-weight:bold; font-size:12px;">&nbsp;&nbsp;{advertiser_msg:1136}</span>
+{endif}
+&nbsp;</td>
+</tr>
+{if(${ADTYPE}==1)}
+
+{if(${CONTENTTYPE}=="swf")}
+<tr>
+<td>
+<table width="100%"  border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td  class="admanbox"><a href="{URL}">
+<script type="text/javascript">
+
+		  var flashvars = {};
+		  var params = {};
+		  var attributes = {};
+		  var i=1;
+		  
+		  flashvars.clickTag = "{URL}";
+		  
+          flashvars.clickTAG = "{URL}";
+		  flashvars.clickTARGET = "_blank";
+		  
+		  {HARDLINKS}
+		  
+		   params.wmode="transparent";
+		 		
+	      swfobject.embedSWF("{BANNERS}/{ID}/{SUMMARY}", "myFlashDiv", "{RESWT}", "{RESHT}", "9.0.0", "",flashvars,params,attributes);
+</script>
+		  <div id="myFlashDiv"></div></a>
+</td>
+</tr>
+</table>
+</td></tr>
+{else}
+
+<tr>
+<td>
+<table width="100%"  border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td  class="admanbox"><a href="{URL}"><img src="{BANNERS}/{ID}/{SUMMARY}" border="0" ></a></td>
+</tr>
+</table>
+</td></tr>
+
+{endif}
+
+
+
+{elseif(${ADTYPE}==2)}
+
+{if(${CONTENTTYPE}=="swf")}
+
+  <tr align="center" valign="baseline">
+          <td colspan="5" class="admanbox">
+		  
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="5">
+<td  width="{CAT_WT}" height="{CAT_HT}" ><a href="{URL}"><script type="text/javascript">
+
+		  var flashvars = {};
+		  var params = {};
+		  var attributes = {};
+		  var i=1;
+		  
+		  flashvars.clickTag = "{URL}";
+		  
+          flashvars.clickTAG = "{URL}";
+		  flashvars.clickTARGET = "_blank";
+		  
+		  {HARDLINKS}
+		  
+		   params.wmode="transparent";
+		 		
+	      swfobject.embedSWF("{BANNERS}/{ID}/{TITLE}", "myFlashDiv", "{RESWT}", "{RESHT}", "9.0.0", "",flashvars,params,attributes);
+</script>
+		  <div id="myFlashDiv"></div></a></td>
+		  <td align="left" style="vertical-align:top"><a class="adtitle" href="{URL}">{DURL}</a><br><span class="pagetable">{SUMMARY}</span></td>
+		  </table></td>
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+{else}
+
+
+
+<tr align="center" valign="baseline">
+<td colspan="5" class="admanbox">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="5">
+<td  width="{CAT_WT}" height="{CAT_HT}" ><a href="{URL}"><img src="{BANNERS}/{ID}/{TITLE}" border="0" ></a></td>
+<td align="left" style="vertical-align:top"><a class="adtitle" href="{URL}">{DURL}</a><br><span class="pagetable">{SUMMARY}</span></td>
+</table></td>
+</tr>
+{endif}
+
+	 {else}
+<tr>
+<td>
+<div class="admanbox"><a class="adtitle" href="{URL}">{TITLE}</a><br>
+<span class="pagetable">{SUMMARY}</span> <br>
+<span class="urls">{DURL} </span> </div>
+</td>
+</tr>
+{endif}
+
+<tr>
+<td width="96%">&nbsp;</td>
+</tr>
+
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>{FORMSTART}
+<table width="100%"  border="0" align="center" cellpadding="0" cellspacing="0">
+<tr>
+<td width="40%"><strong>{advertiser_msg:1137}</strong></td>
+<td width="20%"><strong>{advertiser_msg:1138} </strong></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>{IDFIELD}{PASSFLD}</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td><textarea name="kwd1" id="kwd1" rows="4" cols="30"  onKeyUp="check(NewKeywords)"  autocomplete="off">{SEA_KEY}</textarea><span class="style1"><strong> *</strong></span></td>
+<td>{MAXCV1} <span class="style1"><strong>*</strong></span></td>
+<td><input type="button" class="submit" name="button" value="{BUNAME}" onClick="return showKeywords(this.value)" onblur="showtab()"><span id="disp" style="display:none  ">&nbsp; <img style="padding:0px ;margin:0px;vertical-align:middle; " src="images/loaddata.gif"></img></span></td>
+</tr>
+<tr>
+   <td><div id="livesearch"  style="z-index:1000;position:absolute;_position:absolute;background-color:#CCCCCC;height: 90px;width:250px; display:none; overflow: scroll;" ></div>&nbsp;</td>
+    <td>&nbsp;</td><td>&nbsp;</td>
+  </tr>
+  <tr>
+<td colspan="3">{advertiser_msg:10167}</td>
+</tr>
+  
+<tr>
+<td colspan="3">&nbsp;</td>
+</tr>
+
+<tr><td colspan="3"><div id="errormsg">&nbsp;</div><div id="txtHint">&nbsp;</div></td>
+</tr>
+<tr><td colspan="3">{if(${PASS}=="true")}{CDMESS}{endif}
+</td>
+</tr>
+<tr>
+<td colspan="3">&nbsp;</td>
+</tr>
+</table>	{FORMCLOSE}</td>
+</tr>
+<tr>
+<td align="center">&nbsp;	</td>
+</tr>
+
+</table>
+{FOOTER}
+<script language="javascript" type="text/javascript">loadKeywords();</script>
+
+</body>
+</html>
+<script type="text/javascript">
+function isPositive(strString)
+//  check for valid numeric strings	
+{
+var strValidChars = "0123456789.";
+var strChar;
+var retResult = true;
+
+if (strString.length == 0) return false;
+
+//  test strString consists of valid characters listed above
+for (i = 0; i < strString.length && retResult == true; i++)
+{
+strChar = strString.charAt(i);
+if (strValidChars.indexOf(strChar) == -1)
+{
+retResult = false;
+}
+}
+return retResult;
+}
+
+
+function isOverMin(strString, minvalue)
+//checks wheteher value has minimum length
+{   
+if (strString < minvalue ) return false;
+}
+
+
+function trim(stringValue){return stringValue.replace(/(^\s*|\s*$)/, "");}
+
+function isNotNull(strString)
+//  checks wheteher value of field not null 	
+{
+
+
+if (trim(strString).length == 0) return false;
+
+
+
+}
+function verifyForm_NewKeywords()
+{
+if(isNotNull(document.NewKeywords.kwd1.value)==false) {	
+alert("{advertiser_msg:10141}");
+document.NewKeywords.kwd1.focus();
+return false;
+}
+
+if(isPositive(document.NewKeywords.maxcv1.value)==false)
+{	
+alert("{advertiser_msg:10142}");
+document.NewKeywords.maxcv1.focus();
+return false;
+}
+if(isOverMin(document.NewKeywords.maxcv1.value, {MIN_CLK_VAL})==false) 
+{	
+alert("{advertiser_msg:10143}{MIN_CLK_VAL}");
+document.NewKeywords.maxcv1.focus();
+return false;
+}
+}
+function verifyForm_EditKeywords(kwd1)
+{
+edit_key1="edit_key_"+kwd1;
+edit_val1="edit_val_"+kwd1;
+if(isNotNull(document.getElementById(edit_key1).value)==false) {	
+alert("{advertiser_msg:10144}");
+document.getElementById(edit_key1).focus();
+return false;
+}
+if(isPositive(document.getElementById(edit_val1).value)==false)
+{	
+alert("{advertiser_msg:10142}");
+document.getElementById(edit_val1).focus();
+return false;
+}
+if(isOverMin(document.getElementById(edit_val1).value, {MIN_CLK_VAL})==false) 
+{	
+alert("{advertiser_msg:10143} {MIN_CLK_VAL}");
+document.getElementById(edit_val1).focus();
+return false;
+}
+}
+
+function displayimage()
+{
+document.getElementById("disp").style.display="";
+
+}
+
+</script>

@@ -1,0 +1,258 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>{ENGINE_NAME} - {advertiser_msg:1266}</title>
+<meta http-equiv="Content-Type" content="text/html; charset={ENCODING}">
+<link href="ppc-style.css" rel="stylesheet" type="text/css">
+<script  language="javascript" type="text/javascript" src="swfobject.js"></script>
+<script type="text/javascript">
+function promptuser()
+{
+var answer = confirm ("{advertiser_msg:10132}")
+if (answer)
+return true;
+else
+return false;
+}
+
+	function showad(id)
+		{
+	
+			document.getElementById('ad'+id).style.display='block';
+		}
+
+		function hidead(id)
+		{
+			document.getElementById('ad'+id).style.display='none';
+		}
+		
+</script>
+
+</head>
+<body>
+{TABS}
+{FORMSTART}
+<table  width="{PAGEWIDTH}" class="admainbox colortext"   border="0" cellpadding="0" cellspacing="0">
+<tr >
+<td height="40" colspan="7"><span class="styleTitle" {COLORTHEME4} >{advertiser_msg:1266}</span></td>
+</tr>
+<tr>
+<td colspan="7"  class="headingbar" {COLORTHEME3} >{advertiser_msg:8897}</td>
+</tr>
+<tr>
+<td colspan="7">&nbsp;</td>
+</tr>
+<tr>
+<td width="16%"></td>
+<td width="8%" height="20"></td>
+<td colspan="5"></td>
+</tr>
+<tr>
+<td >{advertiser_msg:1354}<span class="mandatory">*</span></td>
+<td><select name="status" id="status" >
+<option value="1"  {if($st=="1")}selected{endif}>{advertiser_msg:10112}</option>
+<option value="-1" {if($st=="-1")}selected{endif} >{advertiser_msg:10113}</option>
+<option value="0" {if($st=="0")}selected{endif}>{advertiser_msg:10114}</option>
+<option value="4" {if(($st!="1") && ($st!="0") && ($st!="-1"))}selected{endif}>{advertiser_msg:10115}</option>
+</select></td>
+
+<td width="16%" align="center">{advertiser_msg:8895}<span class="mandatory">*</span></td>
+<td width="10%"><select name="adtype" id="adtype" >
+<option value="0" {if($adtype=="0")}selected{endif}>{advertiser_msg:10108}</option>
+<option value="1" {if($adtype=="1")}selected{endif}>{advertiser_msg:10109}</option>
+<option value="2" {if($adtype=="2")}selected{endif}>{advertiser_msg:10110}</option>
+<option value="3" {if(($adtype!="1")&&($adtype!="0")&&($adtype!="2"))}selected{endif}>{advertiser_msg:10111}</option>
+</select> </td>
+<td width="16%" align="center">{advertiser_msg:8896}<span class="mandatory">*</span></td>
+<td width="21%" ><select name="device" id="device" >
+<option value="0" {if($device=="0")}selected{endif}>{advertiser_msg:10116}</option>
+<option value="1" {if($device=="1")}selected{endif}>{advertiser_msg:1070}</option>
+<option value="2" {if(($device!="0")&&($device!="1"))}selected{endif}>{advertiser_msg:10115}</option>
+</select> </td>
+<td width="13%">{SUBMIT}</td>
+</tr>
+<tr>
+<td colspan="7">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="7">&nbsp;</td>
+</tr>
+<tr height="30">
+<td colspan="7">
+<div id="admanage" style="display:block;">
+<table border="0" width="100%" >
+{if($total!=0)}
+<tr height="40">
+<td colspan="6">{SHOW_STATISTICS}<span style="float:right">{HEADER}</span>
+</td>
+</tr>
+{endif}
+<tr height="30">
+<td align="left" width="152"><strong>{advertiser_msg:8894}</strong></td>
+<td align="left" width="443"><strong>{advertiser_msg:8895}</strong></td>
+<td align="left" width="174"><strong>{advertiser_msg:8896}</strong></td>
+<td align="left" width="196"><strong>{advertiser_msg:1354}</strong></td>
+<td align="left" width="196"><strong>{advertiser_msg:9991}</strong></td>
+<td align="left" width="391"><strong>{advertiser_msg:7028}</strong></td>
+</tr>
+{LOOP(ADS)-STARTLOOP} 
+<tr>
+<td><span onmouseover="showad({LOOP(ADS)-ID})" onmouseout="hidead({LOOP(ADS)-ID})">{LOOP(ADS)-NAME}</span>
+<div  id="ad{LOOP(ADS)-ID}" class="layerbox" style="display: none;">
+<div class="adbox">
+{if(${LOOP(ADS)-TYPE}=="0")}
+<a href="{LOOP(ADS)-LINK}">{LOOP(ADS)-TITLE}</a><br>{LOOP(ADS)-SUMMARY}<br>{LOOP(ADS)-DISPLAYURL}
+{elseif(${LOOP(ADS)-TYPE}=="1")}
+{if(${LOOP(ADS)-CONTENTTYPE}=="swf")}
+
+<table  cellpadding="0" cellspacing="0"  >
+	   <tr><td>
+<script type="text/javascript">
+
+		  var flashvars = {};
+		  var params = {};
+		  var attributes = {};
+		  var i=1;
+		  
+		  flashvars.clickTag = "";
+		  
+          flashvars.clickTAG = "";
+		  flashvars.clickTARGET = "_blank";
+		  
+		  
+		  
+		   params.wmode="transparent";
+		 		
+	      swfobject.embedSWF("{BANNERFOLDER}/{LOOP(ADS)-ID}/{LOOP(ADS)-SUMMARY}", "myFlashDiv_{LOOP(ADS)-ID}", "{fn:getWIDTH(${LOOP(ADS)-BANNERSIZE})}", "{fn:getHEIGHT(${LOOP(ADS)-BANNERSIZE})}", "9.0.0", "",flashvars,params,attributes);
+</script>
+		  <div id="myFlashDiv_{LOOP(ADS)-ID}"></div>
+
+</td></tr>
+	   </table>
+
+
+
+{else}
+<table  cellpadding="0" cellspacing="0"  >
+	   <tr><td><a href="{LOOP(ADS)-LINK}"><img src="{BANNERFOLDER}/{LOOP(ADS)-ID}/{LOOP(ADS)-SUMMARY}"  border="0" ></a></td></tr>
+	   </table>
+{endif}	   
+	   
+	{else}
+	{if(${LOOP(ADS)-CONTENTTYPE}=="swf")}   
+	   
+	   
+	  <table   border="1" cellpadding="5" cellspacing="0"  >
+<tr><td width="60px" height="40px" align="center" valign="top"><a href="{LOOP(ADS)-LINK}">
+ <script type="text/javascript">
+
+		  var flashvars = {};
+		  var params = {};
+		  var attributes = {};
+		  var i=1;
+		  
+		  flashvars.clickTag = "";
+		  
+          flashvars.clickTAG = "";
+		  flashvars.clickTARGET = "_blank";
+		  
+		  
+		  
+		   params.wmode="transparent";
+		 		
+	      swfobject.embedSWF("{BANNERFOLDER}/{LOOP(ADS)-ID}/{LOOP(ADS)-TITLE}", "myFlashDiv_{LOOP(ADS)-ID}", "{fn:getWIDTH(${LOOP(ADS)-BANNERSIZE},1)}", "{fn:getHEIGHT(${LOOP(ADS)-BANNERSIZE},1)}", "9.0.0", "",flashvars,params,attributes);
+</script>
+		  <div id="myFlashDiv_{LOOP(ADS)-ID}"></div></a></td>
+<td align="left" valign="top" ><a href="{LOOP(ADS)-LINK}">{LOOP(ADS)-DISPLAYURL}</a><br>{LOOP(ADS)-SUMMARY}</td></tr></table>
+	   
+	   
+	   
+	   
+	   
+	{else}  
+	   <table   border="1" cellpadding="5" cellspacing="0"  >
+<tr><td width="60px" height="40px" align="center" valign="top"><a href="{LOOP(ADS)-LINK}"><img src="{BANNERFOLDER}/{LOOP(ADS)-ID}/{LOOP(ADS)-TITLE}" border="0" ></a></td>
+<td align="left" valign="top" ><a href="{LOOP(ADS)-LINK}">{LOOP(ADS)-DISPLAYURL}</a><br>{LOOP(ADS)-SUMMARY}</td></tr></table>
+		  
+{endif}		  
+{endif}
+</div>
+</div>
+</td>
+<td>
+{if(${LOOP(ADS)-TYPE}=="1")}
+{if(${LOOP(ADS)-CONTENTTYPE}=="swf")}
+{advertiser_msg:10101}
+{else}
+{advertiser_msg:1155}
+{endif}
+{elseif(${LOOP(ADS)-TYPE}=="0")}
+{advertiser_msg:8912}
+{else}
+{if(${LOOP(ADS)-CONTENTTYPE}=="swf")}
+{advertiser_msg:10102}
+{else}
+{advertiser_msg:1161}
+{endif}
+{endif}
+</td>
+
+<td>
+{if(${LOOP(ADS)-WAPSTATUS}=="0")}
+<img src="admin/images/pc.png">
+{else}
+<img src="admin/images/wap.png">
+{endif}
+
+
+</td>
+
+
+<td>
+{if(${LOOP(ADS)-STATUS}=="0")}
+{advertiser_msg:1245}
+
+{elseif(${LOOP(ADS)-STATUS}=="1")}
+{advertiser_msg:1243}
+
+{else}
+
+{advertiser_msg:1244}
+{endif}
+
+</td>
+<td>{fn:getLANG(${LOOP(ADS)-LANGUAGE})}</td>
+<td style="white-space: nowrap;">
+<a href="{if(${LOOP(ADS)-TYPE}=="0")}ppc-edit-ad.php{elseif(${LOOP(ADS)-TYPE}=="1")}ppc-edit-image-ad.php{else}ppc-edit-catalog-ad.php{endif}?id={LOOP(ADS)-ID}&wap={LOOP(ADS)-WAPSTATUS}" class="smallboldtext" {COLORTHEME5}>{advertiser_msg:1231}</a>&nbsp;
+{if($ad_keyword_mode!=2)}  |&nbsp; <a href="ppc-manage-keywords.php?id={LOOP(ADS)-ID}&wap={LOOP(ADS)-WAPSTATUS}" class="smallboldtext" {COLORTHEME5}>{advertiser_msg:1130}</a>&nbsp;{endif} | <a href="ppc-manage-target-locations.php?id={LOOP(ADS)-ID}&wap={LOOP(ADS)-WAPSTATUS}" class="smallboldtext" {COLORTHEME5}>{advertiser_msg:1131}</a>  |&nbsp; <a href="ppc-delete-ad.php?id={LOOP(ADS)-ID}&url={URL}" class="smallboldtext" {COLORTHEME5}  onclick="return promptuser()">{advertiser_msg:1234}</a>
+{if(${LOOP(ADS)-STATUS}=="1")}
+{if(${LOOP(ADS)-PSTATUS}=="0")}
+|&nbsp; <a href="ppc-pause-ad-status.php?id={LOOP(ADS)-ID}&type=1&url={URL}&wap={LOOP(ADS)-WAPSTATUS}" class="smallboldtext" {COLORTHEME5}>{advertiser_msg:1232}</a>
+{else}
+|&nbsp; <a href="ppc-pause-ad-status.php?id={LOOP(ADS)-ID}&type=0&url={URL}&wap={LOOP(ADS)-WAPSTATUS}" class="smallboldtext" {COLORTHEME5}>{advertiser_msg:1233}</a>
+{endif}
+{endif}
+
+</td>
+</tr>
+{LOOP(ADS)-ENDLOOP}
+<tr height="30">
+<td colspan="4"></td></tr>
+{if($total!=0)}
+<tr height="30">
+<td colspan="6">{SHOW_STATISTICS}<span style="float:right">{HEADER}</span>
+</td>
+</tr>
+{endif}
+</table>
+</div>
+
+</td>
+</tr>
+
+</table>
+{FORMCLOSE}
+{FOOTER}
+</body>
+</html>

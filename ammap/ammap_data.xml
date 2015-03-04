@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- map file should be located in path (set in html) folder                                                                                             -->
+<!-- tl_long is longitute of top left corner, the default values is -180, tl_lat  is latitude  of top left corner, the default values is 90              -->
+<!-- br_long is longitute of top left corner, the default values is 180, br_lat  is latitude  of top left corner, the default values is -90              -->
+<!-- you should only set longitudes and latitudes if you want to calibrate your map and you know these values. Otherwise you can delete these attributes -->
+<!-- you can set default zoom level, zoom_x and zoom_y. To find out the numbers, you should turn developer mode on (in settings file), zoom map to required position, copy zoom info to clipboard (using right click menu) and paste it here -->
+
+<map map_file="maps/world.swf" tl_long="-168.49" tl_lat="83.63" br_long="190.3" br_lat="-55.58" zoom_x="0%" zoom_y="0%" zoom="100%"><areas><area title="Switzerland"  mc_name="CH" value="5"></area></areas><labels><label x="0" y="50" width="100%" align="center" text_size="16" color="#999999"><text><![CDATA[<b>Geographical Clicks Distribution]]></text><description><![CDATA[]]></description></label></labels></map>

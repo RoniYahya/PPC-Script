@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>{ENGINE_NAME} -{advertiser_msg:8889} </title>
+<meta http-equiv="Content-Type" content="text/html; charset=">
+<link href="ppc-style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+{TABS}
+<table  width="{PAGEWIDTH}" class="admainbox"   border="0"  cellpadding="0" cellspacing="0">
+<tr>
+<td colspan="2" ></td>
+</tr>
+
+<tr>
+<th height="40" colspan="2" ><span class="styleTitle" {COLORTHEME4} >{advertiser_msg:8901}</span></th>
+</tr>
+<tr  class="headingbar" {COLORTHEME3} height="22">
+<td colspan="2" >{advertiser_msg:8904} </td>
+</tr>
+<tr>
+<td colspan="2"><br>
+<table width="100%"  border="0"  cellpadding="0" cellspacing="0">
+{FORMSTART}
+<tr >
+<td width="24%"   align="left">
+
+{advertiser_msg:8900}</td>
+<td width="24%">
+<select name="statistics" id="statistics">
+              
+			  <option value="day"  {if($show=="day")}selected{endif}>{advertiser_msg:10124}</option>
+              <option value="week"  {if($show=="week")}selected{endif}>{advertiser_msg:10125}</option>
+              <option value="month"  {if($show=="month")}selected{endif}>{advertiser_msg:10126}</option>
+              
+</select></td><td width="52%">
+<input type="submit" name="Submit" value="{advertiser_msg:1398}"></td>
+
+
+</tr>{FORMCLOSE}
+</table>
+</td>
+</tr>
+<tr height="20">
+<td colspan="2">&nbsp;</td></tr>
+<tr>
+<td colspan="2">
+<table width="100%">
+{if($total!=0)}
+<tr height="30">
+<td colspan="7">{SHOW_CLICK}<span style="float:right">{HEADER}</span></td>
+</tr>
+{endif}
+<tr height="30">
+<td width="13%"><strong>{advertiser_msg:8913}</strong></td>
+<td width="13%"><strong>{advertiser_msg:8914}</strong></td>
+<td width="13%"><strong>{advertiser_msg:1100}</strong></td>
+<td width="13%"><strong>{advertiser_msg:8915}</strong></td>
+<td width="13%"><strong>{advertiser_msg:8916}</strong></td>
+<td width="13%"><strong>{advertiser_msg:10002}</strong></td>
+<td width="12%"><strong>{advertiser_msg:10003}</strong></td>
+</tr>
+
+
+{LOOP(CLICK)-STARTLOOP} 
+<tr>
+<td>{fn:getSerialNum($pageno,$perpagesize,${LOOP(CLICK)-LOOPKEY})}</td>
+<td>{LOOP(CLICK)-IP}</td>
+<td>{fn:getCountry(${LOOP(CLICK)-COUNTRY})}</td>
+<td>{fn:dateTimeFormat(${LOOP(CLICK)-TIME})}</td>
+<td>{LOOP(CLICK)-CLICKVALUE}</td>
+
+<td>{LOOP(CLICK)-BR} ({LOOP(CLICK)-VR})</td>
+<td>{LOOP(CLICK)-OS}</td>
+</tr>
+
+{LOOP(CLICK)-ENDLOOP}
+
+
+
+<tr height="30">
+<td colspan="5">
+</td>
+</tr>
+{if($total!=0)}
+<tr height="30">
+<td colspan="7">{SHOW_CLICK}<span style="float:right">{HEADER}</span>
+</td>
+</tr>
+{endif}
+</table>
+</td>
+</tr>
+
+</table>
+
+{FOOTER}
+</body>
+</html>

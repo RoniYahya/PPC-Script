@@ -1,0 +1,76 @@
+
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+
+<table width='100%'  border='0' align='left' cellpadding='0' cellspacing='0'>
+<tr><td colspan='4'>
+{if(${ETYPE1}==3)}
+<span style="color:#FF0000">{publisher_msg:10513}</span>
+{endif}
+{if(${ETYPE1}==1)}
+<span style="color:#FF0000">{publisher_msg:10514}</span>
+{endif}
+{if(${ETYPE}==2)}
+</br>
+{publisher_msg:10512}
+{endif}
+
+
+</td> </tr>
+</table>
+
+{if(${NUM} > 0)}
+
+<table width='100%'  border='0' align='left' cellpadding='0' cellspacing='0'>
+
+
+<tr>
+<td colspan='4'></td>
+</tr>
+
+<tr>
+<td colspan='4'>&nbsp;</td>
+</tr>
+
+<tr >
+<td ><strong>{publisher_msg:1192}</strong></td>
+<td width="15%"><strong>{publisher_msg:1175}</strong></td>
+<td width="15%"><strong>{publisher_msg:10510}</strong></td>
+<td width="35%"></td>
+
+</tr>
+<tr>
+          <td height="19" colspan='4'>&nbsp;</td>
+  </tr> 
+         {LOOP(SITE)-STARTLOOP}
+   
+
+       
+   <tr  height="25">    
+       
+  
+      <td  >
+	  {LOOP(SITE)-URL}
+
+</td>
+
+       <td>
+	   
+
+
+{if(${LOOP(SITE)-STATUS}=="-1")} {publisher_msg:10507} {elseif(${LOOP(SITE)-STATUS}=="1")} {publisher_msg:10508} {else} {publisher_msg:10509} {endif}
+
+
+       
+</td>
+<td > <!--<a href="ppc-delete-site.php?id={LOOP(SITE)-ID}" class="pagetable_activecell" {COLORTHEME5} onclick="return del();" >{publisher_msg:1144}</a>-->
+
+
+<a href="ppc-delete-site.php?id={LOOP(SITE)-ID}" class="pagetable_activecell" {COLORTHEME5} onclick="return url_delete();" >{publisher_msg:1144}</a>
+</td></tr>
+{LOOP(SITE)-ENDLOOP}
+</table>
+
+
+
+
+{endif}

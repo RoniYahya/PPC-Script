@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>{ENGINE_NAME} - {advertiser_msg:1283}</title>
+<meta http-equiv="Content-Type" content="text/html; charset={ENCODING}">
+<link href="ppc-style.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.style1 {color: #FF0000}
+-->
+</style>
+
+</head>
+
+<body>
+
+{TABS}
+
+<table  width="{PAGEWIDTH}" class="admainbox"   border="0"  cellpadding="0" cellspacing="0">
+
+  <tr>
+
+    <td colspan="3" align="center"></td>
+  </tr>
+
+  <tr>
+
+    <th height="45" colspan="3" scope="row" ><span class="styleTitle" {COLORTHEME4} >{advertiser_msg:1284} </span></th>
+  </tr>
+
+  <tr  class="headingbar" {COLORTHEME3} height="22">
+<td colspan="2" >&nbsp;{advertiser_msg:1285}</strong></td>
+  </tr>
+
+  <tr>
+
+  <td colspan="3">&nbsp;</td>
+  </tr>
+
+
+ <tr align="center">
+
+    <td colspan="3">
+
+      <table width="100%"  border="0"  cellpadding="0" cellspacing="0">
+
+        <tr >
+          <td align="left"  width="65%"> <form name="form1" method="get" action="geographical-distribution.php">
+		  
+           
+  				<table class="tableT">
+                <tr>
+                <td>
+               	{advertiser_msg:1286}  
+               </td>
+               <td>
+               <select name="statistics" id="statistics">
+  
+              <option value="day" {if($show=="day")}selected{endif}>{advertiser_msg:10124} &nbsp;</option>
+  
+              <option value="week"  {if($show=="week")}selected{endif}>{advertiser_msg:10125}&nbsp;</option>
+  
+              <option value="month"  {if($show=="month")}selected{endif}>{advertiser_msg:10126}&nbsp;</option>
+  
+            
+              </select>
+			  
+			</td>
+            <td>
+    <input type="submit" name="Submit" value="Submit">
+ 	</td>
+ </tr>
+ </table>
+   
+        
+
+</form></td>
+</tr>
+
+
+</table>
+</td></tr>
+  <tr>
+
+  <td colspan="3">&nbsp;</td>
+  </tr>
+
+  <tr>
+
+  <td colspan="3">
+<div style="padding:5px;">
+ <!-- ammap script-->
+
+  <script type="text/javascript" src="ammap/swfobject.js"></script>
+
+	<div id="flashcontent" style="float:left ">
+
+		<strong>{advertiser_msg:1287}</strong>
+
+	</div>
+
+
+
+	<script type="text/javascript">
+
+		// <![CDATA[		
+
+		var so = new SWFObject("ammap/ammap.swf", "ammap", "700", "450", "8", "#FFFFFF");
+
+		so.addVariable("path", "ammap/");
+
+		so.addVariable("settings_file", escape("ammap/ammap_settings.xml"));                  // you can set two or more different settings files here (separated by commas)
+
+		//so.addVariable("data_file", escape("ammap/ammap_data.xml"));		
+
+  	so.addVariable("map_data", '{fn:htmlspecialchars($map)}');                                   // you can pass map data as a string directly from this file
+
+
+
+		so.write("flashcontent");
+
+		// ]]>
+
+	</script>
+
+<!-- end of ammap script -->
+
+
+</div>
+
+
+</td></tr>
+
+<tr>
+<td>
+<table width=100%>
+{if($total!=0)}
+<tr height="30">
+<td colspan="3">{SHOW_CLICK}<span style="float:right">{HEADER}</span>
+</tr>
+{endif}
+<tr height="30">
+<td width="13%"><strong>{advertiser_msg:10129}</strong></td>
+<td width="22%"><strong>{advertiser_msg:10130}</strong></td>
+<td width="15%"><strong>{advertiser_msg:10131}</strong></td>
+
+</tr>
+
+
+{LOOP(TAB)-STARTLOOP} 
+<tr>
+<td>{fn:getSerialNum($pageno,$perpagesize,${LOOP(TAB)-LOOPKEY})}</td>
+<td>{LOOP(TAB)-COUNTRY}</td>
+<td>{LOOP(TAB)-NO}</td>
+</tr>
+{LOOP(TAB)-ENDLOOP}
+
+<tr height="30">
+<td colspan="2">
+</td>
+</tr>
+{if($total!=0)}
+<tr height="30">
+<td colspan="3">{SHOW_CLICK}<span style="float:right">{HEADER}</span>
+</tr>
+{endif}
+</table>
+</td>
+</tr>
+
+
+
+<tr>
+
+    <td  align="center">&nbsp;</td>
+
+  </tr>
+</table>
+{FOOTER}
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>{ENGINE_NAME} {publisher_msg:1156}</title>
+<meta http-equiv="Content-Type" content="text/html; charset={ENCODING}">
+<link href="ppc-style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+{TABS}
+<table width="{PAGEWIDTH}" border="0" cellpadding="0" cellspacing="0" class="admainbox">
+  <tr>
+    <td colspan="3" align="center"></td>
+  </tr>
+
+  <tr>
+    <td height="35" colspan="2"><span class="styleTitle" {COLORTHEME4} >{publisher_msg:1157}</span></u></td>
+    <td>&nbsp;</td>
+  </tr>
+    <tr>
+    <td height="22" colspan="2" class="headingbar" {COLORTHEME3}> {MSG1}</td>
+    <td class="">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2"><strong>{publisher_msg:1159}</strong> {LINK}</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2"><strong {COLORTHEME5}><u>{publisher_msg:1160}</u></strong> </td>
+    <td>&nbsp;</td>
+  </tr>
+    <tr>
+    <td colspan="2">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+    <tr>
+    <td colspan="2"><script language="javascript" type="text/javascript" src="{SERVER_DIR}referralUrl.js">	</script>
+	<script language="javascript" type="text/javascript">
+	document.write('<a href="{SERVER_DIR}index.php?r={RID}&host='+location['hostname']+'&from='+utf8_encode(location['href'])+'">Click here to signup for '+"{ENGINE_NAME}"+'</a>');
+	</script></td>
+    <td>&nbsp;</td>
+  </tr>
+    <tr>
+    <td colspan="2"></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2"><textarea cols="95" rows="5" readonly="readonly"><script language="javascript" type="text/javascript" src="{SERVER_DIR}referralUrl.js">	</script>
+	<script language="javascript" type="text/javascript">
+	document.write('<a href="{SERVER_DIR}index.php?r={RID}&host='+location['hostname']+'&from='+utf8_encode(location['href'])+'">Click here to signup for '+"{ENGINE_NAME}"+'</a>');
+	</script>
+</textarea></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2"><span class="pagetable_activecell" {COLORTHEME5}><u>{publisher_msg:1161}</u></span></td>
+    <td>&nbsp;</td>
+  </tr>
+  {LOOP(BANNERS)-STARTLOOP}
+  <tr>
+    <td colspan="2">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2"><br><strong>{LOOP(BANNERS)-X} X {LOOP(BANNERS)-Y}</strong><br>
+      <br>
+	</script>
+	<script language="javascript" type="text/javascript">
+	document.write('<a href="{SERVER_DIR}index.php?r={RID}&host='+location['hostname']+'&from='+utf8_encode(location['href'])+'"><img border=0 src="{SERVER_DIR}{ADMIN}/affiliate-banners/{LOOP(BANNERS)-ID}/{LOOP(BANNERS)-FILENAME}"></a>');
+	</script></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2"><textarea cols="95" rows="5" readonly="readonly"><script language="javascript" type="text/javascript" src="{SERVER_DIR}referralUrl.js">	</script>
+	<script language="javascript" type="text/javascript">
+	document.write('<a href="{SERVER_DIR}index.php?r={RID}&host='+location['hostname']+'&from='+utf8_encode(location['href'])+'"><img border=0 src="{SERVER_DIR}{ADMIN}/affiliate-banners/{LOOP(BANNERS)-ID}/{LOOP(BANNERS)-FILENAME}"></a>');
+	</script>
+ </textarea></td>
+    <td>&nbsp;</td>
+  </tr>
+  {LOOP(BANNERS)-ENDLOOP} 
+  <tr>
+    <td colspan="2">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="23" colspan="3">&nbsp;</td>
+  </tr>
+  <tr align="center">
+    <td colspan="3" ></td>
+  </tr>
+</table>
+{FOOTER}
+</body>
+</html>

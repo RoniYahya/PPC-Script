@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>{ENGINE_NAME}{publisher_msg:1179}</title>
+<meta http-equiv="Content-Type" content="text/html; charset={ENCODING}">
+<link href="ppc-style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+{TABS}
+<table width="{PAGEWIDTH}" class="admainbox"   border="0"  cellpadding="0" cellspacing="0">
+<tr>
+<td colspan="2" height="40" ><span class="styleTitle" {COLORTHEME4} >{publisher_msg:1180}  </span></td>
+</tr>
+<tr>
+<td colspan="2" class="headingbar" {COLORTHEME3}   >{publisher_msg:1181} </td>
+</tr>
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+<tr>
+<td width="30%">{publisher_msg:1174}</td>
+<td width="70%">{RDATE}</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>{publisher_msg:1176}</td>
+<td>{AMOUNT} </td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>{publisher_msg:1183} </td>
+<td>{PAY}</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+{if($paymode!=3)} <!-- Cases other than transfer to advertiser-->
+	<tr>
+	<td>{TEXT} </td>
+	<td>{DETAILS}</td>
+	</tr>
+	<tr>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	</tr>
+{endif}
+
+{if($paymode==0)} <!-- check -->
+	<tr>
+	<td >{publisher_msg:1009}</td>
+	<td>{PAYEE_ADDRESS} </td>
+	</tr>
+	<tr>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	</tr>
+
+
+{endif}
+
+{if($paymode==2)} <!-- bank -->
+
+		<td>Account No</td>
+		<td>{ACNO}</td>
+		</tr>
+		<tr>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		</tr>
+ 		<tr>
+		<td>{publisher_msg:1184}</td>
+		<td>{BNAME}</td>
+		</tr>
+		<tr>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		</tr>
+		<tr>
+		<tr>
+		<td>{publisher_msg:1185} </td>
+		<td>{RNO}</td>
+		</tr>
+		<tr>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		</tr>
+		<tr>
+		<td>{publisher_msg:1186} </td>
+		<td>{ACTYPE}</td>
+		</tr>
+		<tr>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		</tr>
+		<tr>
+		<td >{publisher_msg:1276}</td>
+		<td>{BANK_ADDRESS}</td>
+		  </tr>
+		<tr>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		</tr>
+{endif}
+	
+	
+{if($paymode!=3)}  <!-- Cases other than transfer to advertiser-->
+	<tr>
+	<td>{ID} </td>
+	<td>{TXID}</td>
+	</tr>
+	<tr>
+	<td colspan="2">&nbsp;</td>
+	</tr>
+	
+	<tr>
+	<td>{PAYER}</td>
+	<td>{NAME}</td>
+	</tr>
+	<tr>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	</tr>
+{endif}
+	
+
+<tr>
+<td>{publisher_msg:1182} </td>
+<td>{STATUS}</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>{publisher_msg:1187}  </td>
+<td>{DATE}</td>
+</tr>
+
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a   href="javascript:history.back(-1)" {COLORTHEME5}><strong>{publisher_msg:1188}</strong></a></td>
+<td ></td>
+</tr>
+<tr>
+<td colspan="2" >&nbsp;</td>
+</tr>
+</table>
+{FOOTER}
+</body>
+</html>

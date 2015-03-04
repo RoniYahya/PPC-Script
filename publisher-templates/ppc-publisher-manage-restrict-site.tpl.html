@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>{ENGINE_NAME}{publisher_msg:1189} !</title>
+<meta http-equiv="Content-Type" content="text/html; charset={ENCODING}">
+<link href="ppc-style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+{TABS}
+<table width="{PAGEWIDTH}" class="admainbox"   border="0"  cellpadding="0" cellspacing="0">
+<tr>
+<td height="40"><span class="styleTitle" {COLORTHEME4} >{publisher_msg:1189} </span></td>
+</tr>
+<tr>
+<td class="headingbar" {COLORTHEME3}  >{publisher_msg:1190}</td>
+</tr>
+<tr>
+<td >&nbsp;</td>
+</tr>
+<tr>
+<td ><a href="ppc-publisher-add-restricted-site.php" class="pagetable_activecell" {COLORTHEME5}>{publisher_msg:1191}</a> | <a href="ppc-publisher-manage-restrict-site.php" class="pagetable_activecell" {COLORTHEME5}>{publisher_msg:1189}</a></td>
+</tr>
+<tr>
+<td >&nbsp;</td>
+</tr>
+
+<tr>
+<td >
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+{if($total >=1)}
+<tr>
+<td width="30%" ><strong>{publisher_msg:1192} </strong></td>
+<td ><strong>Options</strong></td>
+</tr>
+{endif}
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+{LOOP(ADS)-STARTLOOP}
+<tr>
+<td >{fn:wordwrap1(${LOOP(ADS)-SQL})}</td>
+<td style="white-space:nowrap "><a href="ppc-publisher-edit-site.php?id={LOOP(ADS)-ID}" class="pagetable_activecell" {COLORTHEME5}>{publisher_msg:1143}</a> | <a href="ppc-publisher-delete-site.php?id={LOOP(ADS)-ID}" class="pagetable_activecell" {COLORTHEME5}>{publisher_msg:1144}</a></td>
+</tr>
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+{LOOP(ADS)-ENDLOOP} 
+</table></td>
+</tr>
+</table>
+{FOOTER}
+</body>
+</html>

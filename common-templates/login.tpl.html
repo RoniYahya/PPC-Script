@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>{ENGINE_NAME} - {common_msg:1021}</title>
+<meta http-equiv="Content-Type" content="text/html; charset={ENCODING}">
+<meta name="keywords" content="{META_KEYWORDS}">
+<meta name="description" content="{META_DESC}">
+<link href="ppc-style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+{TABS}
+<table  width="{PAGEWIDTH}" class="admainbox"   border="0"  cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<table width="100%"  border="0" cellpadding="0" cellspacing="0" style="float:left">
+<tr>
+<td height="40" class="styleTitle" {COLORTHEME4}>  {ENGINE_NAME} </td>
+</tr>
+<tr>
+<td class="contentp">
+<span class="homeheading" ></span>
+<ul style="list-style-type:disc;padding-left:15px">
+ <li>{common_msg:1095}</li> <br>
+
+ <li>{common_msg:1096}</li> <br>
+</ul> 
+<span class="homeheading" >{MESS10}</span>
+<p><a href="{COMREG}" class="homessolink" {COLORTHEME4} >{common_msg:1043} &raquo;</a> </p>
+
+</td>
+</tr>
+<tr>
+<td height="40" >{common_msg:1098} </td>
+</tr>
+
+</table>      </td>
+<td width="20px" >&nbsp;</td>
+<td width="240px"  style="vertical-align:top; padding-left:0px 10px; ">
+{FORMSTART} 
+<table  border="0" cellpadding="0" cellspacing="0" class="loginbox"  {COLORTHEME3} >
+<tr>
+<td colspan="2" class="loginbar" {COLORTHEME3} >&nbsp;&nbsp;{common_msg:1021}</td>
+</tr>
+<tr>
+<td colspan="2" >&nbsp;</td>
+</tr>
+<tr>
+<td > &nbsp;&nbsp;{common_msg:1005}</td><td>{USERFIELD}</td>
+</tr>
+<tr>
+<td colspan="2" >&nbsp;</td>
+</tr>
+<tr>
+<td >&nbsp;&nbsp;{common_msg:1006}</td><td>{PASSFIELD}</td>
+</tr>
+<tr>
+<td colspan="2" >&nbsp;</td>
+</tr>
+{if(${MIGRATE}!="")}
+<tr>
+<td >&nbsp;&nbsp;{common_msg:3003}</td><td>{MIGRATE}</td>
+</tr>
+<tr>
+<td colspan="2" >&nbsp;</td>
+</tr>
+{endif}
+<tr>
+<td >&nbsp;</td>
+<td>{SUBMIT}</td>
+</tr>
+<tr>
+<td colspan="2" >&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" >&nbsp;&nbsp;<span class="smalltext">{EDTMESS}</span></td>
+</tr>
+<tr>
+<td colspan="2" >&nbsp;</td>
+</tr>
+</table>
+{FORMCLOSE}</td>
+<tr >
+<td colspan="3" >&nbsp;</td>
+</tr>
+</table>
+
+
+{FOOTER}
+</body>
+</html>

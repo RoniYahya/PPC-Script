@@ -1,0 +1,274 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>{ENGINE_NAME} -  {publisher_msg:1069}</title>
+<meta http-equiv="Content-Type" content="text/html; charset={ENCODING}">
+<link href="ppc-style.css" rel="stylesheet" type="text/css">
+<script language='javascript' src='FusionCharts/FusionCharts.js'></script>
+</head>
+
+<body>
+{TABS}
+<table width="{PAGEWIDTH}"  class="admainbox"  border="0"  cellpadding="0" cellspacing="0">
+
+<tr align="center">
+<th colspan="2"  align="center"><span class="styleTitle" {COLORTHEME4} >{BID_TYPE}</span></th>
+</tr>
+    <tr>
+      <td></td>
+      <td>&nbsp;</td>
+    </tr>
+<tr  class="headingbar" {COLORTHEME3} align="center">
+<td colspan="2" align="left" > {publisher_msg:1162}</td>
+</tr>
+<tr >
+<tr><td colspan="2">&nbsp;</td></tr>
+<tr>
+<td colspan="2">
+<form name="form1" method="get" action="publisher-ad-unit-statistics.php">
+<table class="tableT">
+<tr>
+<td>
+{publisher_msg:1146}
+</td>
+<td>
+                <select name="statistics" id="statistics">
+              <option value="day" {if($show=="day")}selected{endif}>{publisher_msg:10110}</option>
+              <option value="week"  {if($show=="week")}selected{endif}>{publisher_msg:10111}</option>
+              <option value="month"   {if($show=="month")}selected{endif}>{publisher_msg:10112}</option>
+              <option value="year"   {if($show=="year")}selected{endif}>{publisher_msg:10113}</option>
+<option value="all" {if($show=="all")}selected{endif}>{publisher_msg:10114}</option>
+</select>
+</td>
+<td>
+<input type="hidden" name="bid" value="{BID}">
+<input type="submit" name="Submit" value="Show Statistics">
+</td>
+</tr>
+</table></form>
+</td>
+</tr>
+
+
+<tr>
+  <td colspan="2" >&nbsp;</td>
+  </tr>
+<tr>
+<td  >{publisher_msg:1163}</td>
+<td ><span class="pagetable_activecell" {COLORTHEME5}>{CLICK}</span></td>
+</tr>
+<tr>
+<td >&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+{if(${BID}!=-1)}
+<tr>
+<td >{publisher_msg:1164}</td>
+<td><span class="pagetable_activecell" {COLORTHEME5}>{IMP}</span></td>
+</tr>
+<tr>
+<td >&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td >{publisher_msg:1165}</td>
+<td><span class="pagetable_activecell"{COLORTHEME5}>{CTR} %</span></td>
+</tr>
+{endif}
+<tr>
+<td >&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td >{publisher_msg:1166} </td>
+<td><span class="pagetable_activecell" {COLORTHEME5}>{fn:moneyFormat(${NET})}</span></td>
+</tr>
+
+<tr>
+<td >&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td >{publisher_msg:9002} </td>
+<td><span class="pagetable_activecell" {COLORTHEME5}>{fn:numberFormat(getECPM(${NET},${IMP}))}</span></td>
+</tr>
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+<!--<tr>
+<td colspan="2">{if($show!="day")}<strong>{publisher_msg:1122}</strong><span class="info"> {publisher_msg:1147} </span><br>{endif}&nbsp;</td>
+</tr>-->
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+<tr>
+
+   <td colspan="2"  width="100%">
+		<table width="100%"  border="0" cellspacing="0"		cellpadding="0"		style="border:1px solid #A1C3C9;">
+			<tr>
+				<td valign="top">
+				<table width="100%" border="0" cellpadding="0" cellspacing="0"					class="indexmenus">
+					<tr>
+						<td align="center" id="index1_li_1" width="50%"><a
+							href="javascript:index1_ShowTab(1);">{publisher_msg:10106}</a></td>
+						<td align="center" id="index1_li_2" width="50%"><a
+							href="javascript:index1_ShowTab(2);">{publisher_msg:10107}</a></td>
+
+					</tr>
+				</table>
+
+				</td>
+			</tr>
+			<tr>
+			<td colspan="2">
+				<div style="clear: both"></div>
+			   <div id="index1_div_1">
+			   <table width="100%">
+			   <tr>
+		<td width="93%">&nbsp;</td>
+		<td width="3%">&nbsp;</td>
+	</tr>
+
+ 	<tr>
+		<td colspan="2" class="inserted">&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td colspan="2" class="inserted"><?php
+		$FC->renderChart();
+		
+	?> &nbsp;</td>
+	</tr>
+
+	<tr>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+ 	<tr>
+		<td colspan="2" class="inserted">&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td colspan="2" class="inserted"><?php
+		
+		$FD->renderChart();
+	?> &nbsp;</td>
+	</tr>
+
+	<tr>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+    <td colspan="2">&nbsp;</td>
+  </tr>
+			   </table>
+			   </div>
+			
+			<div  style="display: ;" id="index1_div_2" >
+			
+			    <table width="100%">
+<tr>
+<td width="20%"><span class="pagetable_activecell" >{publisher_msg:8907}</span></td>
+<td width="18%"><span class="pagetable_activecell">{publisher_msg:8908}</span></td>
+<td width="18%"><span class="pagetable_activecell">{publisher_msg:8883}</span></td>
+
+<td width="18%"><span class="pagetable_activecell">{publisher_msg:1312}(%)</span></td>
+<td width="18%"><span class="pagetable_activecell">{publisher_msg:1167} ({CURRENCY})</span></td>
+<td width="18%"><span class="pagetable_activecell">{publisher_msg:9002}</span></td></tr>
+<tr>
+<td colspan="6">&nbsp;</td>
+</tr>
+{LOOP(STATISTICS)-STARTLOOP}
+<tr height="25">
+<td>
+{if($flag_time==0)}
+{fn:dateFormat(${LOOP(STATISTICS)-LOOPKEY}-1,"%b %d")}
+{elseif($flag_time==1)}
+{fn:dateFormat(${LOOP(STATISTICS)-LOOPKEY}-86400,"%b")}
+{elseif($flag_time==2)}
+{fn:dateFormat(${LOOP(STATISTICS)-LOOPKEY}-86400,"%Y")}
+{else}
+{fn:dateFormat(${LOOP(STATISTICS)-LOOPKEY},"%d %b %l %p")}
+{endif}
+
+</td>
+<td>{fn:numberFormat(${LOOP(STATISTICS)-IMP},0)}</td>
+<td>{fn:numberFormat(${LOOP(STATISTICS)-CLK},0)}</td>
+
+<td>{fn:numberFormat(getCTR(${LOOP(STATISTICS)-CLK},${LOOP(STATISTICS)-IMP}))}</td>
+<td>{fn:numberFormat(${LOOP(STATISTICS)-MONEY})}</td>
+<td>{fn:numberFormat(getECPM(${LOOP(STATISTICS)-MONEY},${LOOP(STATISTICS)-IMP}))}</td>
+</tr>
+{LOOP(STATISTICS)-ENDLOOP} 
+</table>
+			   
+			   </div>
+			
+			</td>
+			</tr>
+		</table>
+
+
+   </td>
+</tr>
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2">
+
+</td>
+</tr>
+
+
+
+
+<tr>
+  <td  colspan="2" class="info" align="left">&nbsp;</td>
+</tr>
+{if(${BID}!=-1)}
+<tr>
+  <td  colspan="2" class="info" align="left">{if($adserver_upgradation_date!=0)} {MSG11} {endif}</td>
+</tr>
+{endif}
+
+</table>
+
+<script language="javascript" type="text/javascript">
+function index1_ShowTab(id)
+{
+
+	if(id=='1')
+	{
+		document.getElementById('index1_div_1').style.display="";
+		document.getElementById('index1_div_2').style.display="none";
+		
+		document.getElementById("index1_li_1").style.background="url(images/li_bgselect.jpg) repeat-x";
+		document.getElementById("index1_li_2").style.background="url(images/li_bgnormal.jpg) repeat-x";
+		
+	}
+	if(id=='2')
+	{
+	    
+		document.getElementById('index1_div_1').style.display="none";
+		document.getElementById('index1_div_2').style.display="";
+		
+		document.getElementById("index1_li_2").style.background="url(images/li_bgselect.jpg) repeat-x";
+		document.getElementById("index1_li_1").style.background="url(images/li_bgnormal.jpg) repeat-x";
+		
+		
+	}
+    
+}
+index1_ShowTab(1);
+</script>
+{FOOTER}
+</body>
+</html>
+

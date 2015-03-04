@@ -1,0 +1,177 @@
+<style>
+input[type="submit"], input[type="button"], a.homelink,
+.menu li:hover a  {background-color:{COLORTHEME1}}
+{if($GLOBALS['direction']=="rtl")}
+.menu li,.menu dd,.headbar{ float: right}
+.stylelang div{ float: left}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p,blockquote, th, table, td {direction:rtl;}
+.left { float:right}
+.right { float:left}
+{endif}
+</style>
+
+<script type="text/javascript" src="js/common.js"></script>
+
+<!--...............................Adserver5.4..........................-->
+
+<style>
+
+body {
+background:url({BANNERS}/logo/{PUBLICIMAGE}) no-repeat center 0 #00CC33 {BGTYPE};
+}
+input[type="submit"],
+input[type="button"] { background:{COLORTHEMEB}; border:0px; padding:3px 10px;}
+
+</style>
+
+<link href="css/nesote-lib.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+<SCRIPT LANGUAGE="JavaScript">
+		var ints=self.setInterval(function(){check_online_status()},2000);
+		function check_online_status(){
+			$.ajax({
+					  cache:false,
+					  type:"post",
+						url: "check_online_status.php",
+						success: function(data)
+							 {
+							 if(data==1)
+							 {
+							 ;
+							var data="<a href=\" javascript:popUp('chats/livechat.php')\"><img src='{BANNERS}/chat_status/{ONLINE}'></a>";	
+							 $('.chatlogo').html(data);
+							}
+							else
+							{
+							
+							var data="<a href=\"ppc-contact-us.php\" ><img src='{BANNERS}/chat_status/{OFFLINE}'></a>";	
+							 $('.chatlogo').html(data);
+							}
+						}
+					
+				});
+
+		}
+function popUp(URL) {
+day = new Date();
+id = day.getTime();
+eval("page" + id + " = window.open(URL, '" + id + "', 'toolbar=0,scrollbars=1,location=0,statusbar=0,menubar=0,resizable=1,width=300,height=480,left = 220,top = 150');");
+}
+</script>
+<!--...............................Adserver5.4..........................-->
+<div class="mainwraper" style="width:{PAGEWIDTH}"> 
+
+<div class="header1">
+
+<div class="logoDiv left">
+{if(${LOGODISPLAY} == "iat")}<span class="styleImage"><a href="{HOME}" ><img src="{BANNERS}/logo/{LOGO}"></a><a href="{HOME}" >{ENGINE_NAME}</a></span>{endif}
+{if(${LOGODISPLAY} == "io")}<span class="styleImage"><a href="{HOME}" ><img src="{BANNERS}/logo/{LOGO}"></a></span>{endif}
+{if(${LOGODISPLAY} == "to")}<span class="styleImage"><a href="{HOME}" >{ENGINE_NAME}</a></span>{endif}
+</div>
+<div class="right">
+{if(${CHATVISIBLE}==1)} 
+<div class="chatlogo right"  id="chatlogo">
+{if(${CHATSTATUS}==1)}
+  <a href="javascript:popUp('chats/livechat.php')">
+<img src="{BANNERS}/chat_status/{ONLINE}">
+</a>
+{else}
+  <a href="ppc-contact-us.php">
+<img src="{BANNERS}/chat_status/{OFFLINE}">
+</a>
+{endif}
+</div>
+{endif}
+<div class="languages"> {LANGUAGE}</div>
+ 
+</div>
+
+
+ </div>
+
+	
+<div class="header2" style="width:{PAGEWIDTH};">
+	
+<!-- 	<div class="{LEFTCLASS}" style="background-color:{COLORTHEME1};">&nbsp;</div>-->
+
+
+<div class="headbar" >
+
+	 
+	<ul class="menu" style="background:{COLORTHEME1};">
+
+	<li>
+<!--[if lte IE 6]><a href="#nogo"><table><tr><td><![endif]-->
+    <dl class="menulinks" >
+	<dt ><a href="{HOME}" >{common_msg:1045}</a></dt>
+    </dl>
+<!--[if lte IE 6]></td></tr></table></a><![endif]-->	
+</li>
+
+<li>
+<!--[if lte IE 6]><a href="#nogo"><table><tr><td><![endif]-->
+    <dl class="menulinks" >
+	<dt  ><a href="{USERLOGIN}" >{common_msg:1046}</a></dt>
+    </dl>
+<!--[if lte IE 6]></td></tr></table></a><![endif]-->	
+</li>
+
+<li>
+<!--[if lte IE 6]><a href="#nogo"><table><tr><td><![endif]-->
+    <dl class="menulinks">
+	<dt ><a href="{PUBLISHERLOGIN}" >{common_msg:1047}</a></dt>
+    </dl>
+ <!--[if lte IE 6]></td></tr></table></a><![endif]-->  
+</li>
+
+{if(${SINGLEMODE} == "1")}
+<li>
+<!--[if lte IE 6]><a href="#nogo"><table><tr><td><![endif]-->
+<dl class="menulinks">
+<dt ><a href="#nogo">{common_msg:1048}</a></dt>
+<dd >
+<a href="{COMREG}" >{common_msg:1052}</a>
+<a href="{COMLOGIN}" >{common_msg:1051}</a></dd>    
+</dl>
+<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+{endif}
+	
+<li>
+<!--[if lte IE 6]><a href="#nogo"><table><tr><td><![endif]-->	
+    <dl class="menulinks" >
+<dt  ><a href="#nogo">{common_msg:1050}</a></dt>
+<dd><a href="{ADVFAQ}" >{common_msg:1053}</a>
+<a href="{PUBFAQ}" >{common_msg:1054}</a></dd>    
+</dl>
+<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+
+<li>
+<!--[if lte IE 6]><a href="#nogo"><table><tr><td><![endif]-->    
+  <dl class="menulinks">
+  <dt  ><a href="{CONTACT}" >{common_msg:1049}</a></dt>
+  </dl>
+<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+
+
+
+
+</ul>
+
+    </div>
+	
+<!--	<div class="{RIGHTCLASS}"  style="background-color:{COLORTHEME1};" >&nbsp;</div>-->
+	
+	</div>
+	
+	
+  
+   </div>
+   
+<div style="clear:both"></div>
+<div class="mainContentDiv">
+<div class="mainwraper" style="width:{PAGEWIDTH}"> 
+
+

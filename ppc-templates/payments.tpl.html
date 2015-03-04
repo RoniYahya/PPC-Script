@@ -1,0 +1,221 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>{ENGINE_NAME} - {advertiser_msg:1200}</title>
+<meta http-equiv="Content-Type" content="text/html; charset={ENCODING}">
+<link href="ppc-style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+{TABS}
+<table  width="{PAGEWIDTH}" class="admainbox"   border="0"  cellpadding="0" cellspacing="0">
+<tr>
+<th height="40" colspan="3" ><span class="styleTitle" {COLORTHEME4} >{advertiser_msg:10010}</span></th>
+</tr>
+
+
+
+<tr class="headingbar" {COLORTHEME3}  height="22">
+<td colspan="3" >{advertiser_msg:1202}</td>
+</tr>
+
+
+
+<tr  height="40">
+<td colspan="3" > 
+
+<form action="payments.php" method="get">
+
+<table>
+<tr>
+<td style="vertical-align:middle">{advertiser_msg:10005}<td><td style="vertical-align:middle"><select name="type" >{OPTION}</select></td><td style="vertical-align:middle; padding:0 10px"> <input type="submit" value="{advertiser_msg:10006}"></td> </tr>
+</table> 
+
+</form>
+</td>
+</tr>
+<tr>
+<td colspan="3">&nbsp;</td>
+</tr>
+{if($total !=0)}
+<tr>
+<td colspan="3">{SHOW}<span style="float:right">{HEADER}</span></td>
+</tr>
+<tr>
+<td colspan="3">&nbsp;</td>
+</tr>
+{endif}
+
+<tr>
+<td colspan="3">
+
+
+{if($type ==1)}
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td width="29%"   ><strong>{advertiser_msg:1211}({CURRENCY_SYMBOL})</strong></td>
+<td width="34%"  ><strong>{advertiser_msg:1207}</strong></td>
+<td width="37%"  ><strong>{advertiser_msg:1208} </strong></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+
+{LOOP(ADS)-STARTLOOP} 
+<tr>
+<td>{fn:numberFormat(${LOOP(ADS)-AMOUNT})} </td>
+<td>{LOOP(ADS)-EMAIL}</td>
+<td>{fn:dateTimeFormat(strtotime(${LOOP(ADS)-TIME}))}</td>
+</tr>
+
+{LOOP(ADS)-ENDLOOP}    
+</table>
+{endif} <!--  END OF PAYPAL  -->
+
+{if($type ==2)}
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr height="30px">
+<td width="14%"  ><strong>{advertiser_msg:1300} </strong></td>
+<td width="29%"  ><strong>{advertiser_msg:1301}({CURRENCY_SYMBOL})</strong></td>
+<td width="20%"  ><strong>{advertiser_msg:1302} </strong></td>
+<td width="37%"  ><strong>{advertiser_msg:1303} </strong></td>
+</tr>
+
+
+{LOOP(AUTH)-STARTLOOP} 
+<tr height="20px">
+  <td>{LOOP(AUTH)-INVOICE}</td>
+<td>{fn:numberFormat(${LOOP(AUTH)-AMOUNT})} </td>
+<td>{LOOP(AUTH)-TXID}</td>
+<td>{fn:dateTimeFormat(strtotime(${LOOP(AUTH)-TIME}))}</td>
+</tr>
+{LOOP(AUTH)-ENDLOOP} 
+</table>
+
+{endif} <!--  END OF AUTH PAYMENT  -->
+
+
+{if($type ==3 || $type ==4  )}
+<table width="100%"  border="0"  cellpadding="0" cellspacing="0">
+<tr height="30px">
+<td width="20%"><strong>{FIELD}</strong></td>
+<td width="15%"><strong>{advertiser_msg:1351}</strong></td>
+<td width="20%"><strong>{advertiser_msg:1352}</strong></td>
+<td width="15%"><strong>{advertiser_msg:1301}({CURRENCY_SYMBOL})</strong></td>
+<td width="15%"><strong>{advertiser_msg:1353}</strong></td>
+<td width="14%"><strong>{advertiser_msg:1354} </strong></td>
+</tr>
+
+{LOOP(CHECK)-STARTLOOP} 
+<tr height="20px">
+<td>{LOOP(CHECK)-CHEKNO}
+</td>
+<td>{LOOP(CHECK)-BANK}</td>
+<td>{LOOP(CHECK)-NAME}</td>
+<td>{fn:numberFormat(${LOOP(CHECK)-AMT})} {if(${LOOP(CHECK)-STATUS}!=3  &&  ${LOOP(CHECK)-CURRENCY}==0)} (Non {CURRENCY_SYMBOL}) {endif}</td>
+<td>{fn:dateTimeFormat(${LOOP(CHECK)-DATE})}</td>
+<td>{if(${LOOP(CHECK)-STATUS}==0)}{advertiser_msg:1244}
+{elseif(${LOOP(CHECK)-STATUS}==1)}{advertiser_msg:8941}
+{elseif(${LOOP(CHECK)-STATUS}==2)}{advertiser_msg:8942}
+{elseif(${LOOP(CHECK)-STATUS}==3)}{advertiser_msg:8943}
+{else}{advertiser_msg:8944}
+{endif}		  </td>
+</tr>
+{LOOP(CHECK)-ENDLOOP} 
+  
+
+   <tr>
+<td  colspan="6">
+<strong>{advertiser_msg:1355}</strong><br>
+1.{advertiser_msg:1356}<br>
+2.{advertiser_msg:1357}<br>
+3.{advertiser_msg:1358}<br>
+4.{EMESS}.<br>
+5.{advertiser_msg:1361}<br>
+</td>
+</tr>
+
+</table>      
+{endif}
+
+
+
+{if( $type ==5)}
+<table width="100%"  border="0"  cellpadding="0" cellspacing="0">
+<tr height="30px">
+ <td width="31%"><strong>{advertiser_msg:1301}({CURRENCY_SYMBOL})</strong></td>
+<td width="32%"><strong>{advertiser_msg:1353}</strong></td>
+<td width="37%"><strong>{advertiser_msg:1354} </strong></td>
+</tr>
+
+{LOOP(TRANSFER)-STARTLOOP} 
+<tr height="20px">
+ <td>{fn:numberFormat(${LOOP(TRANSFER)-AMT})} {if(${LOOP(TRANSFER)-STATUS}!=3  &&  ${LOOP(TRANSFER)-CURRENCY}==0)} (Non {CURRENCY_SYMBOL}) {endif}</td>
+<td>{fn:dateTimeFormat(${LOOP(TRANSFER)-DATE})}</td>
+<td>{if(${LOOP(TRANSFER)-STATUS}==0)}{advertiser_msg:1244}
+{elseif(${LOOP(TRANSFER)-STATUS}==1)}{advertiser_msg:8941}
+{elseif(${LOOP(TRANSFER)-STATUS}==2)}{advertiser_msg:8942}
+{elseif(${LOOP(TRANSFER)-STATUS}==3)}{advertiser_msg:8943}
+{else}{advertiser_msg:8944}
+{endif}		  </td>
+</tr>
+{LOOP(TRANSFER)-ENDLOOP} 
+  
+
+   <tr>
+
+
+
+</table>      
+{endif}
+
+
+{if($type ==6)}
+ <table width="100%"  border="0"  cellpadding="0" cellspacing="0">
+ <tr height="30px">
+<td width="20%"><strong>{advertiser_msg:1211}({CURRENCY_SYMBOL})</strong></td>
+<td width="20%"><strong>{advertiser_msg:1212}</strong></td>
+<td width="20%"><strong>{advertiser_msg:1199}</strong></td>
+<td width="20%"><strong>{advertiser_msg:1208} </strong></td>
+</tr>
+
+ {LOOP(OTH)-STARTLOOP} 
+<tr height="20px">
+<td>{fn:numberFormat(${LOOP(OTH)-AMT})}</td>
+<td>{if(${LOOP(OTH)-TYPE}==0)}Bonus balance{else}Account balance{endif}</td>
+<td>{LOOP(OTH)-COMMENT}</td>
+<td>{fn:dateTimeFormat(${LOOP(OTH)-DATE})}</td>
+</tr>
+
+{LOOP(OTH)-ENDLOOP}       
+ </table> 
+
+{endif} <!--  END OF other PAYMENT  -->
+
+
+
+</td>
+</tr>
+{if($total !=0)}
+<tr>
+<td colspan="3">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="3">{SHOW}<span style="float:right">{HEADER}</span></td>
+</tr>
+{endif}
+<tr>
+<td colspan="3">&nbsp;</td>
+</tr>
+
+
+ 
+
+ </table>
+{FOOTER}
+</body>
+</html>

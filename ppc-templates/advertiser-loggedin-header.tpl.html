@@ -1,0 +1,183 @@
+
+<style>
+input[type="submit"], input[type="button"], a.homelink,
+.menu li:hover a  {background-color:{COLORTHEME1}}
+{if($GLOBALS['direction']=="rtl")}
+.menu li,.headbar{ float: right}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p,blockquote, th, table, td {direction:rtl;text-align:right}
+.left { float:right}
+.right { float:left}
+.languages { left:260px; right:auto}
+.userDets a { border-right: 1px solid #CCCCCC;  margin-right: 5px;  padding: 0 5px 0 0; border-left:0}
+{endif}
+</style>
+
+
+<!--...............................Adserver5.4..........................-->
+<style>
+body {
+background:url({BANNERS}/logo/{PUBLICIMAGE}) no-repeat center 0 #00CC33 {BGTYPE};
+}
+
+
+</style>
+<link href="css/nesote-lib.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="chats/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+$(window).load(function(){	$("body").addClass("accountPage");
+});
+var ints=self.setInterval(function(){check_online_status()},2000);
+		function check_online_status(){
+			$.ajax({
+					  cache:false,
+					  type:"post",
+						url: "check_online_status.php",
+						success: function(data)
+							 {
+							 if(data==1)
+							 {
+							var data="<a href=\" javascript:popUp('chats/livechat.php')\"><img src='{BANNERS}/chat_status/{ONLINE}'></a>";	
+							 $('.chatlogo').html(data);
+							}
+							else
+							{
+								var data="<a href=\"ppc-contact-us.php\" ><img src='{BANNERS}/chat_status/{OFFLINE}'></a>";	
+							 $('.chatlogo').html(data);
+							}
+						}
+					
+				});
+
+		}
+function popUp(URL) {
+day = new Date();
+id = day.getTime();
+eval("page" + id + " = window.open(URL, '" + id + "', 'toolbar=0,scrollbars=1,location=0,statusbar=0,menubar=0,resizable=1,width=300,height=480,left = 220,top = 150');");
+}
+</script>
+<!--...............................Adserver5.4..........................-->
+<script type="text/javascript" src="js/common.js"></script>
+
+<div class="mainwraper" style="width:{PAGEWIDTH}"> 
+
+<div class="header1" id="headbox">
+
+<div class="logoDiv left"  >
+{if(${LOGODISPLAY} == "iat")}<span class="styleImage"><a href="{HOME}" ><img src="{BANNERS}/logo/{LOGO}"></a><a href="{HOME}" >{ENGINE_NAME}</a></span>{endif}
+{if(${LOGODISPLAY} == "io")}<span class="styleImage"><a href="{HOME}" ><img src="{BANNERS}/logo/{LOGO}"></a></span>{endif}
+{if(${LOGODISPLAY} == "to")}<span class="styleImage"><a href="{HOME}" >{ENGINE_NAME}</a></span>{endif}
+</div>
+
+<div class="right">
+
+{if(${CHATVISIBLE}==1)} 
+<div class="chatlogo right"  id="chatlogo">
+{if(${CHATSTATUS}==1)}
+  <a href="javascript:popUp('chats/livechat.php')">
+<img src="{BANNERS}/chat_status/{ONLINE}">
+</a>
+{else}
+  <a href="ppc-contact-us.php">
+<img src="{BANNERS}/chat_status/{OFFLINE}">
+</a>
+{endif}
+</div>
+{endif}
+
+<div class="languages"><div class="userDets">{USER11} <a class="logouta" href="logout.php">{advertiser_msg:1337}</a></div>  {LANGUAGE}</div>
+
+
+</div>
+
+
+</div>
+
+
+<div class="header2" style="width:{PAGEWIDTH}">	
+<div class="headbar" >
+
+<ul class="menu" style="background-color:{COLORTHEME1};">
+
+
+<li>
+<!--[if lte IE 6]><a href="#nogo"><table><tr><td><![endif]-->
+<dl class="menulinks">
+
+
+{if($GLOBALS['single_account_mode']==0 || ($GLOBALS['single_account_mode']==1 && ${COM_ACCOUNT}==0))}
+
+
+<dt ><a href="ppc-user-control-panel.php">{advertiser_msg:1373}</a></dt>
+
+{else}
+<dt><a href="#nogo">{advertiser_msg:1373}</a></dt>
+<dd><a href="control-panel.php" >{advertiser_msg:10133}</a>
+<a href="ppc-user-control-panel.php" >{advertiser_msg:10134}</a>
+<a href="ppc-publisher-control-panel.php" >{advertiser_msg:10135}</a></dd>
+
+{endif}
+</dl>
+<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+
+	
+<li>
+<!--[if lte IE 6]><a href="#nogo"><table><tr><td><![endif]-->
+<dl class="menulinks">
+<dt ><a href="#nogo">{advertiser_msg:1375}</a></dt>
+<dd><a href="create-new-ad.php" >{advertiser_msg:8892}</a>
+<a href="manage-ads.php" >{advertiser_msg:1266}</a>
+<a href="ppc-find-ad.php" >{advertiser_msg:5000}</a></dd>
+</dl>
+<!--[if lte IE 6]></td></tr></table></a><![endif]-->	
+</li>
+
+<li>
+<!--[if lte IE 6]><a href="#nogo"><table><tr><td><![endif]-->
+<dl class="menulinks">
+<dt  ><a href="#nogo"> {advertiser_msg:1282}</a></dt>
+
+<dd><a href="ad-statistics.php" >{advertiser_msg:1376}</a>
+<a href="advertiser-ad-statistics.php">{advertiser_msg:1281}</a>
+<a href="geographical-distribution.php">{advertiser_msg:10161}</a></dd>
+
+</dl>
+<!--[if lte IE 6]></td></tr></table></a><![endif]-->	
+</li>
+
+<li>
+<!--[if lte IE 6]><a href="#nogo"><table><tr><td><![endif]-->
+<dl class="menulinks">
+<dt ><a href="#nogo">{advertiser_msg:1068}</a></dt>
+
+<dd><a href="ppc-user-add-funds.php" >{advertiser_msg:1087}</a>
+<a href="payments.php">{advertiser_msg:1078}</a></dd>
+
+</dl>
+<!--[if lte IE 6]></td></tr></table></a><![endif]-->	
+</li>
+
+<li>
+<!--[if lte IE 6]><a href="#nogo"><table><tr><td><![endif]-->
+<dl class="menulinks">
+<dt  ><a href="ppc-support-desk.php">{advertiser_msg:1213}</a></dt>
+</dl>
+<!--[if lte IE 6]></td></tr></table></a><![endif]-->	
+</li>
+
+</ul>
+
+</div>
+</div>
+
+  
+</div>
+   
+   
+   
+   
+<div style="clear:both"></div>
+<div class="mainContentDiv">
+<div class="mainwraper" style="width:{PAGEWIDTH}"> 
+
+

@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>{ENGINE_NAME} -{publisher_msg:1073}</title>
+<meta http-equiv="Content-Type" content="text/html; charset={ENCODING}">
+<style type="text/css">
+<!--
+.style5 {color: #000000}
+-->
+</style>
+
+<style type="text/css">
+<!--
+.style6 {color: #333333}
+.style7 {
+	font-size: 14px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #003366;
+	font-weight: bold;
+}
+-->
+</style>
+</head>
+<link href="ppc-style.css" rel="stylesheet" type="text/css">
+<body>
+{TABS}
+<table width="{PAGEWIDTH}"  border="0" class="admainbox" cellpadding="0" cellspacing="0">
+  <tr>
+    <td colspan="6" align="center"></td>
+  </tr>
+  <tr>
+    <th height="45" colspan="6" scope="row"><span  class="styleTitle" {COLORTHEME4} >  {publisher_msg:1073} </span></th>
+  </tr>
+
+  <tr  class="headingbar" {COLORTHEME3} height="22">
+    <td colspan="6"  scope="row">{publisher_msg:1145}</td>
+  </tr>
+  <tr>
+    <td width="218">&nbsp;</td>
+    <td width="202">&nbsp;</td>
+    <td width="77">&nbsp;</td>
+    <td width="15">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="6"><br>
+      <table width="100%"  border="0" align="left" cellpadding="0" cellspacing="0">
+        <tr>
+          <td colspan="7" ><form name="form1" method="get" action="referral-statistics.php">
+            {publisher_msg:1146}
+<select name="statistics" id="statistics">
+  <option value="day"  {if($show=="day")} selected {endif}>{publisher_msg:10110}</option>            
+<option value="week"  {if($show=="week")} selected {endif}>{publisher_msg:10111}</option>
+<option value="month"  {if($show=="month")} selected {endif}>{publisher_msg:10112}</option>
+<option value="year"  {if($show=="year")} selected {endif}>{publisher_msg:10113}</option>
+<option value="all"  {if($show=="all")} selected {endif}>{publisher_msg:10114}</option>
+</select>
+<input type="submit" name="Submit" value="Show Statistics">
+          </form></td>
+        </tr>
+        <tr>
+          <td width="9%">&nbsp;</td>
+          <td width="45%">&nbsp;</td>
+          <td width="14%">&nbsp;</td>
+          <td width="10%">&nbsp;</td>
+          <td width="7%">&nbsp;</td>
+          <td width="7%">&nbsp;</td>
+          <td width="8%">&nbsp;</td>
+        </tr>
+ 
+		 <!--<tr>
+		   <td  colspan="7" >{if($show!="day")}<strong>{publisher_msg:1122}</strong><span class="info">{publisher_msg:1147} </span><br>{endif}&nbsp;</td>
+	    </tr>-->
+		 <tr>
+          <td height="20" colspan="7" >{publisher_msg:1148}{SHOWSTATUS}</td>
+        </tr>
+    </table>      
+      </td>
+  </tr>
+  <tr>
+    <td align="center">&nbsp; </td>
+    <td colspan="2" align="center">&nbsp;</td>
+    <td colspan="3">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="left">{publisher_msg:1149}</td>
+    <td colspan="2" align="left">:{CLICK}</td>
+    <td colspan="3">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="left">&nbsp;</td>
+    <td colspan="2" align="center">&nbsp;</td>
+    <td colspan="3">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="left">{publisher_msg:1150} </td>
+    <td colspan="2" align="left">:{NET}</td>
+    <td colspan="3">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="left">&nbsp;</td>
+    <td colspan="2" align="left">&nbsp;</td>
+    <td colspan="3">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="left">{publisher_msg:1151}</td>
+    <td colspan="2" align="left">:{ADV}</td>
+    <td colspan="3">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="left">&nbsp;</td>
+    <td colspan="2" align="left">&nbsp;</td>
+    <td colspan="3">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="left">{publisher_msg:1152}</td>
+    <td colspan="2" align="left">:{PUB}</td>
+    <td colspan="3">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="left">&nbsp;</td>
+    <td colspan="2" align="left">&nbsp;</td>
+    <td colspan="3">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="left"><span class="styleTitle" {COLORTHEME4} >{publisher_msg:1153}</span></td>
+    <td colspan="2" align="left">&nbsp;</td>
+    <td colspan="3">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="left">&nbsp;</td>
+    <td colspan="2" align="left">&nbsp;</td>
+    <td colspan="3">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="left">{publisher_msg:1154}</td>
+    <td colspan="2" align="left">: {AEARNING}</td>
+    <td colspan="3">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="left">&nbsp;</td>
+    <td colspan="2" align="left">&nbsp;</td>
+    <td colspan="3">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="left">{publisher_msg:1155}</td>
+    <td colspan="2" align="left">: {PEARNING}</td>
+    <td colspan="3">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="center">&nbsp;</td>
+    <td colspan="2" align="left">&nbsp;</td>
+    <td colspan="3">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="center">&nbsp;</td>
+    <td colspan="2" align="left">&nbsp;</td>
+    <td colspan="3">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="6" >&nbsp;</td>
+  </tr>
+</table>
+{FOOTER}
+</body>
+</html>

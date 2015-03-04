@@ -1,0 +1,231 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>{ENGINE_NAME} - {publisher_msg:1000}</title>
+<meta http-equiv="Content-Type" content="text/html; charset={ENCODING}">
+<meta name="keywords" content="{META_KEYWORDS}">
+<meta name="description" content="{META_DESC}">
+<link href="ppc-style.css" rel="stylesheet" type="text/css">
+</head>
+<script language="JavaScript">
+function openBrWindow(theURL,winName) 
+{ //v2.0
+window.open(theURL,winName,'width=550,height=550,toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0');
+}
+</script>
+
+<script type="text/javascript">
+
+var xmlhttp;
+function show()
+{
+xmlhttp=GetXmlHttpObject();
+if (xmlhttp==null)
+  {
+  alert ("Browser does not support HTTP Request");
+  return;
+  }
+
+ var uname=document.getElementById("un").value;
+ var url="uncheck.php";
+   url=url+"?un="+uname;
+   url=url+"&type=2";
+     
+xmlhttp.onreadystatechange = small;
+xmlhttp.open("GET",encodeURI(url),true);
+xmlhttp.send(null);
+
+}
+
+
+
+function small()
+{
+document.getElementById("fg").style.display="block";
+//alert(xmlhttp.responseText);
+if (xmlhttp.readyState==4)
+{
+		document.getElementById("un").style.display="";
+		document.getElementById("dd").style.display="";
+//document.getElementById("ss").style.display="";
+document.getElementById("fg").style.display="none";
+document.getElementById("dd").innerHTML=xmlhttp.responseText;
+
+//
+}
+}
+
+function GetXmlHttpObject()
+{
+if (window.XMLHttpRequest)
+  {
+  // code for IE7+, Firefox, Chrome, Opera, Safari
+  return new XMLHttpRequest();
+  }
+if (window.ActiveXObject)
+  {
+  // code for IE6, IE5
+  return new ActiveXObject("Microsoft.XMLHTTP");
+  }
+return null;
+}
+function showimage()
+{
+
+document.getElementById('cap_img').innerHTML='<iframe src="random.php" marginheight="0" width="190" marginwidth="0" height="35" align="middle" frameborder="0" scrolling="no"></iframe>';
+
+}
+
+</script>
+<body>
+{TABS} 
+
+<table width="{PAGEWIDTH}" class="admainbox"   border="0"  cellpadding="0" cellspacing="0">
+<tr >
+<td height="40"><span class="styleTitle" {COLORTHEME4} >{ENGINE_TITLE}</span></td>
+</tr>
+<tr>
+<td  class="headingbar" {COLORTHEME3} >{MSG10}.</td>
+</tr>
+<tr>
+<td>{FORMSTART}
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="30%">&nbsp;</td>
+<td height="20">{publisher_msg:8938} </td>
+</tr>
+<tr>
+<td>{publisher_msg:1004}<span class="mandatory">*</span></td>
+<td>{USERFIELD}<div><span id="fg" style="display: none;white-space: nowrap;"><img src="images/loaddata.gif" width="15" height="15"></span><span id="dd" style="display: none;"></span></div></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>{publisher_msg:1005}<span class="mandatory">*</span></td>
+<td>{PASSFIELD} <span class="mandatory"></span><span class="info">({PASSMSG})</span></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>{publisher_msg:1006}<span class="mandatory">*</span></td>
+<td>{PASSFIELD2}</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>{publisher_msg:1007}<span class="mandatory">*</span></td>
+<td>{FNAMEFIELD}</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>{publisher_msg:1008}<span class="mandatory">*</span></td>
+<td>{LNAMEFIELD}</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>{publisher_msg:1009}<span class="mandatory">*</span></td>
+<td>{ADDRESSFIELD}</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>{publisher_msg:1010}<span class="mandatory">*</span></td>
+<td>{PHNOFIELD}</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>{publisher_msg:1011}<span class="mandatory">*</span></td>
+<td>{EMAILFIELD}</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>{publisher_msg:1012}<span class="mandatory">*</span></td>
+<td>{COUNTRYFIELD}</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>{publisher_msg:1013}<span class="mandatory">*</span></td>
+<td>{DOMAINFIELD}<span class="mandatory"> </span><span class="info">{publisher_msg:1014}</span></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>{publisher_msg:9003}</td>
+<td>{TAXIDENTIFICATION}<span class="mandatory"> </span></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+
+<tr>
+<td> {if(${PAYMODESTATUS}==1)}{publisher_msg:1358}{endif} {publisher_msg:1015}<span class="mandatory">*</span></td>
+<td>{PAYMODE}</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>{publisher_msg:1016}<span class="mandatory">*</span><br></td>
+<td>
+{IMG}&nbsp;<span id="cap_img"><iframe src="random.php" marginheight="0" width="190" marginwidth="0" height="35" align="middle" frameborder="0" scrolling="no"></iframe></span><a href="javascript:void(0);" onClick="showimage()" ><img src="images/refresh_cap.gif" title="RefreshImage" align="middle" ></a></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>{MSG11}</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td><input type="submit" name="Submit" value="{publisher_msg:1359}"></td>
+</tr>
+</table>
+{FORMCLOSE}
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr >
+<td ></td>
+</tr>
+</table>
+{FOOTER}
+</body>
+</html>

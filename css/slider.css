@@ -1,0 +1,50 @@
+.caroufredsel_wrapper { width:100% !important}
+			#carousel div {
+				text-align: center;
+				
+				height: 68px;
+				float: left;
+				position: relative;
+				margin:0 10px
+			}
+			#carousel div img {
+				border: none;
+			}
+			#carousel div span {
+				display: none;
+			}
+			#carousel div:hover span {
+				background-color: #333;
+				color: #fff;
+				font-family: Arial, Geneva, SunSans-Regular, sans-serif;
+				font-size: 14px;
+				line-height: 22px;
+				display: inline-block;
+				width: 100px;
+				padding: 2px 0;
+				margin: 0 0 0 -50px;
+				position: absolute;
+				bottom: 30px;
+				left: 50%;
+				border-radius: 3px;
+			}
+			
+			#donate-spacer {
+				height: 100%;
+			}
+			#donate {
+				width: 750px;
+				padding: 50px 75px;
+				margin: 0 auto;
+				overflow: hidden;
+			}
+			#donate p, #donate form {
+				margin: 0;
+				float: left;
+			}
+			#donate p {
+				width: 650px;
+			}
+			#donate form {
+				width: 100px;
+			}

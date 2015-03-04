@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>{ENGINE_NAME}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=">
+<link href="ppc-style.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="js/listsites.js"></script>
+<script type="text/javascript" src="js/livesearch.js"></script>
+<script  language="javascript" type="text/javascript" src="swfobject.js"></script>
+
+</head>
+
+<body>
+{TABS}
+
+<table  width="{PAGEWIDTH}" class="admainbox"   border="0"  cellpadding="0" cellspacing="0">
+
+<tr>
+<th height="42"><span class="styleTitle" {COLORTHEME4} > {publisher_msg:10516}</span></th>
+</tr>
+<tr>
+<td height="25" class="headingbar" {COLORTHEME3}  scope="row">{publisher_msg:10517}</td>
+</tr>
+<tr>
+<td>
+
+</td>
+</tr>
+<tr align="center">
+<td>&nbsp;</td>
+</tr>
+
+{FORMSTART}
+<tr>
+<td>
+<table width="100%"  border="0" align="center" cellpadding="0" cellspacing="0">
+<tr>
+<td width="78%"><strong>{publisher_msg:10538}</strong></td>
+<td width="1%">&nbsp;</td>
+<td width="21%">&nbsp;</td>
+</tr>
+<tr>
+<td></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+	<td colspan="3">
+    	<table class="tableT">
+        	<tr>
+
+<td ><input type="text" name="site" id="site" style="width:280px"><span class="style1"><strong> *</strong></span>
+</td>
+<td>
+<input type="button" class="submit" name="button" value="{publisher_msg:10515}" onClick="return showSites(this.value)"><span id="disp" style="display:none  ">&nbsp; <img style="padding:0px ;margin:0px;vertical-align:middle; " src="images/loaddata.gif"></img></span></td>
+</tr>
+        </table>
+    </td>
+</tr>
+<tr>
+   <td><div id="livesearch"  style="z-index:1000;position:absolute;_position:absolute;background-color:#CCCCCC;height: 90px;width:250px; display:none; overflow: scroll;" ></div>&nbsp;[example:www.youtsite.com]</td>
+    <td>&nbsp;</td><td>&nbsp;</td>
+  </tr>
+  <tr>
+<td colspan="3"></td>
+</tr>
+  
+<tr>
+<td colspan="3">&nbsp;</td>
+</tr>
+
+<tr><td colspan="3"><div id="errormsg">&nbsp;</div><div id="txtHint">&nbsp;</div></td>
+</tr>
+<tr><td colspan="3">
+</td>
+</tr>
+<tr>
+<td colspan="3">&nbsp;</td>
+</tr>
+</table>	
+{FORMCLOSE}
+</td>
+</tr>
+</table>
+
+
+
+{FOOTER}
+
+<script type="text/javascript">
+
+window.onload=loadSite();
+
+function verifyForm_NewSite()
+{
+//alert(document.NewSite.site.value);
+/*var test=document.NewSite.site.value;
+alert(test);*/
+if(document.NewSite.site.value=="")
+		 {	
+		alert("{publisher_msg:10505}");
+		document.NewSite.site.focus();
+		return false;
+		}
+		
+		
+}
+
+
+
+function url_delete(){
+var r=confirm("{publisher_msg:10511}");
+if (r==true)
+  {
+  return true;
+  }
+else
+  {
+  return false;
+  }
+}
+
+
+function verifyForm_NewSite1()
+	{
+	alert("kooi"); exit;
+		if(isNotNull(document.NewSite.site.value)==false)
+		 {	
+		alert("{publisher_msg:10505}");
+		document.NewKeywords.kwd1.focus();
+		return false;
+		}
+	
+		if(isPositive(document.NewKeywords.maxcv1.value)==false)
+		{	
+		alert("{advertiser_msg:10142}");
+		document.NewKeywords.maxcv1.focus();
+		return false;
+		}
+		if(isOverMin(document.NewKeywords.maxcv1.value)==false) 
+		{	
+		alert("{advertiser_msg:10143}{MIN_CLK_VAL}");
+		document.NewKeywords.maxcv1.focus();
+		return false;
+		}
+}
+
+
+</script>
+
+</body>
+</html>

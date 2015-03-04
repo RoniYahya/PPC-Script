@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>{ENGINE_NAME} - {advertiser_msg:8899}</title>
+<meta http-equiv="Content-Type" content="text/html; charset={ENCODING}">
+<link href="ppc-style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+{TABS}
+<table  width="{PAGEWIDTH}" class="admainbox"   border="0"  cellpadding="0" cellspacing="0">
+<tr>
+<td colspan="2" ></td>
+</tr>
+
+<tr>
+<th height="40" colspan="2" ><span class="styleTitle" {COLORTHEME4} >{advertiser_msg:8899}</span></th>
+</tr>
+<tr  class="headingbar" {COLORTHEME3} height="22">
+<td colspan="2" >{advertiser_msg:1257} </td>
+</tr>
+<tr>
+<td colspan="2"><br>
+<table width="100%"  border="0"  cellpadding="0" cellspacing="0" class="adStati">
+
+<tr >
+<td   align="left">
+{FORMSTART}
+
+{advertiser_msg:8900}
+
+<select name="statistics" id="statistics">
+              
+			  <option value="day"  {if($show=="day")}selected{endif}>{advertiser_msg:10124}</option>
+              <option value="week"  {if($show=="week")}selected{endif}>{advertiser_msg:10125}</option>
+              <option value="month"  {if($show=="month")}selected{endif}>{advertiser_msg:10126}</option>
+              <option value="year"  {if($show=="year")}selected{endif}>{advertiser_msg:10106}</option>
+              <option value="all"  {if($show=="all")}selected{endif}>{advertiser_msg:10107}</option>
+</select>
+
+{advertiser_msg:1354}
+
+<select name="status" id="status" >
+<option value="1"  {if($st=="1")}selected{endif}>{advertiser_msg:10112}</option>
+<option value="-1" {if($st=="-1")}selected{endif} >{advertiser_msg:10113}</option>
+<option value="0" {if($st=="0")}selected{endif}>{advertiser_msg:10114}</option>
+<option value="4" {if(($st!="1") && ($st!="0") && ($st!="-1"))}selected{endif}>{advertiser_msg:10115}</option>
+</select>		  
+
+		   {advertiser_msg:8895}
+
+<select name="adtype" id="adtype" >
+<option value="0" {if($adtype=="0")}selected{endif}>{advertiser_msg:10108}</option>
+<option value="1" {if($adtype=="1")}selected{endif}>{advertiser_msg:10109}</option>
+<option value="2" {if($adtype=="2")}selected{endif}>{advertiser_msg:10110}</option>
+<option value="3" {if(($adtype!="1")&&($adtype!="0")&&($adtype!="2"))}selected{endif}>{advertiser_msg:10111}</option>
+</select>	
+  
+		  {advertiser_msg:8896}
+ 
+	<select name="device" id="device" >
+<option value="0" {if($device=="0")}selected{endif}>{advertiser_msg:10116}</option>
+<option value="1" {if($device=="1")}selected{endif}>{advertiser_msg:1070}</option>
+<option value="2" {if(($device!="0")&&($device!="1"))}selected{endif}>{advertiser_msg:10115}</option>
+</select>	  
+		  
+		  
+		  
+<input type="submit" name="Submit" value="{advertiser_msg:1398}" style="float:none">
+{FORMCLOSE}
+</td>
+</tr>
+
+
+</table>
+</td>
+</tr>
+<tr height="30">
+<td  colspan="2">
+</td>
+</tr>
+<tr>
+<td>
+<div id="admanage" style="display:block;">
+<table border="0" width="100%">
+{if($total!=0)}
+<tr>
+<td colspan="6">{SHOW_STATISTICS}<span style="float:right">{HEADER}</span>
+</tr>
+{endif}
+<tr height="30">
+<td align="left" width="152"><strong>{advertiser_msg:8894}</strong></td>
+<td align="left" width="233"><strong>{advertiser_msg:1260}</strong></td>
+<td align="left" width="250"><strong>{advertiser_msg:1261}</strong></td>
+<td align="left" width="365"><strong>{advertiser_msg:1262}(%)</strong></td>
+<td align="left" width="300"><strong>{advertiser_msg:1263}({CURRENCY})</strong></td>
+<td align="left" width="349"><strong>{advertiser_msg:7028}</strong></td>
+</tr>
+{LOOP(ADS)-STARTLOOP} 
+<tr height="30px">
+<td>{LOOP(ADS)-NAME} 
+</td>
+<td>
+
+
+{fn:numberFormat(getAdImpressions(${LOOP(ADS)-ID},$time,$mysql,$uid,$flag_time),0)}
+
+</td>
+<td>
+{fn:numberFormat(getAdClicks(${LOOP(ADS)-ID},$time,$mysql,$uid,$flag_time),0)}
+</td>
+<td>
+ {fn:numberFormat(getAdClickrate(${LOOP(ADS)-ID},$time,$mysql,$uid,$flag_time),1)}   
+</td>
+<td>
+ {fn:numberFormat(getAdMoneySpent(${LOOP(ADS)-ID},$time,$mysql,$uid,$flag_time))}   
+</td>
+<td >
+
+<span class="pagetable_activecell" {COLORTHEME5}><a href="ppc-keyword-click-statistics.php?id={LOOP(ADS)-ID}&statistics={VIEWTYPE}&wap={LOOP(ADS)-WAPSTATUS}" {COLORTHEME5}>{advertiser_msg:1397}</a></span>
+
+</td>
+</tr>
+{LOOP(ADS)-ENDLOOP}
+{if($total!=0)}
+<tr>
+<td colspan="6">{SHOW_STATISTICS}<span style="float:right">{HEADER}</span>
+</td>
+</tr>
+{endif}
+</table>
+</div>
+</td>
+</tr>
+</table>
+{FOOTER}
+</body>
+</html>

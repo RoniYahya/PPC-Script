@@ -1,0 +1,730 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>{ENGINE_NAME} - {advertiser_msg:8892}</title>
+<meta http-equiv="Content-Type" content="text/html;  charset={ENCODING}">
+<link href="ppc-style.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.style4 {font-size: 14px}
+.style5 {font-weight: bold; color: black;}
+.style1 {color: #FF0000}
+-->
+</style>
+<script language="JavaScript">
+function openFlashWindow(theURL,winName) 
+{ //v2.0
+window.open(theURL,winName,'width=550,height=550,toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0');
+}
+
+</script>
+<script type="text/javascript">
+
+function show()
+{
+//alert(document.getElementById('popup_container'));
+var de=document.getElementById('device').value;
+
+if(de=="0")     //desktop&laptop
+{
+//document.getElementById('textad').style.display="block";
+
+document.forms['0'].wap_flag.value=0;
+document.forms['1'].wap_flag.value=0;
+document.forms['2'].wap_flag.value=0;
+
+document.getElementById('tit').innerHTML='{MAXTITLE}';
+document.getElementById('dis').innerHTML="{MAXDURL}";
+document.getElementById('sum').innerHTML="{MAXDESC}";
+document.getElementById('title').maxLength="{MAXTITLE}";
+document.getElementById('displayurl').maxLength="{MAXDURL}";
+document.getElementById('displayurl3').maxLength="{MAXDURL}";
+document.getElementById('summary').maxLength="{MAXDESC}";
+document.getElementById('summary3').maxLength="{MAXDESC}";
+document.getElementById('nn').style.display="block";
+document.getElementById('mm').style.display="none";
+document.getElementById('tt').innerHTML="{MAXTITLE}";
+document.getElementById('sum1').innerHTML="{MAXDESC}";
+document.getElementById('n').style.display="block";
+document.getElementById('m').style.display="none";
+
+
+
+document.getElementById('swfdisplay').style.display="";
+document.getElementById('nonswfdisplay').style.display="none";
+
+document.getElementById('swfdisplay1').style.display="";
+document.getElementById('nonswfdisplay1').style.display="none";
+}
+else              //mobile
+{
+
+document.forms['0'].wap_flag.value=1;
+document.forms['1'].wap_flag.value=1;
+document.forms['2'].wap_flag.value=1;
+
+
+document.getElementById('title').maxLength='{WAPMAXTITLE}';
+//document.getElementById('title3').maxLength='{WAPMAXTITLE}';
+document.getElementById('displayurl').maxLength="{WAPDISURL}";
+document.getElementById('displayurl3').maxLength="{WAPDISURL}";
+document.getElementById('summary').maxLength="{WAPSUM}";
+document.getElementById('summary3').maxLength="{WAPSUM}";
+document.getElementById('tit').innerHTML='{WAPMAXTITLE}';
+document.getElementById('dis').innerHTML="{WAPDISURL}";
+document.getElementById('sum').innerHTML="{WAPSUM}";
+document.getElementById('nn').style.display="none";
+document.getElementById('mm').style.display="block";
+document.getElementById('n').style.display="none";
+document.getElementById('m').style.display="block";
+document.getElementById('proto').style.display="block";
+document.getElementById('tt').innerHTML="{WAPDISURL}";
+document.getElementById('sum1').innerHTML="{WAPSUM}";
+
+//alert(document.getElementById('displayurl').maxLength);
+
+
+document.getElementById('swfdisplay').style.display="none";
+document.getElementById('nonswfdisplay').style.display="";
+
+document.getElementById('swfdisplay1').style.display="none";
+document.getElementById('nonswfdisplay1').style.display="";
+}
+
+
+
+}
+function  showtype()
+{
+        
+//alert(document.getElementById('adtype').options[document.getElementById('adtype').selectedIndex].value);
+
+ var ty=document.getElementById('adtype').value;
+
+if(ty==0)
+{
+document.getElementById('textad').style.display="block";
+document.getElementById('bannerad').style.display="none";
+document.getElementById('catalogad').style.display="none";
+
+document.getElementById('swfdesc').style.display="none";
+
+}
+if(ty==1)
+{
+
+document.getElementById('textad').style.display="none";
+document.getElementById('bannerad').style.display="block";
+document.getElementById('catalogad').style.display="none";
+if(document.getElementById('device').value==0)
+{
+document.getElementById('mm').style.display="none";
+document.getElementById('nn').style.display="";
+}
+else
+{
+document.getElementById('mm').style.display="";
+document.getElementById('nn').style.display="none";
+}
+document.getElementById('swfdesc').style.display="";
+
+
+}
+if(ty==2)
+{
+document.getElementById('textad').style.display="none";
+document.getElementById('bannerad').style.display="none";
+document.getElementById('catalogad').style.display="block";
+if(document.getElementById('device').value==0)
+{
+document.getElementById('mm').style.display="";
+document.getElementById('nn').style.display="none";
+}
+else
+{
+document.getElementById('mm').style.display="none";
+document.getElementById('nn').style.display="";
+}
+document.getElementById('swfdesc').style.display="";
+
+}
+
+}
+
+
+function check()
+{
+
+var aa=document.getElementById('addname').value;
+
+if(trim(aa)=="")
+{
+alert("{JSMES}");
+document.getElementById('addname').focus;
+return false;
+}
+
+document.forms['0'].adname.value=document.getElementById('addname').value;
+
+document.forms['1'].adname.value=document.getElementById('addname').value;
+
+document.forms['2'].adname.value=document.getElementById('addname').value;
+
+
+if(document.getElementById('duration1').checked)
+{
+document.forms['0'].duration.value=1;
+document.forms['1'].duration.value=1;
+document.forms['2'].duration.value=1;
+}
+
+if(document.getElementById('duration2').checked)
+{
+document.forms['0'].duration.value=2;
+document.forms['1'].duration.value=2;
+document.forms['2'].duration.value=2;
+}
+if(document.getElementById('duration3').checked)
+{
+document.forms['0'].duration.value=3;
+document.forms['1'].duration.value=3;
+document.forms['2'].duration.value=3;
+}
+
+
+
+document.forms['0'].popup_container.value=document.getElementById('popup_container').value;
+document.forms['1'].popup_container.value=document.getElementById('popup_container').value;
+document.forms['2'].popup_container.value=document.getElementById('popup_container').value;
+
+
+document.forms['0'].popup_container1.value=document.getElementById('popup_container1').value;
+document.forms['1'].popup_container1.value=document.getElementById('popup_container1').value;
+document.forms['2'].popup_container1.value=document.getElementById('popup_container1').value;
+
+
+document.forms['0'].timeduration.value=document.getElementById('timeduration').value;
+document.forms['1'].timeduration.value=document.getElementById('timeduration').value;
+document.forms['2'].timeduration.value=document.getElementById('timeduration').value;
+//alert(document.getElementById('beg_time').value);
+//return false;
+document.forms['0'].beg_time.value=document.getElementById('beg_time').value;
+document.forms['1'].beg_time.value=document.getElementById('beg_time').value;
+document.forms['2'].beg_time.value=document.getElementById('beg_time').value;
+
+document.forms['0'].end_time.value=document.getElementById('end_time').value;
+document.forms['1'].end_time.value=document.getElementById('end_time').value;
+document.forms['2'].end_time.value=document.getElementById('end_time').value;
+
+
+}
+
+function check1()
+{
+
+var aa=document.getElementById('addname').value;
+if(trim(aa)=="")
+{
+alert("{JSMES}");
+document.getElementById('addname').focus;
+return false;
+}
+
+document.forms['0'].adname.value=document.getElementById('addname').value;
+
+document.forms['1'].adname.value=document.getElementById('addname').value;
+
+document.forms['2'].adname.value=document.getElementById('addname').value;
+
+
+
+document.forms['0'].beg_time.value=document.getElementById('beg_time').value;
+document.forms['1'].beg_time.value=document.getElementById('beg_time').value;
+document.forms['2'].beg_time.value=document.getElementById('beg_time').value;
+
+document.forms['0'].end_time.value=document.getElementById('end_time').value;
+document.forms['1'].end_time.value=document.getElementById('end_time').value;
+document.forms['2'].end_time.value=document.getElementById('end_time').value;
+
+
+}
+
+</script>
+<script type="text/javascript" src="epoch_classes.js"></script>
+<script type="text/javascript">
+/*You can also place this code in a separate file and link to it like epoch_classes.js*/
+
+var bas_cal,dp_cal,ms_cal,dp_cal2;      
+
+window.onload = function () {
+		dp_cal  = new Epoch('epoch_popup','popup',document.getElementById('popup_container'));	
+		dp_cal2  = new Epoch('epoch_popup','popup',document.getElementById('popup_container1'));
+};
+
+function select2()
+{
+	document.getElementById('duration2').checked = true;
+}
+
+function select3()
+{
+	document.getElementById('duration3').checked = true;
+}
+
+</script>
+</head>
+<body>
+{TABS}
+<table  width="{PAGEWIDTH}" class="admainbox colortext"   border="0" cellpadding="0" cellspacing="0">
+  <tr >
+    <td height="40" colspan="2"><span class="styleTitle" {COLORTHEME4} >{advertiser_msg:8892}</span></td>
+  </tr>
+  <tr>
+    <td colspan="2"  class="headingbar" {COLORTHEME3} >{advertiser_msg:8893}</td>
+  </tr>
+  <tr>
+    <td colspan="2">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%"></td>
+    <td width="70%" height="20"><span class="inserted">{advertiser_msg:8921}</span></td>
+  </tr>
+  <tr>
+    <td >{advertiser_msg:8894}<span class="mandatory">*</span></td>
+    <td><input type="text" maxlength="255" value="" size="40" id="addname" name="adname2"  >
+      <br>
+      <span class="info"></span></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>{advertiser_msg:8895}<span class="mandatory">*</span></td>
+    <td><select name="adtype" id="adtype" onchange="showtype()" onkeyup="showtype()" onmouseup="showtype()">
+        <option value="0">{advertiser_msg:10123}</option>
+        <option value="1">{advertiser_msg:10127}</option>
+        <option value="2">{advertiser_msg:10128}</option>
+      </select>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="swfdesc" style="display:none"><a href="JavaScript:void(0);" onClick="openFlashWindow('flash-description.php','fls')" class="pagetable_activecell">{advertiser_msg:10100}</a></span> </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>{advertiser_msg:8896}<span class="mandatory">*</span></td>
+    <td><select name="device" id="device" onchange="show()">
+        <option value="0">{advertiser_msg:10116}</option>
+        <option value="1">{advertiser_msg:1070}</option>
+      </select>
+    </td>
+  </tr>
+  	    <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        </tr>
+		{if($time_date_targetting==1)}
+  <tr>
+<td>&nbsp;</td>
+<td><div class="msg  <?php echo $danger; ?>">&diams; 
+		<?php  if($timezone_change=='') { ?>
+		{advertiser_msg:10513}
+		<?php  } else { ?>
+		{advertiser_msg:10511}<?php echo $timezone_change; ?>.
+		<?php } ?>{advertiser_msg:10512}<?php echo datetimeformat(time()) ?>.
+		</div>
+		</td> </tr>
+	    <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        </tr>
+		
+  <tr>
+            <td width="19%" height="97">{advertiser_msg:10503}</td>
+            <td width="48%"><input type="radio" name="duration" id="duration1" value="1" checked="checked">
+              &nbsp; {advertiser_msg:10504}
+              </input>
+              <br>
+              <br>
+              <input type="radio" name="duration" id="duration2" value="2">
+              &nbsp;{advertiser_msg:10505}
+              </input>
+              &nbsp;&nbsp;
+              <input id="popup_container" name="popup_container" type="text"  readonly    size="10px" onclick="select2()"/>
+              &nbsp;&nbsp;{advertiser_msg:10506}&nbsp;&nbsp;
+              <input id="popup_container1" name="popup_container1" type="text"  readonly    size="10px" onclick="select2()"/>
+              <br>
+              <br>
+              <input type="radio" name="duration" id="duration3" value="3">
+              &nbsp;{advertiser_msg:10507}
+              </input>
+              &nbsp;
+              <select name="timeduration" id="timeduration" onclick="select3()" onchange="select3()" >
+                <option value="1">{advertiser_msg:10508}</option>
+                <option value="2">{advertiser_msg:10509}</option>
+                <option value="3">{advertiser_msg:10510}</option>
+              </select>
+              <BR>
+            </td>
+          </tr>
+		  {endif}
+		{if($time_targeting==1)}
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>{advertiser_msg:10501}</td>
+<td>{BTIME}	&nbsp;&nbsp; {advertiser_msg:10502}&nbsp;&nbsp;{ETIME}  </td>
+</tr>
+
+{endif}
+
+
+  <tr>
+    <td colspan="2"><div id="textad" style="display:block"> {FORMSTART}
+        <table width="100%" cellpadding="0" cellspacing="0" align="left" >
+          <tr>
+            <td width="30%"></td>
+            <td width="70%" height="20">&nbsp;</td>
+          </tr>
+          <tr>
+            <td >{advertiser_msg:9991}<span class="mandatory">*</span></td>
+            <td>{LANGUAGE}<br>
+              <span class="info"></span></td>
+          </tr>
+		  <tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>{advertiser_msg:10514}<span class="mandatory">*</span></td>
+<td>{ADULT}</td>
+</tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>{advertiser_msg:1113}<span class="mandatory">*</span></td>
+            <td>{TITLEFIELD}<br>
+              <div class="info" style="white-space: nowrap" >{advertiser_msg:8984}</div></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>{advertiser_msg:1116}<span class="mandatory">*</span></td>
+            <td>{SUMMARY}<br>
+              <div class="info" style="white-space: nowrap">{advertiser_msg:8985}</div></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>{advertiser_msg:1117}<span class="mandatory">*</span></td>
+            <td>{DISPLAYURL}<br>
+              <div class="info" style="white-space: nowrap">{advertiser_msg:8986}</div></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>{advertiser_msg:1118}<span class="mandatory">*</span></td>
+            <td><table border="0">
+                <tr>
+                  <td>{URLP} </td>
+                  <td>{URL} <br>
+                    {advertiser_msg:1119} </td>
+                </tr>
+              </table></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>{BUDGET} {advertiser_msg:1120}<span class="mandatory">*</span> </td>
+            <td>{MAXAMOUNT}{CURRENCY_SYMBOL}<br>
+              <span class="info">{SDMESS}</span> </td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          {if($ad_keyword_mode==2)}
+          <tr>
+            <td>{advertiser_msg:1122} <span class="mandatory">*</span>&nbsp;</td>
+            <td>{MAXCLKAMOUNT}{CURRENCY_SYMBOL}&nbsp;<br>
+              {SUGVAL}</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          {endif}
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          
+          <tr>
+            <td>&nbsp;
+              <input type="hidden" name="wap_flag"  value="0">
+              <input type="hidden" name="adname" value="">			  
+			  <input type="hidden" name="duration" value="">
+			  <input type="hidden" name="popup_container" value="">
+			  <input type="hidden" name="popup_container1" value="">
+			  <input type="hidden" name="timeduration" value="">
+			  <input type="hidden" name="beg_time" value="">
+			  <input type="hidden" name="end_time" value="">
+			  
+			  
+			  </td>
+            <td> {SUBMIT} </td>
+          </tr>
+        </table>
+        {FORMCLOSE} </div>
+      <div id="bannerad" style="display:none" > {FORMSTART1}
+        <table width="100%" cellpadding="0" cellspacing="0" align="left" border="0">
+          <tr>
+            <td width="30%">{advertiser_msg:9991}<span class="mandatory">*</span></td>
+            <td width="70%" >{LANGUAGE}<br>
+              <span class="info"></span></td>
+          </tr>
+		  <tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>Is this an Adult Ad?<span class="mandatory">*</span></td>
+<td>{ADULT}</td>
+</tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>{advertiser_msg:1157}<span class="mandatory">*</span></td>
+            <td><div  id="nn" style="display: none">{BANNERSIZE}</div>
+              <div id="mm" style="display: none">{BANNERSIZE1}</div></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>{advertiser_msg:1158}<span class="mandatory">*</span></td>
+            <td><input name="banner" type="file" id="banner" size="50"></td>
+            <br>
+          <tr>
+            <td></td>
+            <td><span id="swfdisplay" style="display:none">(GIF/JPG/PNG/SWF images)</span> <span id="nonswfdisplay" style="display:none">(GIF/JPG/PNG images)</span> </td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>{advertiser_msg:1159}<span class="mandatory">*</span></td>
+            <td><table border="0">
+                <tr>
+                  <td>{URLP} </td>
+                  <td>{URL2} <br>
+                    {advertiser_msg:1119} </td>
+                </tr>
+              </table></td>
+          </tr>
+          <tr>
+            <td valign="middle">&nbsp;</td>
+            <td valign="top">&nbsp;</td>
+          </tr>
+          <tr>
+            <td>{BUDGET} {advertiser_msg:1120}<span class="mandatory">*</span></td>
+            <td>{MAXAMOUNT}&nbsp;{CURRENCY_SYMBOL}&nbsp;<span class="info">{SDMESS}</span> </td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          {if($ad_keyword_mode==2)}
+          <tr>
+            <td>{advertiser_msg:1122} <span class="mandatory">*</span>&nbsp;</td>
+            <td>{MAXCLKAMOUNT}{CURRENCY_SYMBOL}&nbsp;<br>
+              {SUGVAL}</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          {endif}
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;
+              <input type="hidden" name="wap_flag"  value="0">
+              <input type="hidden" name="adname" value="">
+			  <input type="hidden" name="duration" value="">
+			  <input type="hidden" name="popup_container" value="">
+			  <input type="hidden" name="popup_container1" value="">
+			  <input type="hidden" name="timeduration" value="">
+			  <input type="hidden" name="beg_time" value="">
+			  <input type="hidden" name="end_time" value="">
+			  </td>
+            <td> {SUBMIT}</td>
+          </tr>
+        </table>
+        {FORMCLOSE1} </div>
+      <div id="catalogad" style="display:none"> {FORMSTART2}
+        <table width="100%" cellpadding="0" cellspacing="0" align="left">
+          <tr>
+            <td width="30%"></td>
+            <td width="70%" height="20">&nbsp;</td>
+          </tr>
+          <tr>
+            <td >{advertiser_msg:9991}<span class="mandatory"><strong>*</strong></span></td>
+            <td>{LANGUAGE}<br>
+              <span class="info"></span></td>
+          </tr>
+		  <tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>Is this an Adult Ad?<span class="mandatory">*</span></td>
+<td>{ADULT}</td>
+</tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>{advertiser_msg:1163}<span class="style1"><strong> *</strong></span></td>
+            <td ><div  id="n" style="display:block ">{BANNERSIZE2}</div>
+              <div id="m" style="display: none">{BANNERSIZE3}</div></td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>{advertiser_msg:1164}<span class="style1"><strong> *</strong></span></td>
+            <td><input name="banner" type="file" id="banner" size="50">
+            </td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td><span id="swfdisplay1" style="display:none">(GIF/JPG/PNG/SWF images)</span> <span id="nonswfdisplay1" style="display:none">(GIF/JPG/PNG images)</span> </td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>{advertiser_msg:1165}<span class="style1"><strong>*</strong></span></td>
+            <td>{DISPLAYURL3}
+              <div class="style1" style="white-space: nowrap;"><span class="info" > {advertiser_msg:8987}</span> </div></td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>{advertiser_msg:1166} <span class="style1"><strong>*</strong></span></td>
+            <td>{SUMMARY3}
+              <div class="style1" style="white-space: nowrap;"><span class="info"><br>
+                {advertiser_msg:8988}</span> </div></td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td valign="middle">&nbsp;</td>
+            <td valign="top">&nbsp;</td>
+          </tr>
+          <tr>
+            <td> {advertiser_msg:1118} <span class="style1"><strong>*</strong></span></td>
+            <td><table border="0">
+                <tr>
+                  <td>{URLP} </td>
+                  <td>{URL3} <br>
+                    {advertiser_msg:1119} </td>
+                </tr>
+              </table></td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>{BUDGET}  {advertiser_msg:1120} <span class="style1"><strong> *</strong></span></td>
+            <td>{MAXAMOUNT}{CURRENCY_SYMBOL} <span class="info"><br>
+              {SDMESS}</span> </td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          {if($ad_keyword_mode==2)}
+          <tr>
+            <td> {advertiser_msg:1122} <span class="mandatory">*</span>&nbsp;</td>
+            <td>{MAXCLKAMOUNT}{CURRENCY_SYMBOL}&nbsp;<br>
+              {SUGVAL}</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          {endif}
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;
+              <input type="hidden" name="wap_flag"  value="0">
+              <input type="hidden" name="adname" value="">
+			  <input type="hidden" name="duration" value="">
+			  <input type="hidden" name="popup_container" value="">
+			  <input type="hidden" name="popup_container1" value="">
+			  <input type="hidden" name="timeduration" value="">
+			  <input type="hidden" name="beg_time" value="">
+			  <input type="hidden" name="end_time" value="">
+
+			  </td>
+            <td>{SUBMIT}</td>
+            <td>&nbsp;</td>
+          </tr>
+        </table>
+        {FORMCLOSE2} </div></td>
+  </tr>
+</table>
+{FOOTER}
+</body>
+</html>
+<link rel="stylesheet" type="text/css" href="epoch_styles.css" />
+<script language="javascript" type="text/javascript">
+showtype();
+show();
+document.getElementById('addname').focus;
+</script>

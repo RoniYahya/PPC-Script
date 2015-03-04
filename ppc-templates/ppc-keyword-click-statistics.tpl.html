@@ -1,0 +1,399 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>{ENGINE_NAME} - {advertiser_msg:1266} </title>
+<meta http-equiv="Content-Type" content="text/html; charset={ENCODING}">
+<link href="ppc-style.css" rel="stylesheet" type="text/css">
+<script language='javascript' src='FusionCharts/FusionCharts.js'></script>
+<script  language="javascript" type="text/javascript" src="swfobject.js"></script>
+</head>
+
+<body>
+{TABS}
+<table  width="{PAGEWIDTH}" class="admainbox"   border="0"  cellpadding="0" cellspacing="0">
+<tr>
+<td ></td>
+</tr>
+<tr>
+<th height="40" ><span class="styleTitle" {COLORTHEME4} >{EMESS1}</span></th>
+</tr>
+<tr>
+<td>
+<table width="100%"  border="0"  cellpadding="0" cellspacing="0">
+<tr >
+  <td colspan="5" class="headingbar" {COLORTHEME3}  >{advertiser_msg:1268}</td>
+</tr>
+<tr >
+<td colspan="5" ><form name="form1" method="get" action="ppc-keyword-click-statistics.php">
+<table class="tableT">
+<tr>
+<td>
+<input name="id" type="hidden" id="id" value="{ID}">
+Show Status
+</td>
+<td>
+<input type="hidden" name="wap" value="{WAP_FLAG}">
+<select name="statistics" id="statistics">
+			  <option value="day"  {if($show=="day")}selected{endif}>{advertiser_msg:10124}</option>
+              <option value="week"  {if($show=="week")}selected{endif}>{advertiser_msg:10125}</option>
+              <option value="month"  {if($show=="month")}selected{endif}>{advertiser_msg:10126}</option>
+              <option value="year"  {if($show=="year")}selected{endif}>{advertiser_msg:10106}</option>
+<option value="all"  {if($show=="all")}selected{endif}>{advertiser_msg:1258}</option>
+</select>
+</td>
+<td>
+<input type="submit" name="Submit" value="Show Statistics">
+</td>
+</tr>
+</table>
+</form></td>
+</tr>
+<tr>
+<td colspan="5">&nbsp;</td>
+</tr>
+
+<!--<tr>
+<td colspan="5">{if($show!="day")}{advertiser_msg:8959}<br>{endif}&nbsp;</td>
+</tr>-->
+
+<tr>
+<td colspan="5">&nbsp;</td>
+</tr>
+
+<tr>
+<td colspan="5" >
+<table width="100%"  border="0"  cellpadding="0" cellspacing="0">
+<tr>
+<td >{if(${STATUS}=="0")}
+<span class="gridheader">{advertiser_msg:1132} </span>&nbsp;
+{elseif(${STATUS}=="1")}
+<span class="activead">{advertiser_msg:1133} </span>&nbsp;<span class="note"> {EMESS105}</span>
+{else}
+<span class="penting">{advertiser_msg:1135} </span>&nbsp;
+{endif}
+{if(${STATUS}=="1" && ${PSTATUS}=="1")}
+<span style="text-decoration:blink;color:#CC3300;font:Verdana, Arial, Helvetica, sans-serif;font-weight:bold; font-size:12px;">&nbsp;&nbsp;{advertiser_msg:1136}</span>
+{endif}
+</td></tr>
+{if(${ADTYPE}==1)}
+
+{if(${CONTENTTYPE}=="swf")}
+<tr>
+<td>
+<table width="100%"  border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td  class="admanbox">
+<script type="text/javascript">
+
+		  var flashvars = {};
+		  var params = {};
+		  var attributes = {};
+		  var i=1;
+		  
+		  flashvars.clickTag = "{URL}";
+		  
+          flashvars.clickTAG = "{URL}";
+		  flashvars.clickTARGET = "_blank";
+		  
+		  {HARDLINKS}
+		  
+		   params.wmode="transparent";
+		 		
+	      swfobject.embedSWF("{BANNERS}/{ID}/{SUMMARY}", "myFlashDiv", "{RESWT}", "{RESHT}", "9.0.0", "",flashvars,params,attributes);
+</script>
+		  <div id="myFlashDiv"></div>
+</td>
+</tr>
+</table>
+</td></tr>
+{else}
+
+
+<tr>
+<td >
+<table width="100%"  border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td  class="admanbox"><a href="{URL}"><img src="{BANNERS}/{ID}/{SUMMARY}" border="0" ></a></td>
+</tr>
+</table>
+</td></tr>
+
+{endif}
+
+
+
+{elseif(${ADTYPE}==2)}
+
+
+		      <tr align="center" valign="baseline">
+          <td  class="admanbox">
+		  
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="5">
+<td  width="{CAT_WT}" height="{CAT_HT}"  ><a href="{URL}">
+
+{if(${CONTENTTYPE}=="swf")}
+
+<script type="text/javascript">
+
+		  var flashvars = {};
+		  var params = {};
+		  var attributes = {};
+		  var i=1;
+		  
+		  flashvars.clickTag = "{URL}";
+		  
+          flashvars.clickTAG = "{URL}";
+		  flashvars.clickTARGET = "_blank";
+		  
+		  {HARDLINKS}
+		  
+		   params.wmode="transparent";
+		 		
+	      swfobject.embedSWF("{BANNERS}/{ID}/{TITLE}", "myFlashDiv", "{RESWT}", "{RESHT}", "9.0.0", "",flashvars,params,attributes);
+</script>
+		  <div id="myFlashDiv"></div>
+
+{else}
+<img src="{BANNERS}/{ID}/{TITLE}" border="0" >
+{endif}
+
+
+
+</a></td>
+		  <td align="left" style="vertical-align:top"><a class="adtitle" href="{URL}">{DURL}</a><br><span class="pagetable">{SUMMARY}</span></td>
+		  </table></td>
+        </tr>
+
+
+
+{else}
+<tr>
+<td>
+<div class="admanbox"><a class="adtitle" href="{URL}">{TITLE}</a><br>
+<span class="pagetable">{SUMMARY}</span> <br>
+<span class="urls">{DURL} </span> </div>
+</td>
+</tr>
+{endif}
+
+
+</table></td>
+</tr>
+<tr>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+
+   <td colspan="5">
+		<table width="100%" height="190px" border="0" cellspacing="0"			cellpadding="0" style="border:1px solid #A1C3C9;">
+			<tr>
+				<td valign="top">
+
+				<table width="100%" border="0" cellpadding="0" cellspacing="0" 					class="indexmenus" >
+					<tr>
+					   <td align="center" id="index1_li_1" ><a href="javascript:index1_ShowTab(1);">{advertiser_msg:10119}</a></td>
+						<td align="center" id="index1_li_2" ><a href="javascript:index1_ShowTab(2);">{advertiser_msg:10120}</a></td>
+						{if($ad_keyword_mode!=2)}
+						<td align="center" id="index1_li_3" ><a href="javascript:index1_ShowTab(3);">{advertiser_msg:10140}</a></td>
+						{endif}
+
+					</tr>
+				</table>
+
+				</td>
+			</tr>
+			<tr>
+			<td  >
+				<div style="clear: both"></div>
+			   <div id="index1_div_1">
+			   <table  width="100%" border="0" cellpadding="0" cellspacing="0" 	>
+			   <tr>
+					<td width="93%">&nbsp;</td>
+					<td width="3%">&nbsp;</td>
+				</tr>
+			
+				 
+				<tr>
+					<td colspan="2" class="inserted">&nbsp;</td>
+				</tr>
+			
+				<tr>
+					<td colspan="2" class="inserted"><?php 	$FC->renderChart();	?> &nbsp;</td>
+				</tr>
+			
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+
+				 
+				<tr>
+					<td colspan="2" class="inserted">&nbsp;</td>
+				</tr>
+			
+				<tr>
+					<td colspan="2" class="inserted"><?php		$FD->renderChart();	?> &nbsp;</td>
+				</tr>
+			
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+				<td colspan="2">&nbsp;</td>
+			  </tr>
+			   </table>
+			   </div>
+			
+			<div  style="display: ;" id="index1_div_2" >
+			
+						
+						
+			<table width="100%">
+			<tr>
+			<td width="20%"><span class="pagetable_activecell" >{advertiser_msg:8900}</span></td>
+			<td width="18%"><span class="pagetable_activecell">{advertiser_msg:1272}</span></td>
+			<td width="18%"><span class="pagetable_activecell">{advertiser_msg:1271}</span></td>
+			<td width="18%"><span class="pagetable_activecell">{advertiser_msg:1270}(%)</span></td>
+			<td width="18%"><span class="pagetable_activecell">{advertiser_msg:1263} ({CURRENCY_SYMBOL})</span></td>
+			</tr>
+			<tr>
+			<td colspan="5">&nbsp;</td>
+			</tr>
+			
+			{LOOP(STATISTICS)-STARTLOOP} 
+			<tr height="25">
+			<td>
+			{if($flag_time==0)}
+			{fn:dateFormat(${LOOP(STATISTICS)-LOOPKEY}-1,"%b %d")}
+			{elseif($flag_time==1)}
+			{fn:dateFormat(${LOOP(STATISTICS)-LOOPKEY}-86400,"%b")}
+			{elseif($flag_time==2)}
+			{fn:dateFormat(${LOOP(STATISTICS)-LOOPKEY}-86400,"%Y")}
+			{else}
+			{fn:dateFormat(${LOOP(STATISTICS)-LOOPKEY},"%d %b %l %p")}
+			{endif}
+			
+			</td>
+			<td>{fn:numberFormat(${LOOP(STATISTICS)-IMP} ,0)}</td>
+			<td>{fn:numberFormat(${LOOP(STATISTICS)-CLK},0)}</td>
+			<td>{fn:numberFormat(getCTR(${LOOP(STATISTICS)-CLK},${LOOP(STATISTICS)-IMP}))}</td>
+			<td>{fn:numberFormat(${LOOP(STATISTICS)-MONEY})}</td>
+			</tr>
+			{LOOP(STATISTICS)-ENDLOOP} 
+			
+			
+			</table> 
+			
+			   
+			   </div>
+			   
+			   			<div  style="display: ;" id="index1_div_3" >
+			   	{if($ad_keyword_mode!=2)}
+		
+				
+				<table width="100%">
+				<tr>
+				<td width="20%"><span class="pagetable_activecell" >{advertiser_msg:1273}</span></td>
+				<td width="18%"><span class="pagetable_activecell">{advertiser_msg:1272}</span></td>
+				<td width="18%"><span class="pagetable_activecell">{advertiser_msg:1271}</span></td>
+				<td width="18%"><span class="pagetable_activecell">{advertiser_msg:1270}(%)</span></td>
+				<td width="18%"><span class="pagetable_activecell">{advertiser_msg:1263} ({CURRENCY_SYMBOL})</span></td>
+				</tr>
+				{LOOP(KWD)-STARTLOOP}
+				<tr>
+				<td colspan="7">&nbsp;</td>
+				</tr>
+				<tr>
+				<td ><span>{LOOP(KWD)-KEYWORD}</span> <br></td>
+						  <td align="left" valign="middle">{fn:numberFormat(getKeywordImpressions(${LOOP(KWD)-ID},$time,$mysql,$uid,$id,$flag_time),0)}</td>
+						  <td align="left" valign="middle">{fn:numberFormat(getKeywordClicks(${LOOP(KWD)-ID},$time,$mysql,$uid,$id,$flag_time),0)}   </td>
+						  <td align="left" valign="middle">{fn:numberFormat(getKeywordClickRate(${LOOP(KWD)-ID},$time,$mysql,$uid,$id,$flag_time))} </td>
+						  <td  align="left" valign="middle">{fn:numberFormat(getKeywordMoneySpent(${LOOP(KWD)-ID},$time,$mysql,$uid,$id,$flag_time))}</td>
+				</tr>
+				
+				{LOOP(KWD)-ENDLOOP}
+				</table>
+
+
+			   {endif}
+			   
+			   </div>
+			   
+			
+			</td>
+			</tr>
+		</table>
+
+
+   </td>
+</tr>
+
+
+
+
+{if($adserver_upgradation_date!=0)}
+<tr>
+<td >{EDITMESS}</td>
+</tr>
+{endif}
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td ></td>
+</tr>
+</table>
+{FOOTER}
+</body>
+
+<script language="javascript" type="text/javascript">
+function index1_ShowTab(id)
+{
+
+	if(id=='1')
+	{
+		document.getElementById('index1_div_1').style.display="";
+		document.getElementById('index1_div_2').style.display="none";
+		document.getElementById('index1_div_3').style.display="none";
+		
+		document.getElementById("index1_li_1").style.background="url(images/li_bgselect.jpg) repeat-x";
+		document.getElementById("index1_li_2").style.background="url(images/li_bgnormal.jpg) repeat-x";
+		if(document.getElementById("index1_li_3"))
+		document.getElementById("index1_li_3").style.background="url(images/li_bgnormal.jpg) repeat-x";
+		
+	}
+	if(id=='2')
+	{
+	    
+		document.getElementById('index1_div_1').style.display="none";
+		document.getElementById('index1_div_2').style.display="";
+		document.getElementById('index1_div_3').style.display="none";
+		
+		document.getElementById("index1_li_2").style.background="url(images/li_bgselect.jpg) repeat-x";
+		document.getElementById("index1_li_1").style.background="url(images/li_bgnormal.jpg) repeat-x";
+		if(document.getElementById("index1_li_3"))
+		document.getElementById("index1_li_3").style.background="url(images/li_bgnormal.jpg) repeat-x";
+		
+		
+	}
+	if(id=='3')
+	{
+	    
+		document.getElementById('index1_div_1').style.display="none";
+		document.getElementById('index1_div_2').style.display="none";
+		document.getElementById('index1_div_3').style.display="";
+		
+		document.getElementById("index1_li_3").style.background="url(images/li_bgselect.jpg) repeat-x";
+		document.getElementById("index1_li_1").style.background="url(images/li_bgnormal.jpg) repeat-x";
+		if(document.getElementById("index1_li_3"))
+		document.getElementById("index1_li_2").style.background="url(images/li_bgnormal.jpg) repeat-x";
+		
+		
+	}
+    
+}
+index1_ShowTab(1);
+</script>
+</html>

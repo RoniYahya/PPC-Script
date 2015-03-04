@@ -1,0 +1,272 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>{ENGINE_NAME} - {advertiser_msg:1366}</title>
+<meta http-equiv="Content-Type" content="text/html; charset={ENCODING}">
+<link href="ppc-style.css" rel="stylesheet" type="text/css">
+<script language="JavaScript">
+function openFlashWindow(theURL,winName) 
+{ //v2.0
+window.open(theURL,winName,'width=550,height=550,toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0');
+}
+
+</script>
+<style type="text/css">
+<!--
+.style1 {color: #FF0000}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="epoch_styles.css" />
+<script type="text/javascript" src="epoch_classes.js"></script>
+<script type="text/javascript">
+/*You can also place this code in a separate file and link to it like epoch_classes.js*/
+
+var bas_cal,dp_cal,ms_cal,dp_cal2;      
+
+window.onload = function () {
+		dp_cal  = new Epoch('epoch_popup','popup',document.getElementById('popup_container'));	
+		dp_cal2  = new Epoch('epoch_popup','popup',document.getElementById('popup_container1'));	
+
+};
+
+function select2()
+{
+	document.getElementById('duration2').checked = true;
+}
+
+function select3()
+{
+	document.getElementById('duration3').checked = true;
+}
+
+</script>
+</head>
+
+<body>
+{TABS} 
+<table  width="{PAGEWIDTH}" class="admainbox"   border="0"  cellpadding="0" cellspacing="0">
+  <tr align="center">
+    <td colspan="3"></td>
+  </tr>
+  <tr align="center">
+    <th height="44" colspan="3"><span class="styleTitle" {COLORTHEME4} >{EDTMSG}</span></th>
+  </tr>
+  <tr   class="headingbar" {COLORTHEME3}>
+    <td colspan="3">{EDTMSG1}</td>
+  </tr>
+  <tr>
+    <td colspan="3">
+	 <a href="ppc-edit-catalog-ad.php?id={ID}&wap={WAP_FLAG}" class="pagetable_activecell" {COLORTHEME5}>{advertiser_msg:1129}</a> | <a href="ppc-manage-keywords.php?id={ID}&wap={WAP_FLAG}" class="pagetable_activecell" {COLORTHEME5}>{advertiser_msg:1130}</a> | <a href="ppc-manage-target-locations.php?id={ID}&wap={WAP_FLAG}" class="pagetable_activecell" {COLORTHEME5}>{advertiser_msg:1131}</a></td>
+  </tr>
+  <tr align="center">
+    <td colspan="3">&nbsp;</td>
+  </tr>
+   <tr align="center">
+  <td  colspan="1">&nbsp;</td>
+    <td colspan="2" align="left"> 
+	<table><tr><td align="center">
+	{advertiser_msg:8921}</strong>
+	</td></td></table>
+	</td>
+	
+  <tr>
+    <td width="31%">{FORMSTART}</td>
+    <td width="67%">&nbsp;</td>
+	<td width="2%">&nbsp;</td>
+  </tr>
+<tr>
+<td >{advertiser_msg:8894}<span class="mandatory">*</span></td>
+<td>{ADNAME}<br>
+  <span class="info"></span></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+  <tr>
+<td>&nbsp;</td>
+<td><div class="msg  <?php echo $danger; ?>">&diams; 
+		<?php  if($timezone_change=='') { ?>
+		{advertiser_msg:10513}
+		<?php  } else { ?>
+		{advertiser_msg:10511}<?php echo $timezone_change; ?>.
+		<?php } ?>{advertiser_msg:10512}<?php echo datetimeformat(time()) ?>.
+		</div>
+		</td> </tr>
+	    <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        </tr>
+		{if($time_date_targetting==1)}
+  <tr>
+	 <td width="19%" height="97">{advertiser_msg:10503}</td>
+	  <td width="62%">
+	  <input type="radio" name="duration" id="duration1" value="1" {CHECKEDFIRST} {CHECKEDMINUS}>&nbsp; {advertiser_msg:10504}</input><br><br>
+              
+	  <input type="radio" name="duration" id="duration2" value="2" {CHECKEDSECOND} {CHECKEDZERO}>&nbsp;{advertiser_msg:10505}</input>&nbsp;&nbsp;<input id="popup_container" name="popup_container" type="text"  readonly    size="10px" value="{SDATE}" onclick="select2()"/>&nbsp;&nbsp;{advertiser_msg:10506}&nbsp;&nbsp; <input id="popup_container1" name="popup_container1" type="text"  readonly    size="10px" value="{EDATE}" onclick="select2()"/><br><br>
+             
+	  <input type="radio" name="duration" id="duration3" value="3" {CHECKEDTHIRD} {CHECKEDPOSITIVE}>&nbsp;{advertiser_msg:10507}</input>&nbsp;
+	  
+	  
+	  <select name="timeduration" id="timeduration" onclick="select3()" onchange="select3()" >
+	  
+	  <option value="1" <?php if($tar_row[6]!=0 && $tar_row[6]!='-1'){ if($tar_row[6]==1) { echo "selected";}}?>>{advertiser_msg:10508}</option>
+	  <option value="2" <?php if($tar_row[6]!=0 && $tar_row[6]!='-1'){ if($tar_row[6]==2) { echo "selected";}}?>>{advertiser_msg:10509}</option>
+	  <option value="3" <?php if($tar_row[6]!=0 && $tar_row[6]!='-1'){ if($tar_row[6]==3) { echo "selected";}}?>>{advertiser_msg:10510}</option>
+	   
+	  </select>&nbsp;&nbsp;&nbsp;<span class="info">{DURATIONALERT}</span>
+	  
+	  
+	</td>
+	 </tr>
+{endif}
+{if($time_targeting==1)}
+  <tr>
+<td>{advertiser_msg:10501}</td>
+<td>{BTIME}  &nbsp;&nbsp; {advertiser_msg:10502}&nbsp;&nbsp;{ETIME}    </td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+{endif}
+ <tr>
+<td >{advertiser_msg:9991}<span class="mandatory">*</span></td>
+<td>{LANGUAGE}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="swfdesc" style="display:"><a href="JavaScript:void(0);" onClick="openFlashWindow('flash-description.php','fls')" class="pagetable_activecell">{advertiser_msg:10100}</a></span><br><span class="info"></span></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+  <tr>
+    <td>{advertiser_msg:1369}</td>
+    <td>{BANNERSIZE} </td>
+	<td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>{advertiser_msg:1370}<span class="mandatory">*</span></td>
+    <td><input name="banner" type="file" id="banner" size="50"></td>
+	 <td>&nbsp;</td>
+  </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td> (GIF/JPG/PNG/SWF {advertiser_msg:10138})</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>{advertiser_msg:1165}<span class="mandatory">*</span></td>
+    <td>{DISPLAYURL} <span class="info">
+{EDT_MESS}</span></span></td>
+<td>&nbsp;</td>
+  </tr>
+    <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+   
+    <td>{advertiser_msg:1166}<span class="mandatory">*</span></td>
+    <td>{SUMMARY}<span class="style1"> <span class="info">
+{EDT_MESS1}</span></span></td>
+ <td>&nbsp;</td>
+  </tr>
+
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    
+    <td>{advertiser_msg:1118} <span class="mandatory">*</span></td>
+    <td>{URL} </td>
+	<td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td valign="middle">&nbsp;</td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+  <tr>
+    
+    <td valign="top">{BUDGET} {advertiser_msg:1120} <span class="mandatory">*</span></td>
+    <td> {MAXAMOUNT}<span class="info"><br>
+      {BDT_UNIT}</span>        </td>
+	  <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;{IDFIELD}
+	
+
+{DUMMYLINK}
+{DUMMYSUMMARY}
+{DUMMYDISPLAYURL}
+{DUMMYADULT}
+</td>
+    <td>
+<!--{DUMMYBANNERSIZE}	
+{DUMMYTITLE}-->	
+	
+	
+	
+	
+	
+	</td>
+  </tr>
+  <tr>
+    {if("$ad_keyword_mode"==2)}
+<tr>
+
+<td>{advertiser_msg:1138} <span class="mandatory">*</span>&nbsp;</td>
+<td>{MAXCLKAMOUNT}{CURRENCY_SYMBOL}&nbsp;<br>{SUGVAL}</td>
+    <td>&nbsp;</td>
+</tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr> 
+ {endif}
+   <tr>
+    <td>{advertiser_msg:1118}</td>
+    <td>{ADULT}</td>
+    <td>&nbsp;</td>
+  </tr>
+    <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+    <td>&nbsp;</td>
+    <td>{SUBMIT}{FORMCLOSE}</td>
+	<td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr align="center">
+    <td colspan="3" ><div class="bottom_content"></div></td>
+  </tr>
+</table>
+{FOOTER}
+</body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>{ENGINE_NAME} {publisher_msg:10102}</title>
+<script type="text/javascript">
+function show_detail(id)
+{
+if(id==1)
+{
+
+document.getElementById('email').value=document.getElementById('adv_email').value;
+document.getElementById('domain').value=document.getElementById('adv_domain').value;
+document.getElementById('firstname').value=document.getElementById('adv_firstname').value;
+document.getElementById('lastname').value=document.getElementById('adv_lastname').value;
+document.getElementById('phone_no').value=document.getElementById('adv_phone_no').value;
+document.getElementById('address').value=document.getElementById('adv_address').value;
+document.getElementById('un').value=document.getElementById('adv_username').value;
+document.getElementById('country').value=document.getElementById('adv_country').value;
+document.getElementById('taxidentification').value=document.getElementById('adv_tax').value;
+}
+else
+{
+
+document.getElementById('email').value=document.getElementById('pub_email').value;
+document.getElementById('domain').value=document.getElementById('pub_domain').value;
+document.getElementById('firstname').value=document.getElementById('pub_firstname').value;
+document.getElementById('lastname').value=document.getElementById('pub_lastname').value;
+document.getElementById('phone_no').value=document.getElementById('pub_phone_no').value;
+document.getElementById('address').value=document.getElementById('pub_address').value;
+document.getElementById('un').value=document.getElementById('pub_username').value;
+document.getElementById('country').value=document.getElementById('pub_country').value;
+document.getElementById('taxidentification').value=document.getElementById('pub_tax').value;
+}
+
+
+}
+</script>
+
+<script type="text/javascript">
+
+var xmlhttp;
+function show()
+{
+xmlhttp=GetXmlHttpObject();
+if (xmlhttp==null)
+  {
+  alert ("Browser does not support HTTP Request");
+  return;
+  }
+
+ var uname=document.getElementById("un").value;
+ var url="check.php";
+   url=url+"?un="+uname;
+
+xmlhttp.onreadystatechange = small;
+xmlhttp.open("GET",encodeURI(url),true);
+xmlhttp.send(null);
+
+}
+
+
+
+function small()
+{
+document.getElementById("fg").style.display="block";
+//alert(xmlhttp.responseText);
+if (xmlhttp.readyState==4)
+{
+		document.getElementById("adv_username").style.display="";
+		document.getElementById("dd").style.display="";
+//document.getElementById("ss").style.display="";
+document.getElementById("fg").style.display="none";
+document.getElementById("dd").innerHTML=xmlhttp.responseText;
+//
+}
+}
+
+function GetXmlHttpObject()
+{
+if (window.XMLHttpRequest)
+  {
+  // code for IE7+, Firefox, Chrome, Opera, Safari
+  return new XMLHttpRequest();
+  }
+if (window.ActiveXObject)
+  {
+  // code for IE6, IE5
+  return new ActiveXObject("Microsoft.XMLHTTP");
+  }
+return null;
+}
+
+
+</script>
+<title>{ENGINE_NAME} - </title>
+<meta http-equiv="Content-Type" content="text/html; charset=">
+<link href="ppc-style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+{TABS}
+<table  width="{PAGEWIDTH}" class="admainbox"   border="0"  cellpadding="0" cellspacing="0">
+<tr >
+<td height="40" colspan="4"><span class="styleTitle" {COLORTHEME4} >{publisher_msg:10102}</span></td>
+</tr>
+<tr>
+<td height="22" colspan="4"  class="headingbar" {COLORTHEME3}  >{publisher_msg:10204}</td>
+</tr>
+
+<tr height="40">
+<td >&nbsp;</td>
+<td height="20" ><strong>{publisher_msg:8902} </strong></td>
+<td width="34%" colspan="2"><strong>{publisher_msg:8901} </strong></td>
+</tr>
+<tr>
+<td width="31%" ><div >{publisher_msg:1305}<strong></strong></div></td>
+<td width="35%">{EMAILFIELD}</td><input id="adv_email" name="adv_email" type="hidden" value="{EMAILFIELD}"><td colspan="2">{EMAILFIELD1}</td><input name="pub_email" type="hidden" value="{EMAILFIELD1}" id="pub_email">
+</tr>
+<tr>
+<td><div ></div></td>
+<td>&nbsp;</td><td colspan="2">&nbsp;</td>
+</tr>
+<tr>
+<td>{publisher_msg:1007} <strong></strong></td>
+<td colspan="">{FNAMEFIELD}</td><input id="adv_firstname" name="adv_firstname" type="hidden" value="{FNAMEFIELD}"><td colspan="2">{FNAMEFIELD1}</td><input id="pub_firstname" name="pub_firstname" type="hidden" value="{FNAMEFIELD1}">
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td colspan="2">&nbsp;</td>
+</tr>
+<tr>
+<td>{publisher_msg:1008} <strong></strong></td>
+<td colspan="">{LNAMEFIELD}</td><input id="adv_lastname" name="adv_lastname" type="hidden" value="{LNAMEFIELD}"><td colspan="2">{LNAMEFIELD1}</td><input id="pub_lastname" name="pub_lastname" type="hidden" value="{LNAMEFIELD1}">
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td colspan="2">&nbsp;</td>
+</tr>
+<tr>
+<td>{publisher_msg:1009}&nbsp;<strong></strong></td>
+<td colspan="">{ADDRESSFIELD}</td><input id="adv_address" name="adv_address" type="hidden" value="{ADDRESSFIELD}"><td colspan="2">{ADDRESSFIELD1}</td><input id="pub_address" name="pub_address" type="hidden" value="{ADDRESSFIELD1}">
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td colspan="2">&nbsp;</td>
+</tr>
+<tr>
+<td>{publisher_msg:1010}&nbsp;<strong></strong> </td>
+<td colspan="">{PHNOFIELD}&nbsp;</td><input id="adv_phone_no" name="adv_phone_no" type="hidden" value="{PHNOFIELD}"><td colspan="2">{PHNOFIELD1}&nbsp;</td><input id="pub_phone_no" name="pub_phone_no" type="hidden" value="{PHNOFIELD1}">
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td colspan="2">&nbsp;</td>
+</tr>
+<tr>
+<td ><div >{publisher_msg:1012}<strong></strong></div></td>
+<td>{COUNTRY}</td><input id="adv_country" name="adv_country" type="hidden" value="{CO}"><td colspan="2">{COUNTRY1}&nbsp;</td><input id="pub_country" name="pub_country" type="hidden" value="{CO1}">
+</tr>
+<tr>
+<td><div ></div></td>
+<td colspan="4">&nbsp;</td>
+</tr>
+<tr>
+<td ><div >{publisher_msg:1306}<strong></strong></div></td>
+<td>{DOMAIN}</td><input id="adv_domain" name="adv_domain" type="hidden" value="{DOMAIN}"><td colspan="2">{DOMAIN1}</td><input id="pub_domain" name="pub_domain" type="hidden" value="{DOMAIN1}">
+</tr>
+<tr>
+<td colspan="4">&nbsp;</td>
+</tr>
+
+<tr>
+<td >{publisher_msg:1004}</td>
+<td>{UNAME1}</td><input id="adv_username" name="adv_username" type="hidden" value="{UNAME1}"><td colspan="2">{UNAME}</td><input id="pub_username" name="pub_username" type="hidden" value="{UNAME}">
+</tr>
+<tr>
+<td colspan="4">&nbsp;</td>
+</tr>
+<tr>
+<td ><div >{publisher_msg:9003}<strong></strong></div></td>
+<td>{ADVTAX}</td><input id="adv_tax" name="adv_tax" type="hidden" value="{ADVTAX}"><td colspan="2">{PUBTAX}</td><input id="pub_tax" name="pub_tax" type="hidden" value="{PUBTAX}">
+</tr>
+
+
+
+
+
+
+<tr>
+<td colspan="4">&nbsp;</td>
+</tr>
+
+
+
+{FORMSTART}
+<tr>
+<td >&nbsp;
+</td>
+<td colspan="2">{CONFIRM1}</td><td>{CONFIRM}</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td colspan="4">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="4">
+<table width="100%" cellpadding="0" cellspacing="0" align="left" border="0">
+
+ <tr height="25"><td colspan="3"><strong>{publisher_msg:8898}</strong></td></tr>
+ <tr height="25">
+   <td width="44%">{publisher_msg:1305}</td> <td width="3%">:</td> <td width="47%"><b>{EMAIL}</b></td>
+    <td width="6%">&nbsp;</td>
+ </tr>
+ <tr>
+<td>&nbsp;</td>
+<td colspan="4">&nbsp;</td>
+</tr>
+ <tr height="25">
+   <td>{publisher_msg:1007}</td><td>:</td><td> <b>{FNAME}</b></td>
+   <td>&nbsp;</td>
+   </tr>
+   <tr>
+<td>&nbsp;</td>
+<td colspan="4">&nbsp;</td>
+</tr>
+   <tr height="25">
+   <td>{publisher_msg:1008}</td><td>:</td><td> <b>{LNAME}</b></td>
+   <td>&nbsp;</td>
+   </tr>
+   <tr>
+<td>&nbsp;</td>
+<td colspan="4">&nbsp;</td>
+</tr>
+   <tr height="25">
+   <td>{publisher_msg:1009}</td><td>:</td><td> <b>{ADDRESS}</b></td>
+   <td>&nbsp;</td>
+   </tr>
+   <tr>
+<td>&nbsp;</td>
+<td colspan="4">&nbsp;</td>
+</tr>
+   <tr height="25">
+   <td>{publisher_msg:1010}</td><td>:</td><td> <b>{PHNO}</b></td>
+   <td>&nbsp;</td>
+   </tr>
+   <tr>
+<td>&nbsp;</td>
+<td colspan="4">&nbsp;</td>
+</tr>
+   <tr height="25">
+   <td>{publisher_msg:1012}</td><td>:</td><td> <b>{COTRY}</b></td>
+   <td>&nbsp;</td>
+   
+   </tr>
+   <tr>
+<td>&nbsp;</td>
+<td colspan="4">&nbsp;</td>
+</tr>
+   <tr height="25">
+   <td>{publisher_msg:1306}</td><td>:</td><td> <b>{DOM}</b></td>
+   <td>&nbsp;</td>
+   </tr>
+    <tr>
+<td>&nbsp;</td>
+<td colspan="4">&nbsp;</td>
+</tr>
+   <tr height="25">
+   <td>{publisher_msg:1004}</td><td>:</td><td> <b>{USERNAME}</b><div><span id="fg" style="display: none;white-space: nowrap;"><img src="images/loaddata.gif" width="15" height="15"></span><span id="dd" style="display: none;"></span></div></td>
+   <td>&nbsp;</td>
+   </tr>
+ <tr>
+<td>&nbsp;</td>
+<td colspan="4">&nbsp;</td>
+</tr>
+   <tr height="25">
+   <td>{publisher_msg:9003}</td><td>:</td><td> <b>{TAXID}</b></td>
+   <td>&nbsp;</td>
+   </tr>
+    
+   
+   <tr height="30">
+   <td>
+   </td>
+   </tr><input type="hidden" name="pubid" value={PID}>
+  
+   <tr height="40">
+   <td colspan="3" align="center">{SUBMIT}
+   </td>
+   </tr>{FORMCLOSE}
+ <br><br>
+</table>
+
+</td>
+</tr>
+
+<tr>
+<td>&nbsp;</td>
+<td colspan="4">&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td colspan="4">&nbsp;</td>
+</tr>
+</table>
+{FOOTER}
+</body>
+</html>

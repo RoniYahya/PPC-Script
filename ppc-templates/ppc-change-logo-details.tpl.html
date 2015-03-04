@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>{ENGINE_NAME} - {advertiser_msg:10518}</title>
+<meta http-equiv="Content-Type" content="text/html; charset={ENCODING}">
+<link href="ppc-style.css" rel="stylesheet" type="text/css">
+<script  language="javascript" type="text/javascript" src="swfobject.js"></script>
+<script type="text/javascript">
+function promptuser()
+{
+var answer = confirm ("You are about to delete the ad. It won't be available later.")
+if (answer)
+return true;
+else
+return false;
+}
+
+
+		
+</script>
+
+</head>
+<body>
+{TABS}
+{FORMSTART}
+<table  width="{PAGEWIDTH}" class="admainbox colortext"   border="0" cellpadding="0" cellspacing="0">
+<tr >
+<td height="40" colspan="7"><span class="styleTitle" {COLORTHEME4} >{advertiser_msg:10518}</span></td>
+</tr>
+<tr>
+<td colspan="7"  class="headingbar" {COLORTHEME3} >{advertiser_msg:10522}</td>
+</tr>
+
+<tr>
+<td colspan="7">
+	<table class="tableT">
+    	<tr>
+<td >{advertiser_msg:1354}<span class="mandatory">*</span></td>
+<td><select name="status" id="status" >
+<option value="1"  {if($st=="1")}selected{endif}>{advertiser_msg:10112}</option>
+<option value="-1" {if($st=="-1")}selected{endif} >{advertiser_msg:10113}</option>
+<option value="0" {if($st=="0")}selected{endif}>{advertiser_msg:10114}</option>
+<option value="4" {if(($st!="1") && ($st!="0") && ($st!="-1"))}selected{endif}>{advertiser_msg:10115}</option>
+</select></td>
+
+<td>{SUBMIT}</td>
+</tr>
+    </table>
+</td>
+</tr>
+<tr height="30">
+<td colspan="7">
+<div id="admanage" style="display:block;">
+<table border="0" width="100%" >
+{if($total!=0)}
+<tr height="40">
+<td colspan="6">{SHOW_STATISTICS}<span style="float:right">{HEADER}</span>
+</td>
+</tr>
+
+<tr height="30">
+<td align="left" width="152"><strong>{advertiser_msg:8894}</strong></td>
+<td align="left" width="443"><strong>Logo</strong></td>
+<td align="left" width="174"><strong>Status</strong></td>
+<td align="left" width="391"><strong>{advertiser_msg:7028}</strong></td>
+</tr>
+{endif}
+{LOOP(LOGO)-STARTLOOP} 
+<tr>
+<td>{LOOP(LOGO)-NAME}</td>
+<td><img src="{PATH}/{LOOP(LOGO)-IMAGE}" border="0"  style="width:60px"></td>
+<td>
+{if(${LOOP(LOGO)-STATUS}=="-1")}
+Pending
+{elseif(${LOOP(LOGO)-STATUS}=="1")}
+Active
+{else}
+Block
+{endif}	 
+</td>
+<td style="white-space: nowrap;">
+ <a href="ppc-edit-logo.php?id={LOOP(LOGO)-ID}" class="smallboldtext" {COLORTHEME5} ">{advertiser_msg:1231}</a>
+|&nbsp; <a href="delete-logo-action.php?id={LOOP(LOGO)-ID}" class="smallboldtext" {COLORTHEME5}  onclick="return promptuser()">{advertiser_msg:1234}</a>
+
+
+</td>
+
+</tr>
+{LOOP(LOGO)-ENDLOOP}
+<tr height="30">
+<td colspan="4"></td></tr>
+{if($total!=0)}
+<tr height="30">
+<td colspan="6">{SHOW_STATISTICS}<span style="float:right">{HEADER}</span>
+</td>
+</tr>
+{endif}
+</table>
+</div>
+
+</td>
+</tr>
+
+</table>
+{FORMCLOSE}
+{FOOTER}
+</body>
+</html>

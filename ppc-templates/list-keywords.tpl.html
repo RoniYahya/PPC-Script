@@ -1,0 +1,70 @@
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+
+<table width='100%'  border='0' align='left' cellpadding='0' cellspacing='0'>
+<tr><td colspan='4'><span class='already' id="errormsg"> {MESSAGESS}</span><span class='inserted' id="successmsg">{MESSAGELAST}</span></td> </tr>
+
+</table>
+
+{if(${TYPE}!=3)}
+
+{if(${NUM} > 0)}
+
+<table width='100%'  border='0' align='left' cellpadding='0' cellspacing='0'>
+
+
+<tr>
+<td colspan='4'><span class='inserted'>{advertiser_msg:5028}</span></td>
+</tr>
+
+<tr>
+<td colspan='4'>&nbsp;</td>
+</tr>
+
+<tr >
+<td ><strong>{advertiser_msg:1137}</strong></td>
+<td width="15%"><strong>{advertiser_msg:7026}</strong></td>
+<td width="15%"><strong>{advertiser_msg:7027}</strong></td>
+<td width="35%"><strong>{advertiser_msg:7028}</strong></td>
+
+</tr>
+<tr>
+          <td colspan='4'>&nbsp;</td>
+        </tr> 
+         {LOOP(KEY)-STARTLOOP}
+   
+
+       
+   <tr  height="25">    
+       
+  
+      <td  ><span id="show_name_{LOOP(KEY)-ID}" {if(${LOOP(KEY)-STATUS}==0)}style="color:#FF0000"{elseif(${LOOP(KEY)-STATUS}==-1)}style="color:#FF9933"{endif}>{LOOP(KEY)-KEYWORD}</span>  
+{if(${MODE}==1)}
+
+<input type="text" name="edit_key_{LOOP(KEY)-ID}"  id="edit_key_{LOOP(KEY)-ID}" value="{LOOP(KEY)-KEYWORD}" style="display:none;" > 
+{endif}
+
+{if((${MODE}==3) && (${LOOP(KEY)-KEYWORD}==${DEFAULTKEY}))}
+<input type="text" name="edit_key_{LOOP(KEY)-ID}"  id="edit_key_{LOOP(KEY)-ID}" value="{LOOP(KEY)-KEYWORD}" style="display:none;"  readonly="readonly">
+{else}
+<input type="text" name="edit_key_{LOOP(KEY)-ID}"  id="edit_key_{LOOP(KEY)-ID}" value="{LOOP(KEY)-KEYWORD}" style="display:none; "> 
+{endif}
+</td>
+
+       <td  >
+       <span id="show_val_{LOOP(KEY)-ID}">{LOOP(KEY)-MAXCV}</span>
+     <input type="text" name="edit_val_{LOOP(KEY)-ID}" id="edit_val_{LOOP(KEY)-ID}"  value="{LOOP(KEY)-MAXCV}"  style="display:none;"  maxlength="10" size="10"></td>
+       <td  >{fn:getSuggestedValue(${LOOP(KEY)-KEYWORD},${LOOP(KEY)-ID},${MIN_CLK},${REVENUE_BOOSTER},${REVENUE_BOOST_LEVEL},${ADDATA})}</td>
+       <td ><a href="javascript:allowEdit('{LOOP(KEY)-ID}')" class="pagetable_activecell" {COLORTHEME5}>{advertiser_msg:1231}</a> | <a href="ppc-delete-keywords.php?id={LOOP(KEY)-ID}&url={URL}" class="pagetable_activecell" {COLORTHEME5}>{advertiser_msg:7030}</a>
+       
+       &nbsp;<input type="button" name="update" id ="update_{LOOP(KEY)-ID}" value="{advertiser_msg:5027}" onClick="updateKeywords('{LOOP(KEY)-ID}')" style="display:none;"  class="submit">&nbsp;
+<input type="button" name="cancel" id ="cancel_{LOOP(KEY)-ID}" value="{advertiser_msg:7031}" onClick='cancelEdit({LOOP(KEY)-ID})'  style="display:none" class="submit">
+<span id="disp_{LOOP(KEY)-ID}" style="display:none">&nbsp; <img style="padding:0px ;margin:0px;vertical-align:middle; " src="images/loaddata.gif"></img></span>
+</td></tr>{LOOP(KEY)-ENDLOOP}
+</table>
+
+
+
+
+{endif}
+{endif}
+

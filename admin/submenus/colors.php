@@ -1,0 +1,1 @@
+<div class="submenu"><a href="ppc-credittext-bordercolor.php">Add new color combination</a> | <a href="ppc-edit-credittext-bordercolor.php">Manage color combinations</a></div>

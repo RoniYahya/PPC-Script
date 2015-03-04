@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>{ENGINE_NAME} - {advertiser_msg:1029}</title>
+<meta http-equiv="Content-Type" content="text/html; charset={ENCODING}">
+<meta name="keywords" content="{META_KEYWORDS}">
+<meta name="description" content="{META_DESC}">
+<link href="ppc-style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+{TABS}
+<table  width="{PAGEWIDTH}" class="admainbox"   border="0"  cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<table   border="0" cellpadding="0" cellspacing="0" style="float:left">
+<tr>
+<td height="40" class="styleTitle" {COLORTHEME4}> {HMESS} </td>
+</tr>
+<tr>
+<td>
+<span class="homeheading" >{HMESS6} </span>
+<p class="contentp">{HMESS9}</p>
+<span class="homeheading" >{advertiser_msg:1034}</span>
+<p class="contentp"> {advertiser_msg:1035}</p>
+<span class="homeheading" >{advertiser_msg:1036}</span>
+<p class="contentp">{advertiser_msg:1037}</p>   </td>
+</tr>
+</table>      </td>
+<td width="20px"   >&nbsp;</td>
+<td width="240px" class="loginDoxTd">
+{if($GLOBALS['single_account_mode']==0)}
+
+{FORMSTART} 
+<table  border="0" cellpadding="0" cellspacing="0" class="loginbox"  {COLORTHEME3} >
+<tr>
+<td colspan="2" class="loginbar" {COLORTHEME3} >&nbsp;&nbsp;{advertiser_msg:1038}</td>
+</tr>
+<tr>
+<td colspan="2" >&nbsp;</td>
+</tr>
+<tr>
+<td > &nbsp;&nbsp;{advertiser_msg:1039}</td><td>{USERFIELD}</td>
+</tr>
+
+<tr>
+<td >&nbsp;&nbsp;{advertiser_msg:1040}</td><td>{PASSFIELD}</td>
+</tr>
+
+<tr>
+<td >&nbsp;</td>
+<td>{SUBMIT}</td>
+</tr>
+<tr>
+<td colspan="2" >&nbsp;&nbsp;<span class="smalltext">{advertiser_msg:1041} <a href="{ADVFORGOT}" class="pagetable_activecell" {COLORTHEME5}>{advertiser_msg:1042} </a></span></td>
+</tr>
+<tr>
+<td colspan="2" >&nbsp;</td>
+</tr>
+</table>
+{FORMCLOSE} 
+{endif}
+<table  border="0" cellpadding="0" cellspacing="0"   width="100%">
+
+<tr>
+<td colspan="2">
+<p class="contentp">{advertiser_msg:10148}
+{if($GLOBALS['single_account_mode']==0)}
+<a href="{ADVREG}" class="pagetable_activecell" {COLORTHEME5} >{advertiser_msg:1046}</a>
+{endif}</p></td>
+</tr>
+{if($GLOBALS['single_account_mode']==1)}
+<tr>
+<td>&nbsp; <!-- This colum is to keep alignment in case of ltr language --></td>
+<td width="100px">
+<div class="ssobutton" {COLORTHEME3}>
+<a href="{COMREG}"  >{advertiser_msg:1046} &raquo;</a></div></td>
+</tr>
+<tr>
+<td colspan="2">
+<p class="contentp">{advertiser_msg:10149}  
+{advertiser_msg:10151} <a href="{COMLOGIN}" class="pagetable_activecell" {COLORTHEME5}>{advertiser_msg:10150}</a> 
+ </p></td>
+</tr>
+{endif}
+</table></td>
+</tr>
+<tr>
+<td colspan="3" class="styleTitle" {COLORTHEME4} >{advertiser_msg:1047} </td>
+</tr>
+<tr>
+<td colspan="3" >
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-bottom:20px;">
+	<tr>
+    	<td colspan="5" class="demoImageTd"><img src="images/advertiser-demo.jpg" align="Advertiser"></td>
+    </tr>
+	<tr class="captionsTr">
+	<td >{advertiser_msg:1048}</td>
+	<td>&nbsp;</td>
+	<td align="center" >{advertiser_msg:1049}</td>
+	<td>&nbsp;</td>
+	<td align="center">{advertiser_msg:1050}</td>
+	</tr>
+	</table>      
+</td>
+</tr>
+<tr>
+<td colspan="3" class="grayBox">
+<span class="homeheading" >{advertiser_msg:1051}</span>
+<p class="contentp">{advertiser_msg:1052}</p>
+<span class="homeheading" >{advertiser_msg:1053} </span>
+<p class="contentp">{advertiser_msg:1054}</p>
+<span class="homeheading" >{advertiser_msg:1055}</span>
+<p class="contentp">{HMESS16}</p>
+<p class="contentp">{HMESS21}&nbsp;&nbsp;<a href="{PUBLOGIN}" class="pagetable_activecell" {COLORTHEME5}>{advertiser_msg:1061} &raquo;</a></p>
+</td>
+</tr>
+<tr >
+<td colspan="3">&nbsp;</td>
+</tr>
+<tr >
+<td colspan="3"><img src="images/payments.gif" ></td>
+</tr>
+<tr >
+<td colspan="3" ></td>
+</tr>
+</table>
+
+
+{FOOTER}
+</body>
+</html>

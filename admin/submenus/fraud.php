@@ -1,0 +1,1 @@
+<div class="submenu"><a href="click-analysis.php">Click Analysis</a> | <a href="fraud-analysis.php">Fraud analysis</a> | <a href="view-traffic-enabled-publishers.php">Suspicious  Publishers</a> | <a href="ppc-ctr-fraud-detection.php">Check Publisher CTR</a> | <a href="delete-fraud-click-data.php">Delete Fraud Click Data</a> </div>

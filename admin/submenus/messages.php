@@ -1,0 +1,1 @@
+<div class="submenu"><a href="create-messages.php">Create Message</a> | <a href="manage-message.php">Manage Messages</a></div>

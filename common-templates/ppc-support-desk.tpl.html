@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>{ENGINE_NAME} - {common_msg:1066}</title>
+<meta http-equiv="Content-Type" content="text/html; charset={ENCODING}">
+<link href="ppc-style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+{TABS}
+<table  width="{PAGEWIDTH}" class="admainbox"   border="0"  cellpadding="0" cellspacing="0">
+<tr >
+<td height="40" ><span class="styleTitle" {COLORTHEME4} >{EMESS51} </span></td>
+</tr>
+<tr  class="headingbar" {COLORTHEME3}   height="22">
+<td ><span >{common_msg:3004}</span></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>{FORMSTART}
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="19%">&nbsp;</td>
+<td width="60%" height="20">{HIDDENNAME}{HIDDENEMAILID}<span class="inserted">{common_msg:1070}</span></td>
+</tr>
+<tr>
+<td>{common_msg:3005}<span class="mandatory">*</span></td>
+<td><input name="subject" type="text" id="subject" size="50"></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>{common_msg:3006}<span class="mandatory">*</span></td>
+<td><select name="priority" id="priority">
+<option value="Light">{common_msg:3008}</option>
+<option value="Normal" selected>{common_msg:3009}</option>
+<option value="Urgent">{common_msg:3010}</option>
+</select></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+
+
+
+
+<tr>
+<td>{common_msg:3007}<span class="mandatory">*</span></td>
+<td><textarea name="body" cols="70" rows="7" id="body"></textarea></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>{SUBMIT}{FORMCLOSE}</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table></td>
+</tr>
+</table>
+{FOOTER}
+</body>
+</html>

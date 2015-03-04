@@ -1,0 +1,409 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Inout Adserver ReadMe :: Install &amp; Basic Customization</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="ppc-style.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.style4 {
+	color: #666666;
+	font-weight: bold;
+	
+}
+.styleTitle
+{
+font-size:16px;
+font-weight:bold;
+}
+-->
+</style>
+</head>
+<body bgcolor="#EDEDED">
+<table width="100%" border="0" align="center" cellpadding="5" cellspacing="5" >
+  <tr>
+    <td colspan="2"><BR>      <h1>
+        <p  ><span class="style4">Hello there,<br><br>
+
+ thank you very much for choosing Inout Adserver ULTIMATE 6.0</span></p>
+    </h1></td>
+  </tr>
+  <tr>
+    <td colspan="2"><p>This is version 6.0 of Inout Adserver Ultimate. To upgrade from any older version/edition of adserver/ppc engine, please follow the guidelines given <a href="#upgradation"><strong>here</strong></a>. After upgradation please go through the <a href="#extended"><strong>extended configurations</strong></a>  and make  necessary changes if required. </p></td>
+  </tr>
+  <tr>
+  <td colspan="2">
+    <span class="styleTitle"  >To install a fresh copy of the script, 
+        follow the steps 1-11 </span>(&nbsp; <a href="#upgradation"><strong>Click here</strong></a> to view  instructions for upgradation.&nbsp;)   </td>
+</tr>   
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td width="3%">1.</td>
+  <td width="97%">        Create a new MySQL database using your website management control panel (eg: Cpanel) and add a user to the database.</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td>2.</td>
+  <td> Open the the <i>admin/config.inc.php</i> and edit some important configurations there as described below. Please ensure that  editing the <i>config.inc.php</i> file is done using   editors like notepad++(this is a free editor) which allow to save the file in utf-8 encoding without BOM. </td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td>3.</td>
+  <td>Enter your license key in the config file.<br>
+ <strong><br>
+ NOTE</strong><br>
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ <br>
+You can generate the license key after logging into the member area of inoutscripts.com. <br>
+ Please use your email address and the given password to login.
+        <br>
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td>4.</td>
+  <td><p>Now you can enter your MySQL settings in the config.inc.php file as described in it.<br>
+    <br>
+        The value &quot;localhost&quot; for the setting <i>$mysql_server</i> need to be changed only if your host has a different name for the MySQL server.<br>
+        <br>
+        The values for <i>$mysql_username</i>, <i>$mysql_password</i> and <i>$mysql_dbname</i> <em>usually</em> need to be entered like this in the config.inc file.<br> 
+        <br>
+        yourdomain_username<br>
+    password just as it is<br>
+    yourdomain_databasename<br>
+    <br>
+    You can leave the value for <i>$mysql_server_type</i> as 1 itself.</p>    </td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td>5.</td>
+  <td>Now, modify your admin area username and password in the config file. You can also change the admin login user and password anytime in future here in admin/config.inc.php. </td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td>6.</td>
+  <td>Next you need to modify  the value of <i>$server_dir</i> to point to the full path of the directory where you have installed the script,<br>
+    eg. $server_dir=&quot;http://mydomain.com/&quot;[Remember to include the last forward slash.]</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td>7.</td>
+  <td>Now you have to specify outgoing email settings . The value of setting <i>$mailserver_type </i>need to be modified only if mails are not being sent out. You can change this to 1 in such case. The value for <i>$email_encoding</i> need to be same as that of your adserver data encoding. The adserver data encoding can be configured from admin panel after installation.<br>
+    By default adserver uses PHP mail() to send outgoing mails. Instead you may configure SMTP mailing settings if required from  here. Please note that you must having PHP version &gt; 5 for using SMTP mailing. </td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td>8.</td>
+  <td>Change the access permission[CHMOD] of the directories <i>ppc-banners</i>,<i>ad_logos</i> ,<i>credit-image</i>, <i>_cache</i>, <i>locale</i>, <i>admin/ppc-service-ads</i> and <i>admin/affiliate-banners</i></strong> to 777. In case of <i>locale</i> folder please ensure that permission is set recursively.</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td>9.</td>
+  <td>Set <i>admin/adserver_cron.php</i> as a cron job at a run frequecy of once an hour; If you have any doubts on setting a cron job, please contact our support desk, they will happily help you out. </td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td>10.</td>
+  <td>Go to the URL http://yourdomain.com/admin/index.php in your browser and login using the username and password you set in the config.inc.php file. <br>
+Upon validating license key, mysql details, username and password the script will be automatically installed  and will ask you to configure some important settings. You may configure it later if you wish, but it will not take more than a minute and we recommend you to do that along with the installation.<br><br>
+<strong>IMPORTANT NOTE</strong><br>
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<br>
+If you are getting any error message in the install page saying some loader file is missing, <br>
+please find the required file in the zip file <a href="http://www.inoutscripts.com/downloads/ioncube_loader_files.zip" target="_blank"><strong>here</strong></a> and upload to the 'ioncube' directory.<br> 
+If you have any query, please contact our support desk. 
+We will be glad to help you.<br>
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<br></td>
+</tr>
+<tr>
+  <td>11.</td>
+  <td>Backup Data Base:To use this you must enable mysqli and zip in your server. You can contact your server people to enable the same. </td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td colspan="2"><strong>That's it!</strong> If you  see some error messages in admin area, the installation may not be proper. You may contact us for help.&nbsp;Now you may read about some additional configurations and instructions below. </td>
+  </tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td colspan="2"><a name="extended"></a><span class="styleTitle">Extended Configurations </span></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>Adserver 5.2 onwards, we are supporting some extended configurations which are avaliable in <i>extended-config.inc.php </i> in the  installation folder. It contains configurations for renaming certain folders and caching of ad display. Also there is a configuration to put your adserver to maintenace mode with restricted ip access .</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td> </td>
+</tr>
+<tr>
+  <td colspan="2"><span class="styleTitle">Look and Feel Management </span></td>
+  </tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td>1.</td>
+  <td>You may manage the entire look and feel of the software by  changing a few templates. All these templates  can be found in the<strong> ppc-templates</strong> folder (advertiser specific templates) ,  <strong>publisher-templates</strong> folder (publisher specific templates)and <strong>common-templates</strong> folder (templates common to advertiser and single-sign-on specific templates). 
+You    can modify these html templates to look exactly the way you want to see it. You may not find only minimum PHP code in the templates pages. So it will be very easy for you to manage these templates. There are some template variables enclosed in {}. Keep those variables untouched. You may add whatever content you want to add to these templates.<br></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td>2.</td>
+  <td><strong>I want to just modify the headers</strong> <br>
+You may want to change only the header of the page sometimes. The header of all pages without login authentication can be modified  by changing <i>common-templates/common-header.tpl.html</i>. The header of login authenticated pages of advertiser is <i>ppc-templates/advertiser-loggedin-header.tpl.html</i> , of publisher is publisher-templates/publisher-loggedin-header.tpl.html and of single-sign-on accounts is <i>common-templates/common-loggedin-header.tpl.html</i>. </td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td>3.</td>
+  <td><strong>Changing Engine Name from 'Inout Adserver' to your Engine Name</strong><br>
+Please login to the admin area using the username and password which you have set in the config.inc.php file. Then after logging in, under the basic configuration section you can find the option to change the engine name to your desired engine name. Also you need to modify the message corresponding to this engine name in different languages from under 'Languages'>'Edit Messages' menu. </td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td>4.</td>
+  <td><strong>I want to upload my logo </strong><br />
+  You can upload your logo from admin area Site Content > Public Page Settings . Also you have options to specify whether logo image alone or logo text alone or both should be displayed. </td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td>5.</td>
+  <td>CSS control of all public pages is located in ppc-style.css in the root folder where you can make changes to link and font styles.</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td>6.</td>
+  <td>If you want to change the  content of the mails to your advertisers,publishers you can modify the same in admin area under the section &quot;Email Templates&quot;. </td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td colspan="2"><a name="upgradation"></a><span class="styleTitle">Upgradation General Instructions</span> (&nbsp; <a href="#upgrade"><strong>Click here</strong></a> to view  instructions for upgrading from standard edition/ppc engine  versions 2.2 or older.&nbsp;) </td>
+  </tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td colspan="2"><strong>NOTE</strong> : 
+If you had modified the templates in your previous installation , please note that you will have to do the modifications again with the new version templates. &nbsp;</td>
+  </tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td>1.</td>
+  <td>Do take a backup of your database by exporting it as a zip from phpmyadmin. If you have root access, you may take a dump using mysqldump tool. </td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td>2.</td>
+  <td>Upload the <i>admin/pre-check.php</i> alone from the new pack and invoke the same in browser. If it gives some error, please fix the error before proceeding with further steps of upgration. </td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td>3.</td>
+  <td>Upload all files except <i>admin/config.inc.php</i> and <i>extended-config.inc.php . </i>If there are some new settings present in the new config files please copy them to your old config files. </td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td>4.</td>
+  <td>Invoke <i>admin/install.php</i> from browser. It will create new tables and alter existing ones without loosing any data.</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+
+<tr>
+  <td colspan="2"><a name="upgrade"></a><span class="styleTitle">Upgrading from standard edition/ppc engine  versions 2.2 or older. </span></td>
+  </tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td>1.</td>
+  <td>Follow step 1 and 2 of  upgradation general instructions given <a href="#upgradation"><strong>above</strong></a>. </td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td>2.</td>
+  <td>Copy the values of following settings from existing config.inc.php file to the new config.inc.php file $license_key, $mysql_server, $mysql_username, $mysql_password, $mysql_dbname, $username, $password, $server_dir</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td>3.</td>
+  <td>Upload files except <i>admin/adserver_cron.php</i> and run <i>admin/install.php</i>.  It will create new tables and alter existing ones without loosing any data.</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td><p><strong>NOTE : </strong>If you are upgrading from versions prior to 2.0, basic ad blocks will be created during the installation time. The basic blocks are infact built from the banner sizes in your db. If you had created any custom banner sizes other than those which were present in the old installation, most likely they will be converted to banner only blocks. Also the maximum ad title length and maximum ad display url length are updated to 35 and maximum ad description length to 70. These settings have been made constants for the ease of ad display management. If any existing active ads exceeds this limit, their status will be updated to pending state. </p>    </td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+
+<tr>
+  <td>4.</td>
+  <td> Invoke <i>admin/adserver-data-back-up-cron.php</i>   from browser (This may take some time to complete depending on your db size) </td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td>5.</td>
+  <td>Invoke <i>admin/show-statistics.php </i>from browser. 
+
+
+ Go through the statistics which is sorted by time and verify that the raw data statistics is same as advertiser statistics/publisher statistics/referral statistics for every row. If they do not match, please try step 4-5 again. If they still don't match, contact us for further help. </td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td>6.</td>
+  <td>If everything is fine you may now upload the <i>admin/adserver_cron.php</i> from the pack. <br>    </td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td><strong>NOTE : 
+  </strong>If you are upgrading from a versions prior to 2.0, then set <i>admin/adserver_cron.php</i> as a cron job at a run frequency of once every hour; If you have any doubts on setting a cron job, please contact our support desk, they will gladly assist you.</strong></a></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td>7.</td>
+  <td>Ensure that  the access permission[CHMOD] of the  directories <i>ppc-banners</i>, <i>credit-image</i>, <i>_cache</i>, <i>locale</i>, <i>admin/ppc-service-ads</i> and <i>admin/affiliate-banners</i></strong> is 777. In case of <i>locale</i> folder please ensure that permission is set recursively.</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td>8.</td>
+  <td>Finally go to the <strong>TO DO</strong> page from your admin area and do the pending tasks. </td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+
+<tr>
+  <td colspan="2"><span class="styleTitle">DISCLAIMER</span></td>
+</tr>   
+<tr>
+  <td colspan="2">&nbsp;</td>
+</tr>
+<tr>
+  <td colspan="2">By downloading and/or installing this script you accept all responsibility and liability without exception for all content displayed on the domain
+  that uses this script, and you accept all the <a href="http://www.inoutscripts.com/terms.php" target="_blank"><strong>terms</strong></a> of use without exception as given at our website <a href="http://www.inoutscripts.com" target="_blank"><strong>Inoutscripts.com</strong></a>.
+The license granted is for single domain use only. You may create as many engines as you wish on a single domain.<br><br>
+=================<br>
+Thanks and Regards,<br>
+Inoutscripts Team<br>
+support@inoutscripts.com</td>
+  </tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+
+
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+
+</body>
+</html>

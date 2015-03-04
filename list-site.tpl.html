@@ -1,0 +1,53 @@
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+
+<table width='100%'  border='0' align='left' cellpadding='0' cellspacing='0'>
+<tr><td colspan='4'><span class='already' id="errormsg"> {MESSAGESS}</span><span class='inserted' id="successmsg">{MESSAGELAST}</span></td> </tr>
+
+</table>
+
+
+{if(${NUM} > 0)}
+
+<table width='100%'  border='0' align='left' cellpadding='0' cellspacing='0'>
+
+
+<tr>
+<td colspan='4'><span class='inserted'>{advertiser_msg:5028}</span></td>
+</tr>
+
+<tr>
+<td colspan='4'>&nbsp;</td>
+</tr>
+
+<tr >
+<td ><strong>{advertiser_msg:1137}</strong></td>
+<td width="15%"><strong>{advertiser_msg:7026}</strong></td>
+<td width="15%"><strong>{advertiser_msg:7027}</strong></td>
+<td width="35%"><strong>{advertiser_msg:7028}</strong></td>
+
+</tr>
+<tr>
+          <td height="19" colspan='4'>&nbsp;</td>
+  </tr> 
+         {LOOP(SITE)-STARTLOOP}
+   
+
+       
+   <tr  height="25">    
+       
+  
+      <td  >{LOOP(SITE)-ID}
+
+</td>
+
+       <td  >
+       
+</td></tr>{LOOP(SITE)-ENDLOOP}
+</table>
+
+
+
+
+{endif}
+
+

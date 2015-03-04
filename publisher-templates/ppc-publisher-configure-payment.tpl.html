@@ -1,0 +1,309 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>{ENGINE_NAME} {publisher_msg:1262}</title>
+<meta http-equiv="Content-Type" content="text/html; charset={ENCODING}">
+<link href="ppc-style.css" rel="stylesheet" type="text/css">
+<script language="javascript">
+function show_check()
+{
+document.getElementById('check').style.display="";
+document.getElementById('bank').style.display="none";
+document.getElementById('check_address').style.display="";
+document.getElementById('paypal').style.display="none";
+document.getElementById('bank_span').style.display="none";
+document.getElementById('check_span').style.display="";
+document.getElementById('check_details').style.display="";
+document.getElementById('bank_details').style.display="none";
+document.getElementById('button').style.display="";
+//document.getElementById('pay_type').style.display="";
+//document.getElementById('paypal').style.display="none";
+}
+function show_bank()
+{
+document.getElementById('bank').style.display="";
+document.getElementById('check').style.display="";
+document.getElementById('check_address').style.display="none";
+document.getElementById('paypal').style.display="none";
+document.getElementById('bank_span').style.display="";
+document.getElementById('check_span').style.display="none";
+document.getElementById('check_details').style.display="none";
+document.getElementById('bank_details').style.display="";
+document.getElementById('button').style.display="";
+//document.getElementById('paypal').style.display="none";
+//document.getElementById('bank_payment_details').style.display="";
+//document.getElementById('pay_type').style.display="";
+//document.getElementById('paypal').style.display="none";
+}
+function show_paypal()
+{
+
+document.getElementById('bank').style.display="none";
+document.getElementById('check').style.display="none";
+document.getElementById('check_address').style.display="none";
+document.getElementById('paypal').style.display="";
+
+//document.getElementById('pay_type').style.display="none";
+
+document.getElementById('button').style.display="";
+
+//document.getElementById('check_payee_details').style.display="none";
+//document.getElementById('bank_payment_details').style.display="none";
+//document.getElementById('paypal').style.display="";
+}
+</script>
+</head>
+<body>
+{TABS}
+<table width="{PAGEWIDTH}" class="admainbox"   border="0"  cellpadding="0" cellspacing="0" width="100%">
+
+<tr>
+<td height="40" colspan="2"><span class="styleTitle" {COLORTHEME4} >{publisher_msg:1263}</span></td>
+</tr>
+<tr>
+<td colspan="2" class="headingbar" {COLORTHEME3}  >{publisher_msg:1264}</td>
+</tr>
+<tr></tr>
+{FORMSTART}
+<input type="hidden" name="url" value="{URL}">
+{if(${PAYMODESTATUS}==1)}
+<tr>
+<td height="30" colspan="2" ><span class="adtitle">{publisher_msg:1265}</span></td>
+</tr>
+<tr>
+<td colspan="2"></td>
+</tr>
+
+{endif}
+
+<tr>
+<td width="22%" >{publisher_msg:1183}</td>
+<td width="70%">{PAYMODE} {if(${PAYMODESTATUS}==1)}<strong><span class="mandatory"> * </span></strong>{endif}</td>
+</tr>
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+
+
+
+<tr><td colspan="2"><table name="paypal" id="paypal" style="display:none" width="500">
+<tr>
+<td height="30" colspan="2" ><span class="adtitle">{publisher_msg:1266}</span></td>
+</tr>
+
+<tr>
+<td colspan="2">{if(${PAYMODESTATUS}==1)}
+{publisher_msg:1267}
+{else}
+{publisher_msg:1268}
+{endif}</td>
+</tr>
+
+
+
+
+
+
+
+<tr>
+<td width="230">&nbsp;</td>
+<td width="270">&nbsp;</td>
+</tr>
+<tr>
+<td>{publisher_msg:1269}</td>
+<td>{PAYPALEMAIL}</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table></td></tr>
+
+
+<tr><td colspan="2"><table name="check" id="check" style="display:none" width="500">
+<tr>
+<td height="30" colspan="2" ><span class="adtitle" id="check_span">{publisher_msg:1270}</span> <span class="adtitle" id="bank_span" style="display:none">{publisher_msg:1271}</span></td>
+</tr>
+<tr>
+<td colspan="2"><span id="check_details">{publisher_msg:1272}</span><span id="bank_details" style="display:none">{publisher_msg:1273}</span></td>
+</tr>
+<tr>
+<td width="226">&nbsp;</td>
+<td width="270">&nbsp;</td>
+</tr>
+<tr>
+<td >{publisher_msg:1274} </td>
+<td>{PAYEENAME} </td>
+</tr>
+<tr>
+<td >&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+
+
+<tr><td colspan="2"><table name="bank" id="bank" style="display:none" width="500">
+{if($publisher_bankpayment)}
+<tr>
+<td width="223" >{publisher_msg:1275}</td>
+<td width="265">{BANKNAME}</td>
+</tr>
+<tr>
+<td >&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td width="223" >{publisher_msg:1276}</td>
+<td width="265">{BANKADD}</td>
+</tr>
+<tr>
+<td >&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>{publisher_msg:1277}</td>
+<td>{ACCNO}</td>
+</tr>
+<tr>
+<td >&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<td>{publisher_msg:1278}</td>
+<td>{ROUTNO}</td>
+</tr>
+<tr>
+<td height="25">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+  <td>{publisher_msg:1279}</td>
+    <td>{ACCTYPE}</td>
+</tr>
+<tr>
+<td >&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td >&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td >{publisher_msg:1280}</td>
+<td>{BCITY}</td>
+</tr>
+<tr>
+<td >&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td >{publisher_msg:1281}</td>
+<td>{BSTATE}</td>
+</tr>
+<tr>
+<td >&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td >{publisher_msg:1282}</td>
+<td>{BCOUNTRY}</td>
+</tr>
+<tr>
+<td >&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td >{publisher_msg:1283}</td>
+<td>{BZIP}</td>
+</tr>
+{endif}
+</table>
+
+
+<table id="check_address" style="display:none" width="500">
+{if($publisher_checkpayment)}
+<tr id="chck_add1">
+<td width="226" >{publisher_msg:1284}</td>
+<td width="262">{ADDRESS1}</td>
+</tr>
+<tr>
+<td >&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr id="chck_add2">
+<td >{publisher_msg:1285}</td>
+<td>{ADDRESS2}</td>
+</tr>
+<tr>
+<td >&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td >{publisher_msg:1280}</td>
+<td>{CITY}</td>
+</tr>
+<tr>
+<td >&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td >{publisher_msg:1281}</td>
+<td>{STATE}</td>
+</tr>
+<tr>
+<td >&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td >{publisher_msg:1282}</td>
+<td>{COUNTRY}</td>
+</tr>
+<tr>
+<td >&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td >{publisher_msg:1283}</td>
+<td>{ZIP}</td>
+</tr>
+{endif}
+</table></td></tr>
+</table></td></tr>
+
+<tr>
+<td >&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td >&nbsp;</td>
+<td ><div style="display: none" id="button">{SUBMIT}</div>{FORMCLOSE}</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td colspan="2" ></td>
+</tr>
+
+</table>
+<script language="javascript">
+
+
+if (document.getElementById("pay_radio1")&& document.getElementById("pay_radio1").checked)
+	show_paypal();
+if(document.getElementById("pay_radio3") && document.getElementById("pay_radio3").checked)
+		show_bank();//$sel_bank="checked";
+if(document.getElementById("pay_radio2") && document.getElementById("pay_radio2").checked)
+	show_check();//$sel_bank="checked";
+
+	//alert(set_str);
+	//alert(document.getElementById(set_str).checked);
+	//document.getElementById(set_str).value=reset_val;
+	//alert("hai rajath");
+</script>
+
+
+{FOOTER}
+</body>
+</html>

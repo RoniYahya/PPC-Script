@@ -1,0 +1,1 @@
+<div class="submenu"><a href="new-coupon.php">Create Coupon</a> | <a href="manage-coupons.php">Manage Coupons</a>   </div>

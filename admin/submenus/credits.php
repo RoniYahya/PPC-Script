@@ -1,0 +1,1 @@
+<div class="submenu"><a href="ppc-add-new-publisher-credit-text.php">Add Credit Text</a> | <a href="ppc-manage-publisher-credit.php">Manage Credit Texts</a></div>

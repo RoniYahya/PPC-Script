@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>{ENGINE_NAME} -{advertiser_msg:8889} </title>
+<meta http-equiv="Content-Type" content="text/html; charset=">
+<link href="ppc-style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<script type="text/javascript">
+
+function show_detail()
+{
+if(document.getElementById('account_radio1').checked) //yes
+{
+document.getElementById('pub_details').style.display="block";
+document.getElementById('confirm_msg').style.display="none";
+document.userLogin.action ="ppc-single-account.php";
+}
+else
+{
+document.getElementById('pub_details').style.display="none";
+document.getElementById('confirm_msg').style.display="block";
+document.userLogin.action ="confirm-publisher-account-action.php";
+
+
+}
+}
+
+
+
+</script>
+{TABS}
+
+<table  width="{PAGEWIDTH}" class="admainbox"   border="0"  cellpadding="0" cellspacing="0">
+<tr >
+<td height="40" colspan="2"><span class="styleTitle" {COLORTHEME4} >{advertiser_msg:8889}</span></td>
+</tr>
+<tr>
+<td height="22" colspan="2"  class="headingbar" {COLORTHEME3}  >{advertiser_msg:10165}</td>
+</tr>
+{FORMSTART}
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+<tr>
+<td width="30%"></td>
+<td width="70%" height="20"><span class="inserted">{advertiser_msg:8921}</span></td>
+</tr>
+<tr height="30">
+   <td>
+   </td>
+   </tr>
+<tr>
+<td width="30%" ><div >{advertiser_msg:9997}<strong><span class="mandatory"> *</span></strong></div></td>
+<td width="70%"><input id="account_radio1" name="radiobutton" type="radio" value="1" onClick="show_detail()" checked >{advertiser_msg:9995} 
+					    <input id="account_radio2" name="radiobutton" type="radio" value="2" onClick="show_detail()"> {advertiser_msg:9996}</td>
+</tr>
+<tr height="20">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+
+<tr>
+<td colspan="2">
+<div id="confirm_msg" style="display:none" align="left">{advertiser_msg:8917}</div>
+<div id="pub_details" style="display:block" align="left">
+<table width="100%" cellpadding="0" cellspacing="0" align="left">
+
+ <tr height="25"><td colspan="3"><strong>{advertiser_msg:9998}</strong></td></tr>
+ <tr height="25">
+   <td width="44%"> {advertiser_msg:1039}<strong><span class="mandatory"> *</span></strong></td> <td width="3%">:</td> <td width="47%"><b>{USERFIELD}</b></td>
+    <td width="6%">&nbsp;</td>
+ </tr>
+ <tr height="25">
+   <td>{advertiser_msg:1040}<strong><span class="mandatory"> *</span></strong></td><td>:</td><td> <b>{PASSFIELD}</b></td>
+   <td>&nbsp;</td>
+   </tr>
+   <tr height="30">
+   <td>
+   </td>
+   </tr>
+
+</table>
+</div>
+  
+ <br><br>
+
+</td>
+
+</tr>
+<tr><td  width="1px">&nbsp;</td>
+<td ><div id="sub_butt" style="display:">{SUBMIT}</div>
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+{FORMCLOSE}
+<tr><td>
+</td></tr>
+
+
+</table>
+{FOOTER}
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+show_detail();
+</script>
